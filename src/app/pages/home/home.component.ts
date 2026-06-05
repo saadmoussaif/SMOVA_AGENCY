@@ -39,11 +39,35 @@ export class HomeComponent implements AfterViewInit {
   readonly clients = Array.from({ length: 40 }, (_, index) => `Client ${String(index + 1).padStart(2, '0')}`);
   readonly partners = Array.from({ length: 24 }, (_, index) => `Partner ${String(index + 1).padStart(2, '0')}`);
 
-  readonly sectors: Array<{ icon: SectorIcon; title: string; text: string }> = [
-    { icon: 'rocket', title: 'SaaS & startups', text: 'MVP, scale-up, onboarding et outils internes.' },
-    { icon: 'heart-pulse', title: 'Sante & bien-etre', text: 'Experiences digitales fiables pour services sensibles.' },
-    { icon: 'building-2', title: 'Immobilier', text: 'Portails, CRM et parcours de reservation.' },
-    { icon: 'store', title: 'Retail & e-commerce', text: 'Boutiques, catalogues, paiement et automatisation.' }
+  readonly sectors: Array<{ icon: SectorIcon; title: string; text: string; image: string; alt: string }> = [
+    {
+      icon: 'rocket',
+      title: 'SaaS & startups',
+      text: 'MVP, scale-up, onboarding et outils internes pour equipes ambitieuses.',
+      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80',
+      alt: 'Equipe startup travaillant sur un produit digital'
+    },
+    {
+      icon: 'heart-pulse',
+      title: 'Sante & bien-etre',
+      text: 'Experiences digitales fiables pour services sensibles, patients et praticiens.',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80',
+      alt: 'Professionnel de sante utilisant une interface digitale'
+    },
+    {
+      icon: 'building-2',
+      title: 'Immobilier & PropTech',
+      text: 'Portails, CRM, parcours de reservation et outils pour agents immobiliers.',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80',
+      alt: 'Maison moderne representant le secteur immobilier'
+    },
+    {
+      icon: 'store',
+      title: 'Retail & e-commerce',
+      text: 'Boutiques, catalogues, paiement, logistique et automatisation commerciale.',
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80',
+      alt: 'Experience e-commerce et paiement en ligne'
+    }
   ];
 
   readonly process: Array<{ number: string; icon: ProcessIcon; title: string; text: string }> = [

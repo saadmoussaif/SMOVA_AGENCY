@@ -126,10 +126,17 @@
       <p>Nous adaptons la strategie, l UX et la stack a votre secteur plutot que d appliquer une recette unique.</p>
     </div>
     <div class="sector-grid">
-      <article *ngFor="let sector of sectors">
-        <i-lucide [name]="sector.icon"></i-lucide>
-        <h3>{{ sector.title }}</h3>
-        <p>{{ sector.text }}</p>
+      <article *ngFor="let sector of sectors" class="sector-card">
+        <figure>
+          <img [src]="sector.image" [alt]="sector.alt" loading="lazy">
+        </figure>
+        <div class="sector-content">
+          <span class="sector-icon">
+            <i-lucide [name]="sector.icon"></i-lucide>
+          </span>
+          <h3>{{ sector.title }}</h3>
+          <p>{{ sector.text }}</p>
+        </div>
       </article>
     </div>
   </section>
