@@ -1,9 +1,22 @@
 <div class="loading-page" #loader>
-  <div class="loader-mark">
-    <span></span>
-    <strong>mekAGency</strong>
+  <div class="loader-card">
+    <div class="loader-brand">
+      <span class="loader-monogram">MA</span>
+      <div>
+        <strong>mekAGency</strong>
+        <small>Digital studio - Maroc</small>
+      </div>
+    </div>
+    <div class="loader-line" aria-hidden="true">
+      <span></span>
+    </div>
+    <p>Preparation de l'experience digitale</p>
+    <div class="loader-meta">
+      <span>Strategie</span>
+      <span>Design</span>
+      <span>Developpement</span>
+    </div>
   </div>
-  <p>On assemble votre presence digitale...</p>
 </div>
 
 <main>
@@ -121,17 +134,24 @@
     </div>
   </section>
 
-  <section class="process">
-    <div class="section-heading">
-      <span>Process</span>
-      <h2>Une methode claire pour transformer une idee en produit concret</h2>
+  <section class="process process-showcase">
+    <div class="section-heading process-heading">
+      <span>Notre processus</span>
+      <h2><strong>Notre</strong> <em>processus</em><br>de creation sur mesure</h2>
+      <p>Une approche structuree pour transformer vos idees en solutions concretes</p>
     </div>
-    <div class="process-list">
-      <article *ngFor="let step of process">
-        <strong>{{ step[0] }}</strong>
-        <div>
-          <h3>{{ step[1] }}</h3>
-          <p>{{ step[2] }}</p>
+
+    <div class="process-timeline">
+      <article *ngFor="let step of process" class="process-step">
+        <div class="process-icon-wrap">
+          <span class="process-number">{{ step.number }}</span>
+          <div class="process-icon">
+            <i-lucide [name]="step.icon"></i-lucide>
+          </div>
+        </div>
+        <div class="process-card">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
         </div>
       </article>
     </div>

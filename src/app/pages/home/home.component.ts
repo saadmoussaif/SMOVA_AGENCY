@@ -6,6 +6,7 @@ import { LucideAngularModule } from 'lucide-angular';
 import { ServicesComponent } from '../../sections/services/services.component';
 
 type SectorIcon = 'rocket' | 'heart-pulse' | 'building-2' | 'store';
+type ProcessIcon = 'search' | 'palette' | 'code-2' | 'rocket';
 
 @Component({
   selector: 'app-home',
@@ -32,11 +33,31 @@ export class HomeComponent implements AfterViewInit {
     { icon: 'store', title: 'Retail & e-commerce', text: 'Boutiques, catalogues, paiement et automatisation.' }
   ];
 
-  readonly process = [
-    ['01', 'Audit & strategie', 'Comprendre vos objectifs, vos clients et vos contraintes business.'],
-    ['02', 'UX & direction creative', 'Designer une experience claire, belle et orientee conversion.'],
-    ['03', 'Developpement agile', 'Construire vite, tester souvent et garder une qualite technique solide.'],
-    ['04', 'Lancement & suivi', 'Deployer, mesurer, optimiser et accompagner la croissance.']
+  readonly process: Array<{ number: string; icon: ProcessIcon; title: string; text: string }> = [
+    {
+      number: '1',
+      icon: 'search',
+      title: 'Audit & Strategie',
+      text: 'Analyse approfondie de vos besoins et objectifs pour etablir une strategie sur mesure.'
+    },
+    {
+      number: '2',
+      icon: 'palette',
+      title: 'Conception & Design',
+      text: 'Creation d une experience utilisateur intuitive et d un design moderne.'
+    },
+    {
+      number: '3',
+      icon: 'code-2',
+      title: 'Developpement',
+      text: 'Developpement agile avec des technologies de pointe pour des solutions performantes.'
+    },
+    {
+      number: '4',
+      icon: 'rocket',
+      title: 'Lancement & Suivi',
+      text: 'Deploiement optimise et accompagnement continu pour votre reussite.'
+    }
   ];
 
   readonly stack = [
