@@ -6,12 +6,12 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Atlas Nova Digital - Accueil'
+    title: 'mekAGency - Accueil'
   },
   {
     path: 'services',
     component: ServicesComponent,
-    title: 'Atlas Nova Digital - Expertises'
+    title: 'mekAGency - Expertises'
   },
   {
     path: '**',
