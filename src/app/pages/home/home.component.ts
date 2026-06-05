@@ -7,6 +7,19 @@ import { ServicesComponent } from '../../sections/services/services.component';
 
 type SectorIcon = 'rocket' | 'heart-pulse' | 'building-2' | 'store';
 type ProcessIcon = 'search' | 'palette' | 'code-2' | 'rocket';
+type StackIcon =
+  | 'brain'
+  | 'code-2'
+  | 'database'
+  | 'globe-2'
+  | 'shopping-bag'
+  | 'chart-no-axes-column'
+  | 'palette'
+  | 'video'
+  | 'share-2'
+  | 'smartphone'
+  | 'cloud'
+  | 'settings';
 
 @Component({
   selector: 'app-home',
@@ -60,15 +73,19 @@ export class HomeComponent implements AfterViewInit {
     }
   ];
 
-  readonly stack = [
-    ['AI/ML', 'OpenAI - Claude - RAG'],
-    ['Frontend', 'Angular - React - Next.js'],
-    ['Backend', 'Node.js - Python - APIs'],
-    ['CMS', 'WordPress - Strapi'],
-    ['E-commerce', 'Shopify - WooCommerce'],
-    ['Cloud', 'AWS - Google Cloud'],
-    ['Design', 'Figma - Adobe Suite'],
-    ['DevOps', 'Docker - CI/CD']
+  readonly stack: Array<{ icon: StackIcon; title: string; tools: string; detail: string }> = [
+    { icon: 'brain', title: 'AI/ML', tools: 'OpenAI - Claude - RAG', detail: 'Assistants IA, workflows intelligents et recherche augmentee.' },
+    { icon: 'code-2', title: 'Frontend', tools: 'Angular - React - Next.js', detail: 'Interfaces modernes, rapides et maintenables.' },
+    { icon: 'database', title: 'Backend', tools: 'Node.js - Python - APIs', detail: 'APIs robustes, bases de donnees et integrations metier.' },
+    { icon: 'globe-2', title: 'CMS', tools: 'WordPress - Strapi', detail: 'Contenus structures, back-office clair et publication fluide.' },
+    { icon: 'shopping-bag', title: 'E-commerce', tools: 'Shopify - WooCommerce', detail: 'Parcours d achat, catalogue, paiement et automatisation.' },
+    { icon: 'chart-no-axes-column', title: 'Analytics', tools: 'GA4 - Looker Studio - Mixpanel', detail: 'Tracking, dashboards et decisions basees sur les donnees.' },
+    { icon: 'palette', title: 'Design & DA', tools: 'Figma - Adobe Creative Suite', detail: 'Direction artistique, design system et prototypes UX.' },
+    { icon: 'video', title: 'Video & Motion', tools: 'After Effects - Premiere Pro', detail: 'Motion design, contenus courts et assets de marque.' },
+    { icon: 'share-2', title: 'Social Media', tools: 'Community - Ads - Content', detail: 'Presence sociale, campagnes et calendrier editorial.' },
+    { icon: 'smartphone', title: 'Mobile', tools: 'React Native - Flutter', detail: 'Applications mobiles performantes et deployables.' },
+    { icon: 'cloud', title: 'Cloud', tools: 'AWS - Google Cloud', detail: 'Hebergement scalable, securite et supervision.' },
+    { icon: 'settings', title: 'DevOps', tools: 'Docker - CI/CD - Monitoring', detail: 'Pipelines, livraison continue et environnements fiables.' }
   ];
 
   ngAfterViewInit(): void {

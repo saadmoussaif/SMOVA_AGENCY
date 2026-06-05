@@ -157,15 +157,20 @@
     </div>
   </section>
 
-  <section class="technologies section-band" id="technologies">
-    <div class="section-heading">
+  <section class="technologies tech-showcase" id="technologies">
+    <div class="section-heading tech-heading">
       <span>Stack technologique moderne</span>
       <h2>Les bons outils pour construire des solutions performantes</h2>
+      <p>Technologies de pointe pour des produits fiables, maintenables et prets a grandir.</p>
     </div>
     <div class="stack-grid">
-      <article *ngFor="let item of stack">
-        <h3>{{ item[0] }}</h3>
-        <p>{{ item[1] }}</p>
+      <article *ngFor="let item of stack" class="stack-card">
+        <div class="stack-icon">
+          <i-lucide [name]="item.icon"></i-lucide>
+        </div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.tools }}</p>
+        <small>{{ item.detail }}</small>
       </article>
     </div>
   </section>
