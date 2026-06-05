@@ -668,109 +668,194 @@ footer h3 {
 }
 
 .sector-grid {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.35rem);
   max-width: 1360px;
   margin: 0 auto;
 }
 
+.sector-carousel-controls {
+  display: none;
+}
+
 .sector-card {
   position: relative;
-  min-height: 25rem;
   overflow: hidden;
   padding: 0;
   color: white;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
   background: #0b1624;
-  box-shadow: 0 24px 58px rgba(15, 23, 42, 0.14);
-  isolation: isolate;
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.16);
   transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
-.sector-card figure,
-.sector-card img {
-  position: absolute;
-  inset: 0;
+.sector-button {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  align-items: start;
   width: 100%;
-  height: 100%;
+  min-height: 22rem;
+  border: 0;
+  padding: 1.15rem;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  background:
+    linear-gradient(180deg, rgba(8, 17, 31, 0.18) 0%, rgba(8, 17, 31, 0.38) 42%, rgba(8, 17, 31, 0.94) 100%),
+    var(--sector-image, none);
+  background-position: center;
+  background-size: cover;
 }
 
-.sector-card figure {
-  margin: 0;
-  overflow: hidden;
-}
-
-.sector-card img {
-  object-fit: cover;
-  transform: scale(1.04);
-  filter: saturate(0.95) contrast(1.03);
-  transition: transform 0.45s ease, filter 0.45s ease;
-}
-
-.sector-card::before {
+.sector-button::after {
   content: '';
   position: absolute;
   inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(8, 17, 31, 0.08), rgba(8, 17, 31, 0.74) 52%, rgba(8, 17, 31, 0.94)),
-    radial-gradient(circle at 50% 10%, rgba(15, 181, 163, 0.18), transparent 58%);
-}
-
-.sector-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  min-height: inherit;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.35rem;
+  pointer-events: none;
+  background: radial-gradient(circle at 82% 50%, rgba(15, 181, 163, 0.18), transparent 21rem);
+  opacity: 0;
+  transition: opacity 0.28s ease;
 }
 
 .sector-icon {
   display: grid;
-  width: 3.35rem;
-  height: 3.35rem;
+  width: 3.4rem;
+  height: 3.4rem;
   place-items: center;
-  margin-bottom: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
-  color: #08111f;
-  background: linear-gradient(135deg, #9cf1e8, #f8cf73);
+  color: #28dcf4;
+  background: rgba(19, 93, 132, 0.68);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
-  transition: transform 0.28s ease;
+  transition: transform 0.28s ease, background 0.28s ease, color 0.28s ease;
 }
 
 .sector-icon i-lucide {
-  width: 1.65rem;
-  height: 1.65rem;
+  width: 1.55rem;
+  height: 1.55rem;
 }
 
-.sector-card h3 {
-  margin: 0 0 0.65rem;
+.sector-copy {
+  grid-column: 1 / -1;
+  align-self: end;
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.sector-copy strong {
   color: #ffffff;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.35rem, 1.8vw, 1.72rem);
+  font-size: clamp(1.25rem, 1.55vw, 1.65rem);
   letter-spacing: 0;
 }
 
-.sector-card p {
-  margin: 0;
-  color: #d7e1ec;
-  line-height: 1.62;
+.sector-copy small,
+.sector-copy em {
+  color: #c8d5e4;
+  font-size: 0.96rem;
+  font-style: normal;
+  line-height: 1.55;
+}
+
+.sector-copy em {
+  display: grid;
+  grid-template-rows: 0fr;
+  max-width: 52rem;
+  color: #9fb2c8;
+  opacity: 0;
+  overflow: hidden;
+  transition: grid-template-rows 0.28s ease, opacity 0.28s ease, margin-top 0.28s ease;
+}
+
+.sector-card.expanded .sector-copy em {
+  grid-template-rows: 1fr;
+  margin-top: 0.45rem;
+  opacity: 1;
+}
+
+.sector-photo {
+  position: relative;
+  display: grid;
+  width: 4.7rem;
+  height: 4.7rem;
+  place-items: center;
+  border: 3px solid rgba(255, 255, 255, 0.74);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+  transition: width 0.28s ease, height 0.28s ease, transform 0.28s ease, border-color 0.28s ease;
+}
+
+.sector-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.sector-arrow {
+  grid-column: 2;
+  justify-self: end;
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  place-items: center;
+  border-radius: 50%;
+  color: #28dcf4;
+  background: rgba(255, 255, 255, 0.08);
+  transition: transform 0.28s ease, background 0.28s ease, color 0.28s ease;
+}
+
+.sector-arrow i-lucide {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .sector-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-4px);
   border-color: rgba(15, 181, 163, 0.32);
   box-shadow: 0 32px 78px rgba(15, 23, 42, 0.22);
 }
 
-.sector-card:hover img {
-  transform: scale(1.12);
-  filter: saturate(1.08) contrast(1.06);
+.sector-card:hover .sector-button::after,
+.sector-card.expanded .sector-button::after {
+  opacity: 1;
 }
 
-.sector-card:hover .sector-icon {
-  transform: translateY(-5px) rotate(-3deg);
+.sector-card:hover .sector-icon,
+.sector-card.expanded .sector-icon {
+  color: #08111f;
+  background: linear-gradient(135deg, #9cf1e8, #f8cf73);
+  transform: translateY(-2px);
+}
+
+.sector-card:hover .sector-photo img,
+.sector-card.expanded .sector-photo img {
+  transform: scale(1.14);
+  filter: saturate(1.08) contrast(1.05);
+}
+
+.sector-card.expanded .sector-button {
+  min-height: 23.5rem;
+}
+
+.sector-card.expanded .sector-photo {
+  width: 5.6rem;
+  height: 5.6rem;
+  border-color: #9cf1e8;
+  transform: scale(1.03);
+}
+
+.sector-card.expanded .sector-arrow {
+  color: #08111f;
+  background: #9cf1e8;
+  transform: rotate(90deg);
 }
 
 .stack-grid {
@@ -962,6 +1047,18 @@ footer h3 {
 
   50% {
     transform: translateY(-8px);
+  }
+}
+
+@keyframes sectorMobileIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
   }
 }
 
@@ -1324,6 +1421,113 @@ textarea {
 
   .tech-showcase .stack-grid {
     grid-template-columns: 1fr;
+  }
+
+  .sector-button {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto 1fr;
+    gap: 0.85rem;
+    min-height: 25rem;
+    padding: 1rem;
+    background:
+      linear-gradient(180deg, rgba(8, 17, 31, 0.3) 0%, rgba(8, 17, 31, 0.72) 42%, rgba(8, 17, 31, 0.98) 100%),
+      var(--sector-image, none);
+    background-position: center;
+    background-size: cover;
+  }
+
+  .sector-carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    margin: -1.4rem auto 1.5rem;
+  }
+
+  .sector-carousel-controls button {
+    display: grid;
+    width: 2.8rem;
+    height: 2.8rem;
+    place-items: center;
+    border: 1px solid rgba(8, 17, 31, 0.12);
+    border-radius: 50%;
+    color: #08111f;
+    background: #ffffff;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+  }
+
+  .sector-carousel-controls i-lucide {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .sector-carousel-controls span {
+    min-width: 4.2rem;
+    color: #425164;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .sector-card {
+    display: none;
+  }
+
+  .sector-card.active {
+    display: block;
+    animation: sectorMobileIn 0.28s ease both;
+  }
+
+  .sector-photo {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    width: 4.7rem;
+    height: 4.7rem;
+    margin-top: 0;
+  }
+
+  .sector-icon {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .sector-arrow {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: end;
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .sector-copy {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    align-self: end;
+  }
+
+  .sector-copy strong {
+    max-width: 100%;
+    font-size: clamp(1.35rem, 7vw, 1.85rem);
+    line-height: 1.1;
+  }
+
+  .sector-copy small,
+  .sector-copy em {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .sector-card.expanded .sector-button {
+    min-height: 27rem;
+  }
+
+  .sector-card.expanded .sector-photo {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .sector-card.expanded .sector-copy em {
+    display: block;
   }
 
   .process-heading {

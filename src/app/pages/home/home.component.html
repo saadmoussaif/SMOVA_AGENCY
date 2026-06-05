@@ -125,18 +125,44 @@
       <h2>Une expertise reconnue dans des marches exigeants</h2>
       <p>Nous adaptons la strategie, l UX et la stack a votre secteur plutot que d appliquer une recette unique.</p>
     </div>
+    <div class="sector-carousel-controls" aria-label="Navigation secteurs">
+      <button type="button" (click)="previousSector()" aria-label="Secteur precedent">
+        <i-lucide name="chevron-left"></i-lucide>
+      </button>
+      <span>{{ selectedSectorIndex + 1 }} / {{ sectors.length }}</span>
+      <button type="button" (click)="nextSector()" aria-label="Secteur suivant">
+        <i-lucide name="chevron-right"></i-lucide>
+      </button>
+    </div>
     <div class="sector-grid">
-      <article *ngFor="let sector of sectors" class="sector-card">
-        <figure>
-          <img [src]="sector.image" [alt]="sector.alt" loading="lazy">
-        </figure>
-        <div class="sector-content">
+      <article
+        *ngFor="let sector of sectors; let index = index"
+        class="sector-card"
+        [class.active]="selectedSectorIndex === index"
+        [class.expanded]="expandedSectorIndex === index"
+      >
+        <button
+          class="sector-button"
+          type="button"
+          (click)="toggleSectorDescription(index)"
+          [attr.aria-expanded]="expandedSectorIndex === index"
+          [style.--sector-image]="'url(' + sector.image + ')'"
+        >
           <span class="sector-icon">
             <i-lucide [name]="sector.icon"></i-lucide>
           </span>
-          <h3>{{ sector.title }}</h3>
-          <p>{{ sector.text }}</p>
-        </div>
+          <span class="sector-copy">
+            <strong>{{ sector.title }}</strong>
+            <small>{{ sector.text }}</small>
+            <em>{{ sector.detail }}</em>
+          </span>
+          <span class="sector-photo">
+            <img [src]="sector.image" [alt]="sector.alt" loading="lazy">
+          </span>
+          <span class="sector-arrow">
+            <i-lucide name="arrow-right"></i-lucide>
+          </span>
+        </button>
       </article>
     </div>
   </section>
