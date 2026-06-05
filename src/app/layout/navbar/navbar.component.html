@@ -1,0 +1,30 @@
+<section class="hero-shell" id="accueil">
+  <div class="top-strip">
+    <span>Agence digitale startup au Maroc</span>
+    <a href="#contact"><i-lucide name="calendar-days"></i-lucide> {{ i18n.t('nav.call') }}</a>
+    <a href="tel:+212607275093"><i-lucide name="phone"></i-lucide> +212 6 07 27 50 93</a>
+  </div>
+
+  <nav class="navbar" [class.open]="menuOpen">
+    <a class="brand" routerLink="/" aria-label="Atlas Nova Digital" (click)="closeMenu()">
+      <span class="brand-mark">AN</span>
+      <span>Atlas Nova<br>Digital</span>
+    </a>
+
+    <button class="nav-toggle" type="button" (click)="toggleMenu()" aria-label="Menu">
+      <i-lucide [name]="menuOpen ? 'x' : 'menu'"></i-lucide>
+    </button>
+
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
+        {{ i18n.t('nav.home') }}
+      </a>
+      <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">
+        {{ i18n.t('nav.expertises') }}
+      </a>
+      <a routerLink="/" fragment="secteurs" (click)="closeMenu()">{{ i18n.t('nav.sectors') }}</a>
+      <a routerLink="/" fragment="technologies" (click)="closeMenu()">{{ i18n.t('nav.technologies') }}</a>
+      <a class="nav-cta" routerLink="/" fragment="contact" (click)="closeMenu()">{{ i18n.t('nav.cta') }}</a>
+    </div>
+  </nav>
+</section>

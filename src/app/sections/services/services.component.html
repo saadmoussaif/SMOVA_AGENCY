@@ -1,0 +1,18 @@
+<section class="services" id="services">
+  <div class="section-heading">
+    <span>Nos expertises</span>
+    <h2>Des solutions digitales au service de votre croissance</h2>
+    <p>Du conseil IA au developpement complet, chaque service est pense pour produire un impact mesurable.</p>
+  </div>
+
+  <div class="service-grid">
+    <article *ngFor="let service of services" class="service-card">
+      <i-lucide [name]="service.icon"></i-lucide>
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.text }}</p>
+      <div>
+        <span *ngFor="let tag of service.tags">{{ tag }}</span>
+      </div>
+    </article>
+  </div>
+</section>

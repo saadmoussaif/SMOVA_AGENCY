@@ -1,0 +1,177 @@
+<div class="loading-page" #loader>
+  <div class="loader-mark">
+    <span></span>
+    <strong>Atlas Nova</strong>
+  </div>
+  <p>On assemble votre presence digitale...</p>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow reveal-item"><i-lucide name="sparkles"></i-lucide> Tech, IA, web & growth depuis 2016</div>
+        <h1 class="hero-title">
+          <span>Des produits digitaux</span>
+          <span>plus clairs, plus rapides,</span>
+          <span>penses pour scaler.</span>
+        </h1>
+        <p class="hero-lead reveal-item">
+          Nous aidons les startups, PME et marques ambitieuses au Maroc, en France et en Afrique a lancer des sites, apps, automatisations et campagnes digitales avec un niveau technique serieux et des couts maitrises.
+        </p>
+        <div class="hero-tags reveal-item">
+          <span>IA</span>
+          <span>Developpement</span>
+          <span>Marketing Digital</span>
+          <span>Mobile</span>
+        </div>
+        <div class="metrics reveal-item">
+          <div><i-lucide name="calendar-days"></i-lucide><strong>10+</strong><span>ans d experience</span></div>
+          <div><i-lucide name="users"></i-lucide><strong>12</strong><span>experts partenaires</span></div>
+          <div><i-lucide name="target"></i-lucide><strong>200+</strong><span>projets accompagnes</span></div>
+        </div>
+        <div class="hero-actions reveal-item">
+          <a class="btn primary" href="#contact">Demarrer votre projet <i-lucide name="arrow-right"></i-lucide></a>
+          <a class="btn secondary" href="#services">Decouvrir nos services</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal-item" aria-label="Tableau de bord digital">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="visual-panel panel-main">
+          <div class="panel-head">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="growth-line">
+            <b></b><b></b><b></b><b></b><b></b>
+          </div>
+          <div class="kpi-row">
+            <div><small>Leads</small><strong>+48%</strong></div>
+            <div><small>Automations</small><strong>23</strong></div>
+          </div>
+        </div>
+        <div class="visual-panel floating-ai">
+          <i-lucide name="bot"></i-lucide>
+          <span>Assistant IA</span>
+        </div>
+        <div class="visual-panel floating-code">
+          <i-lucide name="code-2"></i-lucide>
+          <span>Build sprint</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust section-band">
+    <div class="section-heading compact">
+      <span>Ils nous font confiance</span>
+      <h2>Plus de 200 entreprises accompagnees dans leur transformation digitale</h2>
+      <p>Startups, PME, ecoles, cabinets et acteurs e-commerce: une selection de logos placeholder prete a remplacer par vos vrais clients.</p>
+    </div>
+    <div class="logo-cloud">
+      <span *ngFor="let client of clients">{{ client }}</span>
+    </div>
+    <div class="logo-cloud partners">
+      <span *ngFor="let partner of partners">{{ partner }}</span>
+    </div>
+  </section>
+
+  <section class="presentation">
+    <div class="presentation-copy">
+      <span class="section-kicker">Votre partenaire digital d exception</span>
+      <h2>Une agence marocaine agile pour creer, lancer et optimiser vos solutions tech.</h2>
+      <p>
+        Notre force: une equipe technique basee au Maroc, connectee aux standards internationaux, capable de livrer vite sans sacrifier la qualite produit, le design ou la strategie business.
+      </p>
+    </div>
+    <div class="values">
+      <article>
+        <i-lucide name="shield-check"></i-lucide>
+        <h3>Excellence</h3>
+        <p>Des interfaces propres, du code maintenable et une exigence constante sur les details.</p>
+      </article>
+      <article>
+        <i-lucide name="cpu"></i-lucide>
+        <h3>Innovation</h3>
+        <p>IA, automatisation et analytics integres la ou ils creent une vraie valeur.</p>
+      </article>
+      <article>
+        <i-lucide name="rocket"></i-lucide>
+        <h3>Reactivite</h3>
+        <p>Des cycles courts, une communication claire et un accompagnement apres lancement.</p>
+      </article>
+    </div>
+  </section>
+
+  <app-services></app-services>
+
+  <section class="sectors section-band" id="secteurs">
+    <div class="section-heading">
+      <span>Secteurs</span>
+      <h2>Une expertise reconnue dans des marches exigeants</h2>
+      <p>Nous adaptons la strategie, l UX et la stack a votre secteur plutot que d appliquer une recette unique.</p>
+    </div>
+    <div class="sector-grid">
+      <article *ngFor="let sector of sectors">
+        <i-lucide [name]="sector.icon"></i-lucide>
+        <h3>{{ sector.title }}</h3>
+        <p>{{ sector.text }}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="section-heading">
+      <span>Process</span>
+      <h2>Une methode claire pour transformer une idee en produit concret</h2>
+    </div>
+    <div class="process-list">
+      <article *ngFor="let step of process">
+        <strong>{{ step[0] }}</strong>
+        <div>
+          <h3>{{ step[1] }}</h3>
+          <p>{{ step[2] }}</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="technologies section-band" id="technologies">
+    <div class="section-heading">
+      <span>Stack technologique moderne</span>
+      <h2>Les bons outils pour construire des solutions performantes</h2>
+    </div>
+    <div class="stack-grid">
+      <article *ngFor="let item of stack">
+        <h3>{{ item[0] }}</h3>
+        <p>{{ item[1] }}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-copy">
+      <span class="section-kicker">Pret a accelerer ?</span>
+      <h2>Echangeons sur votre projet en 15 minutes.</h2>
+      <p>Reponse sous 24h, devis gratuit et discussion honnete sur ce qui merite vraiment d etre construit.</p>
+      <div class="contact-points">
+        <span><i-lucide name="check-circle-2"></i-lucide> Sans engagement</span>
+        <span><i-lucide name="check-circle-2"></i-lucide> Roadmap claire</span>
+        <span><i-lucide name="check-circle-2"></i-lucide> Budget optimise</span>
+      </div>
+    </div>
+    <form class="contact-form">
+      <div class="form-row">
+        <label><span>Prenom</span><input type="text" placeholder="Votre prenom"></label>
+        <label><span>Email professionnel</span><input type="email" placeholder="vous@entreprise.com"></label>
+      </div>
+      <div class="form-row">
+        <label><span>Societe</span><input type="text" placeholder="Nom de votre societe"></label>
+        <label><span>Telephone</span><input type="tel" placeholder="+212"></label>
+      </div>
+      <label><span>Votre message</span><textarea rows="5" placeholder="Parlez-nous de votre produit, votre idee ou votre besoin"></textarea></label>
+      <button class="btn primary" type="button">Planifier un appel <i-lucide name="arrow-right"></i-lucide></button>
+    </form>
+  </section>
+</main>

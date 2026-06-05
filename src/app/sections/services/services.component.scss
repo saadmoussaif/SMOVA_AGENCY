@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+
+:host-context(app-root) .services {
+  padding-top: clamp(5rem, 10vw, 8rem);
+}
