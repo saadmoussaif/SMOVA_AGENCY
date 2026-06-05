@@ -742,35 +742,6 @@ textarea {
   resize: vertical;
 }
 
-footer {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1fr;
-  gap: 2rem;
-  padding-block: 3rem 2rem;
-  border-top: 1px solid var(--line);
-  color: #d8e4ef;
-  background: #070d17;
-
-  p,
-  a {
-    display: block;
-    color: #9facbc;
-    line-height: 1.6;
-  }
-
-  i-lucide {
-    display: inline-block;
-    width: 1rem;
-    vertical-align: middle;
-    color: #9cf1e8;
-  }
-
-  small {
-    grid-column: 1 / -1;
-    color: #7c8999;
-  }
-}
-
 @media (max-width: 980px) {
   .top-strip {
     display: none;
@@ -824,9 +795,6 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  footer {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 620px) {
@@ -869,7 +837,7 @@ footer {
   .sector-grid,
   .stack-grid,
   .form-row,
-  footer {
+  .stack-grid {
     grid-template-columns: 1fr;
   }
 

@@ -1,30 +1,54 @@
-<footer>
-  <div>
-    <a class="brand" href="#accueil">
-      <span class="brand-mark">MA</span>
-      <span>mek<br>AGency</span>
-    </a>
-    <p>{{ i18n.t('footer.description') }}</p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/">
+        <span class="footer-mark">MA</span>
+        <span>mek<br>AGency</span>
+      </a>
+      <p>{{ i18n.t('footer.description') }}</p>
+    </div>
+
+    <div class="footer-column footer-contact">
+      <h3>Contact</h3>
+      <p>
+        <i-lucide name="map-pin"></i-lucide>
+        <span>5, rue Dakar, quartier l'Ocean<br>Rabat - MAROC</span>
+      </p>
+      <p>
+        <i-lucide name="map-pin"></i-lucide>
+        <span>Angle Avenue Mohamed V et rue n°2<br>Immeuble C, Bureau 4, Bir Rami,<br>Kenitra - MAROC</span>
+      </p>
+      <p><i-lucide name="phone"></i-lucide> <span>+212 6 07 27 50 93</span></p>
+      <p><i-lucide name="mail"></i-lucide> <span>contact&#64;mekagency.ma</span></p>
+      <p><i-lucide name="globe-2"></i-lucide> <span>www.mekagency.ma</span></p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Expertises</h3>
+      <a href="/services">Mot du Directeur</a>
+      <a href="/services">Consulting Digital & IA</a>
+      <a href="/services">Creation Sites Web</a>
+      <a href="/services">Applications Web</a>
+      <a href="/services">Applications Mobiles</a>
+      <a href="/services">Marketing Digital</a>
+    </div>
+
+    <div class="footer-column footer-social">
+      <h3>Suivez-nous</h3>
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn"><i-lucide name="linkedin"></i-lucide></a>
+        <a href="#" aria-label="Facebook"><i-lucide name="facebook"></i-lucide></a>
+        <a href="#" aria-label="Instagram"><i-lucide name="instagram"></i-lucide></a>
+      </div>
+      <a href="#">Mentions legales</a>
+      <a href="#">Politique de confidentialite</a>
+      <a href="#">Actualites</a>
+      <a href="#">Carrieres</a>
+      <a href="#">Stages</a>
+    </div>
   </div>
-  <div>
-    <h3>Contact</h3>
-    <p><i-lucide name="map-pin"></i-lucide> Rabat - Maroc</p>
-    <p><i-lucide name="mail"></i-lucide> contact&#64;mekagency.ma</p>
-    <p><i-lucide name="globe-2"></i-lucide> www.mekagency.ma</p>
+
+  <div class="footer-bottom">
+    <small>Copyright 2016-2026 mekAGency. Tous droits reserves.</small>
   </div>
-  <div>
-    <h3>Expertises</h3>
-    <a href="#services">Consulting digital & IA</a>
-    <a href="#services">Creation sites web</a>
-    <a href="#services">Applications web</a>
-    <a href="#services">Marketing digital</a>
-  </div>
-  <div>
-    <h3>Liens</h3>
-    <a href="#accueil">Actualites</a>
-    <a href="#accueil">Carrieres</a>
-    <a href="#accueil">Stages</a>
-    <a href="#accueil">Mentions legales</a>
-  </div>
-  <small>Copyright 2016-2026 mekAGency. Tous droits reserves.</small>
 </footer>
