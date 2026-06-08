@@ -6,12 +6,12 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'mekAGency - Accueil'
+    title: 'SMAgency - Accueil'
   },
   {
     path: 'services',
     component: ServicesComponent,
-    title: 'mekAGency - Expertises'
+    title: 'SMAgency - Expertises'
   },
   {
     path: '**',

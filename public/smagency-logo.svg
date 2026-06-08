@@ -1,0 +1,48 @@
+<svg width="980" height="260" viewBox="0 0 980 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">SMAgency</title>
+  <desc id="desc">Logo SMAgency rouge, gris et blanc pour agence digitale.</desc>
+  <defs>
+    <linearGradient id="markRed" x1="65" y1="34" x2="238" y2="170" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff4b4b"/>
+      <stop offset="0.48" stop-color="#dc2626"/>
+      <stop offset="1" stop-color="#7f1d1d"/>
+    </linearGradient>
+    <linearGradient id="markSteel" x1="75" y1="206" x2="252" y2="83" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="0.44" stop-color="#d1d5db"/>
+      <stop offset="1" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="wordRed" x1="333" y1="93" x2="520" y2="94" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ef4444"/>
+      <stop offset="1" stop-color="#b91c1c"/>
+    </linearGradient>
+    <linearGradient id="wordSteel" x1="500" y1="73" x2="810" y2="154" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="0.38" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#9ca3af"/>
+    </linearGradient>
+    <filter id="glow" x="0" y="0" width="320" height="260" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dy="10"/>
+      <feComposite in2="SourceAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.8 0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0.36 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+  <g filter="url(#glow)">
+    <path d="M141 28 256 85 211 111 145 79 88 108 88 130 146 157 196 133 239 154 146 207 45 158 45 84 141 28Z" fill="url(#markRed)"/>
+    <path d="M147 84 101 108 147 130 201 103 246 125 148 178 54 132 54 92 141 43 232 88 207 103 147 84Z" fill="#101827" fill-opacity=".45"/>
+    <path d="M146 207 45 158 89 133 146 160 203 130 203 108 151 82 197 58 256 85 256 158 146 207Z" fill="url(#markSteel)" fill-opacity=".95"/>
+    <path d="M116 112h58l21 19-49 26-58-28 28-17Z" fill="#0f172a" stroke="#d8dde5" stroke-width="5"/>
+    <circle cx="117" cy="113" r="14" fill="#ef4444" stroke="#fee2e2" stroke-width="4"/>
+    <circle cx="169" cy="139" r="11" fill="#ef4444" stroke="#fee2e2" stroke-width="4"/>
+  </g>
+  <g transform="skewX(-10)">
+    <text x="348" y="142" fill="url(#wordRed)" font-family="Arial Black, Impact, sans-serif" font-size="88" font-weight="900" letter-spacing="-3">SM</text>
+    <text x="507" y="142" fill="url(#wordSteel)" font-family="Arial Black, Impact, sans-serif" font-size="88" font-weight="900" letter-spacing="-5">Agency</text>
+  </g>
+  <path d="M338 166c96 12 267 10 486-6-225 39-412 43-566 13 31-5 60-7 80-7Z" fill="#dc2626" opacity=".72"/>
+  <path d="M407 181c124 12 279 9 462-8-151 34-335 41-552 19 37-7 72-11 90-11Z" fill="#7f1d1d" opacity=".45"/>
+</svg>

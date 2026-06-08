@@ -7,10 +7,11 @@
   overflow: hidden;
   padding: clamp(4.5rem, 7vw, 6.8rem) 5vw 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  color: #b8cbe2;
+  color: #d4d4d4;
   background:
-    linear-gradient(180deg, rgba(15, 35, 57, 0.62), transparent 12%),
-    #08111f;
+    radial-gradient(circle at 16% 18%, rgba(220, 38, 38, 0.16), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 16%),
+    #2f2f2f;
 }
 
 .footer-inner {
@@ -25,11 +26,18 @@
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  color: #dcecff;
+  color: #f5f5f5;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.35rem;
   font-weight: 800;
   line-height: 1;
+}
+
+.footer-logo-image {
+  display: block;
+  width: clamp(10rem, 15vw, 14rem);
+  height: auto;
+  filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.24));
 }
 
 .footer-mark {
@@ -38,8 +46,8 @@
   height: 4.4rem;
   place-items: center;
   border-radius: 8px;
-  color: #07111f;
-  background: linear-gradient(135deg, #9cf1e8, #f8cf73);
+  color: #262626;
+  background: linear-gradient(135deg, #ef4444, #7f1d1d);
   font-size: 1.15rem;
   letter-spacing: 0;
 }
@@ -47,7 +55,7 @@
 .footer-brand p {
   max-width: 28rem;
   margin: 1.5rem 0 0;
-  color: #a9bfd8;
+  color: #a3a3a3;
   font-size: clamp(1rem, 1.18vw, 1.18rem);
   line-height: 1.72;
 }
@@ -68,7 +76,7 @@
 
 .footer-column a,
 .footer-contact p {
-  color: #aec2d9;
+  color: #d4d4d4;
   font-size: clamp(1rem, 1.22vw, 1.22rem);
   line-height: 1.45;
 }
@@ -80,7 +88,7 @@
 }
 
 .footer-column a:hover {
-  color: #9cf1e8;
+  color: #ef4444;
   transform: translateX(4px);
 }
 
@@ -94,7 +102,7 @@
 .footer-contact i-lucide {
   width: 1.55rem;
   height: 1.55rem;
-  color: #99a8bd;
+  color: #a3a3a3;
 }
 
 .social-links {
@@ -110,14 +118,14 @@
   place-items: center;
   margin: 0;
   border-radius: 50%;
-  color: #28d7f5;
+  color: #ef4444;
   background: rgba(255, 255, 255, 0.06);
   transform: none;
 }
 
 .social-links a:hover {
-  color: #08111f;
-  background: #9cf1e8;
+  color: #262626;
+  background: #ef4444;
   transform: translateY(-3px);
 }
 
@@ -131,7 +139,7 @@
   margin: clamp(3rem, 5vw, 5rem) auto 0;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: #7f96af;
+  color: #737373;
   font-size: 1rem;
 }
 
