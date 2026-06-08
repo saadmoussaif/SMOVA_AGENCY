@@ -214,6 +214,38 @@ main {
   background: transparent;
 }
 
+body.director-route .hero-shell {
+  padding-top: 1.4rem;
+  padding-bottom: 0.8rem;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    rgba(17, 24, 39, 0.9);
+}
+
+body.director-route .navbar {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(17, 24, 39, 0.72);
+  box-shadow: none;
+}
+
+body.director-route .top-strip,
+body.director-route .nav-links {
+  color: #e5e7eb;
+}
+
+body.director-route .top-strip {
+  display: none;
+}
+
+body.director-route .nav-toggle {
+  color: #ffffff;
+}
+
+body.director-route .brand-logo {
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.24));
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1.18fr);

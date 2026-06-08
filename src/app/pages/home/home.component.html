@@ -136,7 +136,7 @@
           type="button"
           (click)="toggleSectorDescription(index)"
           [attr.aria-expanded]="expandedSectorIndex === index"
-          [style.--sector-image]="'url(' + sector.image + ')'"
+          [style.--sector-image]="sectorBackground(sector)"
         >
           <span class="sector-icon">
             <i-lucide [name]="sector.icon"></i-lucide>
@@ -187,7 +187,7 @@
       <p>Technologies de pointe pour des produits fiables, maintenables et prets a grandir.</p>
     </div>
     <div class="stack-grid">
-      <article *ngFor="let item of stack" class="stack-card">
+      <article *ngFor="let item of techStack" class="stack-card">
         <div class="stack-icon">
           <i-lucide [name]="item.icon"></i-lucide>
         </div>

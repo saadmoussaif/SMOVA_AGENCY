@@ -18,6 +18,9 @@
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
         {{ i18n.t('nav.home') }}
       </a>
+      <a routerLink="/mot-du-directeur" routerLinkActive="active" (click)="closeMenu()">
+        Mot du Directeur
+      </a>
       <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">
         {{ i18n.t('nav.expertises') }}
       </a>

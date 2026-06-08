@@ -1,0 +1,57 @@
+<main class="director-page">
+  <section class="director-hero">
+    <div class="director-copy">
+      <span class="director-kicker">Mot du Directeur</span>
+      <h1>Le mot du <span>directeur</span></h1>
+      <h2>Donner du sens a la transformation digitale</h2>
+
+      <p class="director-greeting">Chers partenaires, chers clients,</p>
+      <p>
+        Ingenieur d'Etat en genie logiciel, je concois et developpe des applications web robustes et scalables, du back-end jusqu'a l'interface utilisateur. Mon approche combine rigueur technique, comprehension business et attention forte a l'experience utilisateur.
+      </p>
+      <p>
+        Avec SMAgency, mon objectif est simple: aider les startups, PME et marques ambitieuses a transformer leurs idees en produits digitaux fiables, performants et prets a grandir.
+      </p>
+      <p>
+        La technologie n'a de valeur que lorsqu'elle sert une strategie claire, une execution serieuse et une croissance mesurable.
+      </p>
+
+      <div class="director-signature">
+        <small>Bonjour, je suis</small>
+        <strong>Saad Moussaif</strong>
+        <span>Ingenieur informatique specialise en genie logiciel</span>
+      </div>
+
+      <div class="director-actions">
+        <a class="btn primary" href="/#contact">Echanger sur un projet <i-lucide name="arrow-right"></i-lucide></a>
+        <a class="btn secondary" href="/services">Voir nos expertises</a>
+      </div>
+    </div>
+
+    <aside class="director-card" aria-label="Profil de Saad Moussaif">
+      <div class="director-portrait">
+        <img src="/saad-moussaif.png" alt="Portrait de Saad Moussaif">
+      </div>
+      <div class="director-card-body">
+        <h2>Saad Moussaif</h2>
+        <p>Fondateur & Directeur</p>
+        <div class="director-badges" aria-label="Expertises de Saad Moussaif">
+          <span>Ingenieur logiciel</span>
+          <span>Architecture web</span>
+          <span>IA & automatisation</span>
+        </div>
+        <a class="director-linkedin" href="#" aria-label="LinkedIn de Saad Moussaif">
+          <i-lucide name="linkedin"></i-lucide>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </aside>
+  </section>
+
+  <section class="director-values">
+    <article *ngFor="let item of highlights">
+      <i-lucide name="check-circle-2"></i-lucide>
+      <span>{{ item }}</span>
+    </article>
+  </section>
+</main>

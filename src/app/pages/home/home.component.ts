@@ -14,6 +14,14 @@ type SectorIcon =
   | 'landmark'
   | 'plane'
   | 'factory';
+type SectorItem = {
+  icon: SectorIcon;
+  title: string;
+  text: string;
+  detail: string;
+  image: string;
+  alt: string;
+};
 type ProcessIcon = 'search' | 'palette' | 'code-2' | 'rocket';
 type StackIcon =
   | 'brain'
@@ -28,6 +36,12 @@ type StackIcon =
   | 'smartphone'
   | 'cloud'
   | 'settings';
+type StackItem = {
+  icon: StackIcon;
+  title: string;
+  tools: string;
+  detail: string;
+};
 
 @Component({
   selector: 'app-home',
@@ -49,7 +63,7 @@ export class HomeComponent implements AfterViewInit {
   readonly clients = Array.from({ length: 40 }, (_, index) => `Client ${String(index + 1).padStart(2, '0')}`);
   readonly partners = Array.from({ length: 24 }, (_, index) => `Partner ${String(index + 1).padStart(2, '0')}`);
 
-  readonly sectors: Array<{ icon: SectorIcon; title: string; text: string; detail: string; image: string; alt: string }> = [
+  readonly sectors: SectorItem[] = [
     {
       icon: 'rocket',
       title: 'SaaS & startups',
@@ -143,7 +157,7 @@ export class HomeComponent implements AfterViewInit {
     }
   ];
 
-  readonly stack: Array<{ icon: StackIcon; title: string; tools: string; detail: string }> = [
+  readonly techStack: StackItem[] = [
     { icon: 'brain', title: 'AI/ML', tools: 'OpenAI - Claude - RAG', detail: 'Assistants IA, workflows intelligents et recherche augmentee.' },
     { icon: 'code-2', title: 'Frontend', tools: 'Angular - React - Next.js', detail: 'Interfaces modernes, rapides et maintenables.' },
     { icon: 'database', title: 'Backend', tools: 'Node.js - Python - APIs', detail: 'APIs robustes, bases de donnees et integrations metier.' },
@@ -203,5 +217,9 @@ export class HomeComponent implements AfterViewInit {
     this.selectedSectorIndex =
       this.selectedSectorIndex === this.sectors.length - 1 ? 0 : this.selectedSectorIndex + 1;
     this.expandedSectorIndex = null;
+  }
+
+  sectorBackground(sector: SectorItem): string {
+    return `url(${sector.image})`;
   }
 }
