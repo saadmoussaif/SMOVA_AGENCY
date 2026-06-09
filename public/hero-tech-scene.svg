@@ -1,0 +1,97 @@
+<svg width="980" height="760" viewBox="0 0 980 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">SMAgency digital development scene</title>
+  <desc id="desc">Scene sombre rouge avec ordinateur portable, code, services web mobile cloud IA et logo SMAgency.</desc>
+  <defs>
+    <radialGradient id="redGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(705 211) rotate(134) scale(502 376)">
+      <stop stop-color="#ef4444" stop-opacity=".55"/>
+      <stop offset=".46" stop-color="#7f1d1d" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#070707" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="85" y1="87" x2="898" y2="676" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#070707"/>
+      <stop offset=".56" stop-color="#141414"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="red" x1="412" y1="99" x2="823" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff4b4b"/>
+      <stop offset=".54" stop-color="#dc2626"/>
+      <stop offset="1" stop-color="#7f1d1d"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000000" flood-opacity=".45"/>
+    </filter>
+    <filter id="redBlur" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="15" flood-color="#ef4444" flood-opacity=".55"/>
+    </filter>
+  </defs>
+
+  <rect width="980" height="760" rx="34" fill="url(#panel)"/>
+  <rect width="980" height="760" rx="34" fill="url(#redGlow)"/>
+  <g opacity=".32">
+    <path d="M80 111h822M80 199h822M80 287h822M80 375h822M80 463h822M80 551h822M80 639h822" stroke="#7f1d1d" stroke-width="1"/>
+    <path d="M122 68v628M230 68v628M338 68v628M446 68v628M554 68v628M662 68v628M770 68v628M878 68v628" stroke="#7f1d1d" stroke-width="1"/>
+  </g>
+
+  <g opacity=".55">
+    <circle cx="760" cy="96" r="4" fill="#ef4444"/>
+    <circle cx="822" cy="192" r="3" fill="#ef4444"/>
+    <circle cx="721" cy="552" r="4" fill="#ef4444"/>
+    <path d="M720 96v154M720 96l-78 54M720 96l88 68" stroke="#ef4444" stroke-width="2"/>
+  </g>
+
+  <g filter="url(#redBlur)" opacity=".98">
+    <path d="M727 106 867 176 812 208 731 169 663 204v35l68 33 61-31 55 27-116 66-124-60v-93l120-75Z" fill="url(#red)"/>
+    <path d="M731 334 607 274l55-33 69 33 68-35v-35l-62-31 56-31 74 35v92l-136 65Z" fill="#f3f4f6" opacity=".16"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="91" y="128" width="138" height="86" rx="14" fill="#111827" stroke="#ef4444" stroke-opacity=".45"/>
+    <text x="157" y="160" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">WEB</text>
+    <text x="157" y="181" fill="#d1d5db" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">DEVELOPMENT</text>
+    <path d="m121 171-18-15 18-15M139 141l-13 30M148 141l18 15-18 15" stroke="#ef4444" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="88" y="244" width="139" height="90" rx="14" fill="#111827" stroke="#ef4444" stroke-opacity=".36"/>
+    <text x="157" y="279" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">MOBILE</text>
+    <text x="157" y="300" fill="#d1d5db" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">APPS</text>
+    <rect x="113" y="263" width="27" height="46" rx="5" stroke="#ef4444" stroke-width="4"/>
+    <circle cx="126.5" cy="302" r="2.5" fill="#ef4444"/>
+
+    <rect x="90" y="360" width="151" height="94" rx="14" fill="#111827" stroke="#ef4444" stroke-opacity=".33"/>
+    <text x="159" y="395" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">CLOUD</text>
+    <text x="159" y="416" fill="#d1d5db" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">SOLUTIONS</text>
+    <path d="M109 415h43c12 0 20-8 20-18 0-9-7-16-16-17-5-12-17-19-31-17-15 2-26 14-27 29-9 3-15 10-15 20 0 12 10 20 26 20Z" stroke="#ef4444" stroke-width="4" fill="none"/>
+
+    <rect x="88" y="478" width="144" height="86" rx="14" fill="#111827" stroke="#ef4444" stroke-opacity=".33"/>
+    <text x="158" y="513" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">AI</text>
+    <text x="158" y="534" fill="#d1d5db" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">INNOVATION</text>
+    <path d="M109 530c-12-11-12-33 7-40 8-15 32-11 36 5 17 1 23 26 8 36M126 488v46M104 513h48" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <path d="M238 418c10-52 54-88 106-88h322c52 0 96 36 106 88l34 177H204l34-177Z" fill="#121212"/>
+    <path d="M267 419c7-37 39-64 77-64h323c38 0 70 27 77 64l26 139H241l26-139Z" fill="#020202" stroke="#3f3f46" stroke-width="5"/>
+    <rect x="292" y="384" width="425" height="143" rx="8" fill="#0a0a0a"/>
+    <g font-family="Consolas, monospace" font-size="13" font-weight="700">
+      <text x="322" y="415" fill="#ef4444">const</text>
+      <text x="366" y="415" fill="#e5e7eb"> agency = new ProductStudio();</text>
+      <text x="322" y="444" fill="#e5e7eb">agency.build(</text>
+      <text x="430" y="444" fill="#ef4444">'web apps'</text>
+      <text x="520" y="444" fill="#e5e7eb">);</text>
+      <text x="322" y="473" fill="#ef4444">deploy</text>
+      <text x="378" y="473" fill="#e5e7eb">({ mobile, cloud, ai });</text>
+      <text x="322" y="502" fill="#71717a">// scalable digital products</text>
+    </g>
+    <path d="M171 596h672l44 58H127l44-58Z" fill="#191919"/>
+    <path d="M127 654h760l-18 24H146l-19-24Z" fill="#090909"/>
+    <rect x="396" y="617" width="202" height="18" rx="9" fill="#27272a"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="642" y="594" width="140" height="74" rx="18" fill="#101010" stroke="#ef4444" stroke-opacity=".32"/>
+    <path d="M689 620 718 634 707 641 690 633 675 640v7l15 8 14-8 12 6-26 15-28-14v-20l27-14Z" fill="url(#red)"/>
+    <text x="721" y="652" fill="#ffffff" font-family="Space Grotesk, Arial, sans-serif" font-size="18" font-weight="900">SMAgency</text>
+  </g>
+  <rect x="782" y="584" width="114" height="90" rx="14" fill="#0b0b0b" stroke="#ef4444" stroke-opacity=".22"/>
+  <rect x="795" y="599" width="88" height="57" rx="7" fill="#111827"/>
+  <path d="M811 638h55M811 622h34M811 611h43" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+</svg>
