@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { gsap } from 'gsap';
@@ -55,10 +55,21 @@ type StackItem = {
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('loader') loader?: ElementRef<HTMLElement>;
   selectedSectorIndex = 0;
   expandedSectorIndex: number | null = null;
+  displayedHeroText = '';
+  private heroPhraseIndex = 0;
+  private heroLetterIndex = 0;
+  private isDeletingHeroText = false;
+  private typingTimer?: ReturnType<typeof setTimeout>;
+
+  readonly heroPhrases = [
+    'Nous creons des solutions digitales qui font la difference.',
+    'Sites web, apps, IA et marketing pour startups ambitieuses.',
+    'Des produits rapides, clairs et prets a scaler.'
+  ];
 
   readonly clients = Array.from({ length: 40 }, (_, index) => `Client ${String(index + 1).padStart(2, '0')}`);
   readonly partners = Array.from({ length: 24 }, (_, index) => `Partner ${String(index + 1).padStart(2, '0')}`);
@@ -174,7 +185,8 @@ export class HomeComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const loader = this.loader?.nativeElement;
-    gsap.from('.hero-title span', {
+    this.typingTimer = setTimeout(() => this.runHeroTyping(), 180);
+    gsap.from('.hero-typing-panel > *', {
       y: 38,
       opacity: 0,
       duration: 0.8,
@@ -200,6 +212,39 @@ export class HomeComponent implements AfterViewInit {
         onComplete: () => loader.remove()
       });
     }
+  }
+
+  ngOnDestroy(): void {
+    if (this.typingTimer) {
+      clearTimeout(this.typingTimer);
+    }
+  }
+
+  private runHeroTyping(): void {
+    const currentPhrase = this.heroPhrases[this.heroPhraseIndex];
+
+    if (this.isDeletingHeroText) {
+      this.heroLetterIndex -= 1;
+    } else {
+      this.heroLetterIndex += 1;
+    }
+
+    this.displayedHeroText = currentPhrase.slice(0, this.heroLetterIndex);
+
+    let delay = this.isDeletingHeroText ? 34 : 58;
+
+    if (!this.isDeletingHeroText && this.heroLetterIndex === currentPhrase.length) {
+      delay = 1450;
+      this.isDeletingHeroText = true;
+    }
+
+    if (this.isDeletingHeroText && this.heroLetterIndex === 0) {
+      this.isDeletingHeroText = false;
+      this.heroPhraseIndex = (this.heroPhraseIndex + 1) % this.heroPhrases.length;
+      delay = 360;
+    }
+
+    this.typingTimer = setTimeout(() => this.runHeroTyping(), delay);
   }
 
   toggleSectorDescription(index: number): void {
