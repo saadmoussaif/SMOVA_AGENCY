@@ -1,0 +1,14 @@
+<main class="static-page">
+  <section class="static-hero">
+    <span>{{ page.kicker }}</span>
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.description }}</p>
+    <a routerLink="/" fragment="contact">Nous contacter</a>
+  </section>
+
+  <section class="static-content">
+    <article *ngFor="let item of page.items">
+      <p>{{ item }}</p>
+    </article>
+  </section>
+</main>
