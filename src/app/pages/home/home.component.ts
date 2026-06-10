@@ -48,6 +48,15 @@ type CountryCode = {
   label: string;
   flagClass: string;
 };
+type ContactForm = {
+  prenom: string;
+  email: string;
+  societe: string;
+  countryCode: string;
+  tel: string;
+  sujet: string;
+  message: string;
+};
 
 @Component({
   selector: 'app-home',
@@ -59,7 +68,7 @@ type CountryCode = {
     LucideAngularModule
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss', './home-contact.component.scss']
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('loader') loader?: ElementRef<HTMLElement>;
@@ -97,6 +106,36 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     'Consulting digital & IA',
     'Autre besoin'
   ];
+  readonly countries = [
+    { code: '+212', flag: '🇲🇦' },
+    { code: '+33', flag: '🇫🇷' },
+    { code: '+213', flag: '🇩🇿' },
+    { code: '+216', flag: '🇹🇳' },
+    { code: '+221', flag: '🇸🇳' },
+    { code: '+1', flag: '🇺🇸' },
+    { code: '+44', flag: '🇬🇧' },
+    { code: '+49', flag: '🇩🇪' },
+    { code: '+34', flag: '🇪🇸' },
+    { code: '+39', flag: '🇮🇹' },
+    { code: '+31', flag: '🇳🇱' },
+    { code: '+32', flag: '🇧🇪' },
+    { code: '+41', flag: '🇨🇭' },
+    { code: '+90', flag: '🇹🇷' },
+    { code: '+20', flag: '🇪🇬' },
+    { code: '+234', flag: '🇳🇬' }
+  ];
+  focused: Record<string, boolean> = {};
+  form: ContactForm = {
+    prenom: '',
+    email: '',
+    societe: '',
+    countryCode: '+212',
+    tel: '',
+    sujet: '',
+    message: ''
+  };
+  submitting = false;
+  submitted = false;
 
   get selectedCountry(): CountryCode {
     return this.countryCodes.find((country) => country.iso === this.selectedCountryIso) ?? this.countryCodes[0];
@@ -109,6 +148,39 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   selectCountry(countryIso: string): void {
     this.selectedCountryIso = countryIso;
     this.countryMenuOpen = false;
+  }
+
+  setFocus(field: string, value: boolean): void {
+    this.focused = { ...this.focused, [field]: value };
+  }
+
+  onSubmit(event: Event): void {
+    event.preventDefault();
+
+    if (!this.form.prenom || !this.form.email || !this.form.sujet || !this.form.message) {
+      return;
+    }
+
+    this.submitting = true;
+    this.submitted = false;
+
+    setTimeout(() => {
+      this.submitting = false;
+      this.submitted = true;
+
+      setTimeout(() => {
+        this.submitted = false;
+        this.form = {
+          prenom: '',
+          email: '',
+          societe: '',
+          countryCode: '+212',
+          tel: '',
+          sujet: '',
+          message: ''
+        };
+      }, 4000);
+    }, 1800);
   }
 
   readonly clients = Array.from({ length: 40 }, (_, index) => `Client ${String(index + 1).padStart(2, '0')}`);

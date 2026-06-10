@@ -168,69 +168,190 @@
   <section class="contact" id="contact">
     <div class="contact-copy">
       <span class="section-kicker">Pret a accelerer ?</span>
-      <h2>Echangeons sur votre projet en 15 minutes.</h2>
-      <p>Reponse sous 24h, devis gratuit et discussion honnete sur ce qui merite vraiment d etre construit.</p>
-      <div class="contact-points">
-        <span><i-lucide name="check-circle-2"></i-lucide> Sans engagement</span>
-        <span><i-lucide name="check-circle-2"></i-lucide> Roadmap claire</span>
-        <span><i-lucide name="check-circle-2"></i-lucide> Budget optimise</span>
+      <h2>Echangeons sur votre projet en&nbsp;15&nbsp;min.</h2>
+      <p>
+        Reponse sous 24 h, devis gratuit et discussion honnete
+        sur ce qui merite vraiment d'etre construit.
+      </p>
+
+      <ul class="contact-points">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="#ef4444" stroke-width="2.5" stroke-linecap="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Sans engagement
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="#ef4444" stroke-width="2.5" stroke-linecap="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Roadmap claire
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="#ef4444" stroke-width="2.5" stroke-linecap="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Budget optimise
+        </li>
+      </ul>
+
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <strong>200+</strong>
+          <span>Projets livres</span>
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-badge">
+          <strong>98%</strong>
+          <span>Satisfaction client</span>
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-badge">
+          <strong>24h</strong>
+          <span>Delai de reponse</span>
+        </div>
       </div>
     </div>
-    <form class="contact-form">
+
+    <div class="contact-form-wrapper">
       <div class="form-header">
-        <span>Brief projet</span>
-        <strong>Parlez-nous de votre besoin</strong>
-      </div>
-      <div class="form-row">
-        <label><span>Prenom</span><input type="text" placeholder="Votre prenom"></label>
-        <label><span>Email professionnel</span><input type="email" placeholder="vous@entreprise.com"></label>
-      </div>
-      <div class="form-row">
-        <label><span>Societe</span><input type="text" placeholder="Nom de votre societe"></label>
-        <label>
-          <span>Telephone</span>
-          <div class="phone-field">
-            <div class="country-picker" [class.open]="countryMenuOpen">
-              <button
-                class="country-trigger"
-                type="button"
-                (click)="toggleCountryMenu()"
-                [attr.aria-expanded]="countryMenuOpen"
-                aria-label="Choisir l indicatif pays">
-                <span class="country-flag" [ngClass]="selectedCountry.flagClass" aria-hidden="true"></span>
-                <strong>{{ selectedCountry.iso }}</strong>
-                <span>{{ selectedCountry.code }} - {{ selectedCountry.label }}</span>
-                <i-lucide name="chevron-down"></i-lucide>
-              </button>
-              <div class="country-options" *ngIf="countryMenuOpen">
-                <button
-                  *ngFor="let country of countryCodes"
-                  type="button"
-                  class="country-option"
-                  [class.selected]="country.iso === selectedCountryIso"
-                  (click)="selectCountry(country.iso)">
-                  <span class="country-flag" [ngClass]="country.flagClass" aria-hidden="true"></span>
-                  <strong>{{ country.iso }}</strong>
-                  <span>{{ country.code }} - {{ country.label }}</span>
-                </button>
-              </div>
-            </div>
-            <input type="tel" placeholder="6 00 00 00 00">
-          </div>
-        </label>
-      </div>
-      <label>
-        <span>Sujet du projet</span>
-        <div class="select-field">
-          <select aria-label="Sujet du projet">
-            <option value="" selected disabled>Choisissez une expertise</option>
-            <option *ngFor="let subject of projectSubjects" [value]="subject">{{ subject }}</option>
-          </select>
-          <i-lucide name="chevron-down"></i-lucide>
+        <div class="form-header-dot"></div>
+        <span>Formulaire de contact</span>
+        <div class="form-header-live">
+          <div class="live-dot"></div>
+          Disponible
         </div>
-      </label>
-      <label><span>Votre message</span><textarea rows="5" placeholder="Parlez-nous de votre produit, votre idee ou votre besoin"></textarea></label>
-      <button class="btn primary" type="button">Planifier un appel <i-lucide name="arrow-right"></i-lucide></button>
-    </form>
+      </div>
+
+      <form class="contact-form" (submit)="onSubmit($event)" novalidate>
+        <div class="form-row">
+          <div class="form-group" [class.focused]="focused['prenom']" [class.filled]="form.prenom">
+            <label for="prenom">Prenom <span class="required">*</span></label>
+            <input
+              id="prenom"
+              type="text"
+              placeholder="Votre prenom"
+              [(ngModel)]="form.prenom"
+              name="prenom"
+              (focus)="setFocus('prenom', true)"
+              (blur)="setFocus('prenom', false)"
+              autocomplete="given-name"
+            />
+          </div>
+          <div class="form-group" [class.focused]="focused['email']" [class.filled]="form.email">
+            <label for="email">Email professionnel <span class="required">*</span></label>
+            <input
+              id="email"
+              type="email"
+              placeholder="vous@entreprise.com"
+              [(ngModel)]="form.email"
+              name="email"
+              (focus)="setFocus('email', true)"
+              (blur)="setFocus('email', false)"
+              autocomplete="email"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" [class.focused]="focused['societe']" [class.filled]="form.societe">
+            <label for="societe">Societe</label>
+            <input
+              id="societe"
+              type="text"
+              placeholder="Nom de votre societe"
+              [(ngModel)]="form.societe"
+              name="societe"
+              (focus)="setFocus('societe', true)"
+              (blur)="setFocus('societe', false)"
+              autocomplete="organization"
+            />
+          </div>
+          <div class="form-group" [class.focused]="focused['tel']" [class.filled]="form.tel">
+            <label for="tel">Telephone</label>
+            <div class="tel-input-wrap">
+              <select
+                class="country-select"
+                [(ngModel)]="form.countryCode"
+                name="countryCode"
+                aria-label="Indicatif pays"
+              >
+                <option *ngFor="let c of countries" [value]="c.code">
+                  {{ c.flag }} {{ c.code }}
+                </option>
+              </select>
+              <input
+                id="tel"
+                type="tel"
+                placeholder="6 07 27 50 93"
+                [(ngModel)]="form.tel"
+                name="tel"
+                class="tel-input"
+                (focus)="setFocus('tel', true)"
+                (blur)="setFocus('tel', false)"
+                autocomplete="tel"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" [class.focused]="focused['sujet']" [class.filled]="form.sujet">
+          <label for="sujet">Sujet <span class="required">*</span></label>
+          <div class="select-wrap">
+            <select
+              id="sujet"
+              [(ngModel)]="form.sujet"
+              name="sujet"
+              (focus)="setFocus('sujet', true)"
+              (blur)="setFocus('sujet', false)"
+            >
+              <option value="" disabled selected>Choisissez un sujet</option>
+              <option value="site">Creation de site web</option>
+              <option value="app">Application web / mobile</option>
+              <option value="ia">Intelligence artificielle & IA</option>
+              <option value="marketing">Marketing digital & SEO</option>
+              <option value="audit">Audit & conseil digital</option>
+              <option value="autre">Autre</option>
+            </select>
+            <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="form-group textarea-group" [class.focused]="focused['message']" [class.filled]="form.message">
+          <label for="message">
+            Votre message <span class="required">*</span>
+            <span class="char-count">{{ form.message.length }}/500</span>
+          </label>
+          <textarea
+            id="message"
+            rows="5"
+            placeholder="Decrivez votre projet, vos besoins, votre budget estime..."
+            [(ngModel)]="form.message"
+            name="message"
+            maxlength="500"
+            (focus)="setFocus('message', true)"
+            (blur)="setFocus('message', false)"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" [class.loading]="submitting">
+          <span *ngIf="!submitting && !submitted">
+            Planifier un appel
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+          <span *ngIf="submitting" class="btn-spinner"></span>
+          <span *ngIf="submitted && !submitting">Message envoye !</span>
+        </button>
+
+        <p class="form-note">Reponse sous 24 h · Devis gratuit · Sans engagement</p>
+      </form>
+    </div>
   </section>
 </main>
