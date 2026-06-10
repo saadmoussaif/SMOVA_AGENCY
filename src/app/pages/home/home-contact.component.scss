@@ -325,11 +325,30 @@ $white: #ffffff;
   }
 }
 
-.country-select {
-  min-width: 90px;
-  border: 0;
+.country-select-wrap {
+  @include flex;
+  min-width: 10.6rem;
   border-right: 1px solid rgba($white, 0.1);
-  padding: 0.85rem 0.7rem 0.85rem 1rem;
+  background: rgba($white, 0.025);
+}
+
+.country-real-flag {
+  flex: 0 0 auto;
+  width: 1.55rem;
+  height: 1.1rem;
+  margin-left: 0.9rem;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow:
+    0 0 0 1px rgba($white, 0.38),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.country-select {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  padding: 0.85rem 0.65rem;
   color: $white;
   background: transparent;
   outline: none;
@@ -506,5 +525,18 @@ $white: #ffffff;
 
   .form-row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .tel-input-wrap {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .country-select-wrap {
+    min-width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid rgba($white, 0.1);
   }
 }

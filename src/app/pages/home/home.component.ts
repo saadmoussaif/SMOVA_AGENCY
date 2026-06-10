@@ -52,10 +52,17 @@ type ContactForm = {
   prenom: string;
   email: string;
   societe: string;
+  countryIso: string;
   countryCode: string;
   tel: string;
   sujet: string;
   message: string;
+};
+type ContactCountry = {
+  iso: string;
+  code: string;
+  name: string;
+  flagUrl: string;
 };
 
 @Component({
@@ -106,29 +113,31 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     'Consulting digital & IA',
     'Autre besoin'
   ];
-  readonly countries = [
-    { code: '+212', flag: '🇲🇦' },
-    { code: '+33', flag: '🇫🇷' },
-    { code: '+213', flag: '🇩🇿' },
-    { code: '+216', flag: '🇹🇳' },
-    { code: '+221', flag: '🇸🇳' },
-    { code: '+1', flag: '🇺🇸' },
-    { code: '+44', flag: '🇬🇧' },
-    { code: '+49', flag: '🇩🇪' },
-    { code: '+34', flag: '🇪🇸' },
-    { code: '+39', flag: '🇮🇹' },
-    { code: '+31', flag: '🇳🇱' },
-    { code: '+32', flag: '🇧🇪' },
-    { code: '+41', flag: '🇨🇭' },
-    { code: '+90', flag: '🇹🇷' },
-    { code: '+20', flag: '🇪🇬' },
-    { code: '+234', flag: '🇳🇬' }
+  readonly countries: ContactCountry[] = [
+    { iso: 'MA', code: '+212', name: 'Maroc', flagUrl: 'https://flagcdn.com/w40/ma.png' },
+    { iso: 'FR', code: '+33', name: 'France', flagUrl: 'https://flagcdn.com/w40/fr.png' },
+    { iso: 'DZ', code: '+213', name: 'Algerie', flagUrl: 'https://flagcdn.com/w40/dz.png' },
+    { iso: 'TN', code: '+216', name: 'Tunisie', flagUrl: 'https://flagcdn.com/w40/tn.png' },
+    { iso: 'SN', code: '+221', name: 'Senegal', flagUrl: 'https://flagcdn.com/w40/sn.png' },
+    { iso: 'US', code: '+1', name: 'Etats-Unis', flagUrl: 'https://flagcdn.com/w40/us.png' },
+    { iso: 'CA', code: '+1', name: 'Canada', flagUrl: 'https://flagcdn.com/w40/ca.png' },
+    { iso: 'GB', code: '+44', name: 'Royaume-Uni', flagUrl: 'https://flagcdn.com/w40/gb.png' },
+    { iso: 'DE', code: '+49', name: 'Allemagne', flagUrl: 'https://flagcdn.com/w40/de.png' },
+    { iso: 'ES', code: '+34', name: 'Espagne', flagUrl: 'https://flagcdn.com/w40/es.png' },
+    { iso: 'IT', code: '+39', name: 'Italie', flagUrl: 'https://flagcdn.com/w40/it.png' },
+    { iso: 'NL', code: '+31', name: 'Pays-Bas', flagUrl: 'https://flagcdn.com/w40/nl.png' },
+    { iso: 'BE', code: '+32', name: 'Belgique', flagUrl: 'https://flagcdn.com/w40/be.png' },
+    { iso: 'CH', code: '+41', name: 'Suisse', flagUrl: 'https://flagcdn.com/w40/ch.png' },
+    { iso: 'TR', code: '+90', name: 'Turquie', flagUrl: 'https://flagcdn.com/w40/tr.png' },
+    { iso: 'EG', code: '+20', name: 'Egypte', flagUrl: 'https://flagcdn.com/w40/eg.png' },
+    { iso: 'NG', code: '+234', name: 'Nigeria', flagUrl: 'https://flagcdn.com/w40/ng.png' }
   ];
   focused: Record<string, boolean> = {};
   form: ContactForm = {
     prenom: '',
     email: '',
     societe: '',
+    countryIso: 'MA',
     countryCode: '+212',
     tel: '',
     sujet: '',
@@ -148,6 +157,29 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   selectCountry(countryIso: string): void {
     this.selectedCountryIso = countryIso;
     this.countryMenuOpen = false;
+  }
+
+  get selectedContactCountry(): ContactCountry {
+    return this.countries.find((country) => country.iso === this.form.countryIso) ?? this.countries[0];
+  }
+
+  selectContactCountry(countryIso: string): void {
+    const country = this.countries.find((item) => item.iso === countryIso);
+
+    if (!country) {
+      return;
+    }
+
+    this.form.countryIso = country.iso;
+    this.form.countryCode = country.code;
+  }
+
+  numbersOnly(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const sanitizedValue = input.value.replace(/\D/g, '');
+
+    input.value = sanitizedValue;
+    this.form.tel = sanitizedValue;
   }
 
   setFocus(field: string, value: boolean): void {
@@ -174,6 +206,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
           prenom: '',
           email: '',
           societe: '',
+          countryIso: 'MA',
           countryCode: '+212',
           tel: '',
           sujet: '',

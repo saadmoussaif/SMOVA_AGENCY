@@ -273,16 +273,26 @@
           <div class="form-group" [class.focused]="focused['tel']" [class.filled]="form.tel">
             <label for="tel">Telephone</label>
             <div class="tel-input-wrap">
-              <select
-                class="country-select"
-                [(ngModel)]="form.countryCode"
-                name="countryCode"
-                aria-label="Indicatif pays"
-              >
-                <option *ngFor="let c of countries" [value]="c.code">
-                  {{ c.flag }} {{ c.code }}
-                </option>
-              </select>
+              <div class="country-select-wrap">
+                <img
+                  class="country-real-flag"
+                  [src]="selectedContactCountry.flagUrl"
+                  [alt]="selectedContactCountry.name"
+                  width="40"
+                  height="30"
+                >
+                <select
+                  class="country-select"
+                  [ngModel]="form.countryIso"
+                  (ngModelChange)="selectContactCountry($event)"
+                  name="countryIso"
+                  aria-label="Indicatif pays"
+                >
+                  <option *ngFor="let c of countries" [value]="c.iso">
+                    {{ c.iso }} {{ c.code }} - {{ c.name }}
+                  </option>
+                </select>
+              </div>
               <input
                 id="tel"
                 type="tel"
@@ -290,6 +300,9 @@
                 [(ngModel)]="form.tel"
                 name="tel"
                 class="tel-input"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                (input)="numbersOnly($event)"
                 (focus)="setFocus('tel', true)"
                 (blur)="setFocus('tel', false)"
                 autocomplete="tel"
