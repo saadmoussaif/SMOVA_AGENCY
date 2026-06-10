@@ -6,6 +6,7 @@ import { MarketingDigitalComponent } from './pages/expertises/marketing-digital/
 import { MobileAppsComponent } from './pages/expertises/mobile-apps/mobile-apps.component';
 import { SystemsComponent } from './pages/expertises/systems/systems.component';
 import { WebAppsComponent } from './pages/expertises/web-apps/web-apps.component';
+import { LegalNoticeComponent } from './pages/legal-notice/legal-notice.component';
 
 export const routes: Routes = [
   {
@@ -42,6 +43,11 @@ export const routes: Routes = [
     path: 'mot-du-directeur',
     component: DirectorComponent,
     title: 'SMAgency - Mot du Directeur'
+  },
+  {
+    path: 'mentions-legales',
+    component: LegalNoticeComponent,
+    title: 'SMAgency - Mentions legales'
   },
   {
     path: '**',
