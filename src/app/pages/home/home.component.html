@@ -177,14 +177,58 @@
       </div>
     </div>
     <form class="contact-form">
+      <div class="form-header">
+        <span>Brief projet</span>
+        <strong>Parlez-nous de votre besoin</strong>
+      </div>
       <div class="form-row">
         <label><span>Prenom</span><input type="text" placeholder="Votre prenom"></label>
         <label><span>Email professionnel</span><input type="email" placeholder="vous@entreprise.com"></label>
       </div>
       <div class="form-row">
         <label><span>Societe</span><input type="text" placeholder="Nom de votre societe"></label>
-        <label><span>Telephone</span><input type="tel" placeholder="+212"></label>
+        <label>
+          <span>Telephone</span>
+          <div class="phone-field">
+            <div class="country-picker" [class.open]="countryMenuOpen">
+              <button
+                class="country-trigger"
+                type="button"
+                (click)="toggleCountryMenu()"
+                [attr.aria-expanded]="countryMenuOpen"
+                aria-label="Choisir l indicatif pays">
+                <span class="country-flag" [ngClass]="selectedCountry.flagClass" aria-hidden="true"></span>
+                <strong>{{ selectedCountry.iso }}</strong>
+                <span>{{ selectedCountry.code }} - {{ selectedCountry.label }}</span>
+                <i-lucide name="chevron-down"></i-lucide>
+              </button>
+              <div class="country-options" *ngIf="countryMenuOpen">
+                <button
+                  *ngFor="let country of countryCodes"
+                  type="button"
+                  class="country-option"
+                  [class.selected]="country.iso === selectedCountryIso"
+                  (click)="selectCountry(country.iso)">
+                  <span class="country-flag" [ngClass]="country.flagClass" aria-hidden="true"></span>
+                  <strong>{{ country.iso }}</strong>
+                  <span>{{ country.code }} - {{ country.label }}</span>
+                </button>
+              </div>
+            </div>
+            <input type="tel" placeholder="6 00 00 00 00">
+          </div>
+        </label>
       </div>
+      <label>
+        <span>Sujet du projet</span>
+        <div class="select-field">
+          <select aria-label="Sujet du projet">
+            <option value="" selected disabled>Choisissez une expertise</option>
+            <option *ngFor="let subject of projectSubjects" [value]="subject">{{ subject }}</option>
+          </select>
+          <i-lucide name="chevron-down"></i-lucide>
+        </div>
+      </label>
       <label><span>Votre message</span><textarea rows="5" placeholder="Parlez-nous de votre produit, votre idee ou votre besoin"></textarea></label>
       <button class="btn primary" type="button">Planifier un appel <i-lucide name="arrow-right"></i-lucide></button>
     </form>

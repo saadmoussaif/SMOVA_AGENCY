@@ -42,6 +42,12 @@ type StackItem = {
   tools: string;
   detail: string;
 };
+type CountryCode = {
+  iso: string;
+  code: string;
+  label: string;
+  flagClass: string;
+};
 
 @Component({
   selector: 'app-home',
@@ -70,6 +76,40 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     'Sites web, apps, IA et marketing pour startups ambitieuses.',
     'Des produits rapides, clairs et prets a scaler.'
   ];
+
+  readonly countryCodes: CountryCode[] = [
+    { iso: 'MA', code: '+212', label: 'Maroc', flagClass: 'flag-ma' },
+    { iso: 'FR', code: '+33', label: 'France', flagClass: 'flag-fr' },
+    { iso: 'BE', code: '+32', label: 'Belgique', flagClass: 'flag-be' },
+    { iso: 'CA', code: '+1', label: 'Canada', flagClass: 'flag-ca' },
+    { iso: 'US', code: '+1', label: 'Etats-Unis', flagClass: 'flag-us' },
+    { iso: 'ES', code: '+34', label: 'Espagne', flagClass: 'flag-es' }
+  ];
+  selectedCountryIso = 'MA';
+  countryMenuOpen = false;
+
+  readonly projectSubjects = [
+    'Application web',
+    'Application mobile',
+    'Marketing digital',
+    'Systemes digitaux & automatisation',
+    'Site web / e-commerce',
+    'Consulting digital & IA',
+    'Autre besoin'
+  ];
+
+  get selectedCountry(): CountryCode {
+    return this.countryCodes.find((country) => country.iso === this.selectedCountryIso) ?? this.countryCodes[0];
+  }
+
+  toggleCountryMenu(): void {
+    this.countryMenuOpen = !this.countryMenuOpen;
+  }
+
+  selectCountry(countryIso: string): void {
+    this.selectedCountryIso = countryIso;
+    this.countryMenuOpen = false;
+  }
 
   readonly clients = Array.from({ length: 40 }, (_, index) => `Client ${String(index + 1).padStart(2, '0')}`);
   readonly partners = Array.from({ length: 24 }, (_, index) => `Partner ${String(index + 1).padStart(2, '0')}`);
