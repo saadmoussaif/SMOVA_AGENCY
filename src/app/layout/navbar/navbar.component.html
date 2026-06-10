@@ -21,9 +21,19 @@
       <a routerLink="/mot-du-directeur" routerLinkActive="active" (click)="closeMenu()">
         Mot du Directeur
       </a>
-      <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">
-        {{ i18n.t('nav.expertises') }}
-      </a>
+      <div class="nav-dropdown">
+        <a class="dropdown-trigger" routerLink="/services" routerLinkActive="active">
+          {{ i18n.t('nav.expertises') }}
+          <i-lucide name="chevron-down"></i-lucide>
+        </a>
+        <div class="dropdown-menu" aria-label="Expertises SMAgency">
+          <a routerLink="/services" (click)="closeMenu()">Vue globale</a>
+          <a routerLink="/expertises/applications-web" routerLinkActive="active" (click)="closeMenu()">Applications web</a>
+          <a routerLink="/expertises/applications-mobiles" routerLinkActive="active" (click)="closeMenu()">Applications mobiles</a>
+          <a routerLink="/expertises/marketing-digital" routerLinkActive="active" (click)="closeMenu()">Marketing digital</a>
+          <a routerLink="/expertises/systemes" routerLinkActive="active" (click)="closeMenu()">Systemes digitaux</a>
+        </div>
+      </div>
       <a routerLink="/" fragment="secteurs" (click)="closeMenu()">{{ i18n.t('nav.sectors') }}</a>
       <a routerLink="/" fragment="technologies" (click)="closeMenu()">{{ i18n.t('nav.technologies') }}</a>
       <a class="nav-cta" routerLink="/" fragment="contact" (click)="closeMenu()">{{ i18n.t('nav.cta') }}</a>

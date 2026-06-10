@@ -1,0 +1,35 @@
+<main class="expertise-page">
+  <section class="expertise-hero">
+    <div class="hero-copy">
+      <span class="eyebrow">Expertise systemes</span>
+      <h1>Systemes digitaux pour automatiser et mieux piloter votre entreprise.</h1>
+      <p>Nous connectons vos outils, simplifions vos processus et construisons des systemes internes qui font gagner du temps.</p>
+      <div class="hero-actions">
+        <a class="btn primary" routerLink="/" fragment="contact">Demarrer un projet <i-lucide name="arrow-right"></i-lucide></a>
+        <a class="btn secondary" routerLink="/services">Voir toutes les expertises</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <i-lucide name="settings"></i-lucide>
+      <strong>Business systems</strong>
+      <span *ngFor="let item of highlights">{{ item }}</span>
+    </div>
+  </section>
+
+  <section class="expertise-content">
+    <div class="section-heading">
+      <span>Ce que nous livrons</span>
+      <h2>Des operations plus simples et mieux connectees.</h2>
+    </div>
+    <div class="content-grid">
+      <article *ngFor="let item of deliverables">
+        <i-lucide name="check-circle-2"></i-lucide>
+        <span>{{ item }}</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="stack-strip">
+    <span *ngFor="let item of stack">{{ item }}</span>
+  </section>
+</main>
