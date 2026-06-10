@@ -1,0 +1,14 @@
+@use '../expertise-page.shared' as *;
+
+:host {
+  --expertise-accent: #f43f5e;
+  --expertise-accent-dark: #9f1239;
+  --expertise-soft: #ffe4e6;
+  --expertise-glow: rgba(244, 63, 94, 0.3);
+}
+
+.hero-panel {
+  background:
+    radial-gradient(circle at 78% 22%, var(--expertise-glow), transparent 17rem),
+    linear-gradient(145deg, #3f3f46, #18181b);
+}

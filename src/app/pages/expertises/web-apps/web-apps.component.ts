@@ -8,7 +8,7 @@ import { LucideAngularModule } from 'lucide-angular';
   standalone: true,
   imports: [NgFor, RouterLink, LucideAngularModule],
   templateUrl: './web-apps.component.html',
-  styleUrl: '../expertise-page.scss'
+  styleUrl: './web-apps.component.scss'
 })
 export class WebAppsComponent {
   readonly highlights = ['Dashboards metier', 'APIs robustes', 'Roles utilisateurs'];

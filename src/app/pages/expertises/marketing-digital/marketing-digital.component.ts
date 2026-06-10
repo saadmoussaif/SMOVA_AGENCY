@@ -8,7 +8,7 @@ import { LucideAngularModule } from 'lucide-angular';
   standalone: true,
   imports: [NgFor, RouterLink, LucideAngularModule],
   templateUrl: './marketing-digital.component.html',
-  styleUrl: '../expertise-page.scss'
+  styleUrl: './marketing-digital.component.scss'
 })
 export class MarketingDigitalComponent {
   readonly highlights = ['Acquisition qualifiee', 'Tracking propre', 'Reporting clair'];

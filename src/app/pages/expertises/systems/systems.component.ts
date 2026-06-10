@@ -8,7 +8,7 @@ import { LucideAngularModule } from 'lucide-angular';
   standalone: true,
   imports: [NgFor, RouterLink, LucideAngularModule],
   templateUrl: './systems.component.html',
-  styleUrl: '../expertise-page.scss'
+  styleUrl: './systems.component.scss'
 })
 export class SystemsComponent {
   readonly highlights = ['Automatisation', 'Integrations API', 'Process internes'];

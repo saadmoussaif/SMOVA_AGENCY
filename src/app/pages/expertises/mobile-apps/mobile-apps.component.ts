@@ -8,7 +8,7 @@ import { LucideAngularModule } from 'lucide-angular';
   standalone: true,
   imports: [NgFor, RouterLink, LucideAngularModule],
   templateUrl: './mobile-apps.component.html',
-  styleUrl: '../expertise-page.scss'
+  styleUrl: './mobile-apps.component.scss'
 })
 export class MobileAppsComponent {
   readonly highlights = ['UX mobile claire', 'Architecture scalable', 'Publication stores'];
