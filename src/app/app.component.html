@@ -1,3 +1,25 @@
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
+
+<section class="cookie-banner" *ngIf="showCookieBanner" aria-label="Gestion des cookies">
+  <div class="cookie-copy">
+    <h2>SMAgency utilise des cookies</h2>
+    <p>
+      Nous utilisons des cookies pour ameliorer les performances du site, personnaliser votre experience,
+      analyser l usage et optimiser nos actions marketing. En cliquant sur "Accept All", vous acceptez
+      l utilisation de tous les cookies. En cliquant sur "Reject All", seuls les cookies strictement
+      necessaires seront conserves.
+    </p>
+    <div class="cookie-settings-panel" *ngIf="showCookieSettings">
+      <span>Cookies necessaires: toujours actifs</span>
+      <span>Analytics et marketing: actives uniquement apres acceptation</span>
+    </div>
+  </div>
+
+  <div class="cookie-actions">
+    <button class="cookie-link" type="button" (click)="toggleCookieSettings()">Cookies Settings</button>
+    <button class="cookie-btn" type="button" (click)="rejectCookies()">Reject All</button>
+    <button class="cookie-btn primary" type="button" (click)="acceptCookies()">Accept All</button>
+  </div>
+</section>

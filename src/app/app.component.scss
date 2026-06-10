@@ -32,3 +32,130 @@ main {
   color: #262626;
   background: rgba(38, 38, 38, 0.04);
 }
+
+.cookie-banner {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 200;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  padding: clamp(1.35rem, 2.6vw, 2.3rem) max(4vw, calc((100vw - 1440px) / 2));
+  border-top: 1px solid rgba(38, 38, 38, 0.12);
+  color: #18181b;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(239, 68, 68, 0.08), transparent 22rem),
+    #ffffff;
+  box-shadow: 0 -22px 70px rgba(15, 23, 42, 0.16);
+}
+
+.cookie-copy {
+  max-width: 920px;
+}
+
+.cookie-copy h2 {
+  margin: 0 0 0.75rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  letter-spacing: 0;
+}
+
+.cookie-copy p {
+  margin: 0;
+  color: #27272a;
+  font-size: clamp(0.95rem, 1vw, 1.06rem);
+  line-height: 1.55;
+}
+
+.cookie-settings-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.cookie-settings-panel span {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  border-radius: 999px;
+  color: #7f1d1d;
+  background: #fee2e2;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.cookie-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cookie-link,
+.cookie-btn {
+  min-height: 3.75rem;
+  border-radius: 4px;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.cookie-link {
+  min-width: 11rem;
+  border: 0;
+  color: #0f766e;
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.cookie-btn {
+  min-width: 11.75rem;
+  padding: 0 1.35rem;
+  border: 1px solid #111827;
+  color: #ffffff;
+  background: #111827;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cookie-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(17, 24, 39, 0.18);
+}
+
+.cookie-btn.primary {
+  border-color: transparent;
+  background: linear-gradient(135deg, #ef4444, #991b1b);
+}
+
+@media (max-width: 980px) {
+  .cookie-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-actions {
+    flex-wrap: wrap;
+  }
+
+  .cookie-link,
+  .cookie-btn {
+    flex: 1 1 12rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .cookie-banner {
+    max-height: 78svh;
+    overflow: auto;
+  }
+
+  .cookie-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-link,
+  .cookie-btn {
+    width: 100%;
+  }
+}
