@@ -7,10 +7,15 @@
 
   <div class="service-grid">
     <article *ngFor="let service of services" class="service-card">
-      <i-lucide [name]="service.icon"></i-lucide>
+      <div class="service-photo">
+        <img [src]="service.image" [alt]="service.alt" loading="lazy">
+        <span class="service-icon">
+          <i-lucide [name]="service.icon"></i-lucide>
+        </span>
+      </div>
       <h3>{{ service.title }}</h3>
       <p>{{ service.text }}</p>
-      <div>
+      <div class="service-tags">
         <span *ngFor="let tag of service.tags">{{ tag }}</span>
       </div>
     </article>
