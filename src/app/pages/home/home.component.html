@@ -289,14 +289,14 @@
                   aria-label="Indicatif pays"
                 >
                   <option *ngFor="let c of countries" [value]="c.iso">
-                    {{ c.iso }} {{ c.code }} - {{ c.name }}
+                    {{ c.iso }} {{ c.code }}
                   </option>
                 </select>
               </div>
               <input
                 id="tel"
                 type="tel"
-                placeholder="6 07 27 50 93"
+                placeholder=""
                 [(ngModel)]="form.tel"
                 name="tel"
                 class="tel-input"
