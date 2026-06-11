@@ -52,6 +52,8 @@
 }
 
 .service-card {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
   overflow: hidden;
   min-height: 19rem;
   padding: 0;
@@ -134,8 +136,9 @@
   .service-tags {
     display: flex;
     flex-wrap: wrap;
+    align-self: start;
     gap: 0.45rem;
-    margin: 1.2rem 1.35rem 1.35rem;
+    margin: 1.2rem 1.35rem 0.9rem;
   }
 
   span {
@@ -145,6 +148,35 @@
     background: #fee2e2;
     font-size: 0.78rem;
     font-weight: 800;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    justify-self: end;
+    gap: 0.4rem;
+    margin: 0 1.35rem 1.35rem;
+    color: #991b1b;
+    font-size: 0.9rem;
+    font-weight: 900;
+    text-decoration: none;
+    transition: color 0.22s ease, transform 0.22s ease;
+  }
+
+  .service-link i-lucide {
+    width: 1rem;
+    height: 1rem;
+    color: currentColor;
+    transition: transform 0.22s ease;
+  }
+
+  .service-link:hover {
+    color: #ef4444;
+    transform: translateX(2px);
+  }
+
+  .service-link:hover i-lucide {
+    transform: translateX(3px);
   }
 }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
 
 type ServiceIcon = 'bot' | 'code-2' | 'megaphone' | 'smartphone' | 'workflow' | 'line-chart';
@@ -10,12 +11,13 @@ type ServiceItem = {
   tags: string[];
   image: string;
   alt: string;
+  link: string;
 };
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, RouterLink, LucideAngularModule],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })
@@ -27,7 +29,8 @@ export class ServicesComponent {
       text: 'Strategies data-driven, agents IA et automatisations pour accelerer les operations.',
       tags: ['OpenAI', 'Automatisation', 'Data'],
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=85',
-      alt: 'Interface IA avec analyse de donnees'
+      alt: 'Interface IA avec analyse de donnees',
+      link: '/expertises/systemes'
     },
     {
       icon: 'megaphone',
@@ -35,7 +38,8 @@ export class ServicesComponent {
       text: 'Acquisition, SEO, campagnes payantes et tableaux de bord orientes performance.',
       tags: ['SEO', 'Ads', 'Analytics'],
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=85',
-      alt: 'Dashboard marketing digital et analytics'
+      alt: 'Dashboard marketing digital et analytics',
+      link: '/expertises/marketing-digital'
     },
     {
       icon: 'code-2',
@@ -43,7 +47,8 @@ export class ServicesComponent {
       text: 'Sites vitrines et e-commerce rapides, elegants et penses pour convertir.',
       tags: ['Angular', 'Next.js', 'WordPress'],
       image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=900&q=85',
-      alt: 'Conception de site web sur ordinateur'
+      alt: 'Conception de site web sur ordinateur',
+      link: '/expertises/applications-web'
     },
     {
       icon: 'workflow',
@@ -51,7 +56,8 @@ export class ServicesComponent {
       text: 'Plateformes sur mesure pour digitaliser vos ventes, equipes et processus metier.',
       tags: ['Node.js', 'API', 'Dashboards'],
       image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=85',
-      alt: 'Equipe travaillant sur une application web'
+      alt: 'Equipe travaillant sur une application web',
+      link: '/expertises/applications-web'
     },
     {
       icon: 'smartphone',
@@ -59,7 +65,8 @@ export class ServicesComponent {
       text: 'Apps iOS et Android modernes, de l UX au deploiement stores.',
       tags: ['Flutter', 'React Native', 'Expo'],
       image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=85',
-      alt: 'Application mobile affichee sur smartphone'
+      alt: 'Application mobile affichee sur smartphone',
+      link: '/expertises/applications-mobiles'
     },
     {
       icon: 'line-chart',
@@ -67,7 +74,8 @@ export class ServicesComponent {
       text: 'Experimentation, tracking et amelioration continue pour scaler avec methode.',
       tags: ['CRO', 'Funnels', 'Reporting'],
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=85',
-      alt: 'Analyse de croissance et reporting digital'
+      alt: 'Analyse de croissance et reporting digital',
+      link: '/expertises/marketing-digital'
     }
   ];
 }

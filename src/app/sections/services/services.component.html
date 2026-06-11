@@ -18,6 +18,10 @@
       <div class="service-tags">
         <span *ngFor="let tag of service.tags">{{ tag }}</span>
       </div>
+      <a class="service-link" [routerLink]="service.link" [attr.aria-label]="'Voir plus sur ' + service.title">
+        Voir plus
+        <i-lucide name="arrow-right"></i-lucide>
+      </a>
     </article>
   </div>
 </section>
