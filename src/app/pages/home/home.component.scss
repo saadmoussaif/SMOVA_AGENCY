@@ -90,7 +90,7 @@ main {
 .hero {
   position: relative;
   min-height: 100svh;
-  padding: 9.5rem 5vw 0;
+  padding: 10rem 5vw 0;
   overflow: hidden;
   color: #ffffff;
   background:
@@ -118,11 +118,11 @@ main {
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
-  align-items: end;
+  align-items: center;
   max-width: 1540px;
-  min-height: calc(100svh - 15.5rem);
+  min-height: calc(100svh - 15rem);
   margin: 0 auto;
-  padding: 2rem 0 4rem;
+  padding: 1rem 0 4rem;
 }
 
 .eyebrow,
@@ -185,58 +185,43 @@ main {
 .hero-typing-panel {
   position: relative;
   isolation: isolate;
-  width: min(100%, 54rem);
+  width: min(100%, 86rem);
   min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(1.6rem, 4vw, 3.2rem);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-left: 4px solid #ef4444;
-  border-radius: 8px;
-  overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(16, 16, 18, 0.82), rgba(28, 28, 30, 0.66)),
-    radial-gradient(circle at 20% 0%, rgba(239, 68, 68, 0.22), transparent 18rem);
-  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .hero-typing-panel::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), transparent 42%);
-  opacity: 0.8;
+  display: none;
 }
 
 .hero-typing-panel::after {
-  content: '';
-  position: absolute;
-  width: 14rem;
-  height: 14rem;
-  right: -4rem;
-  bottom: -5rem;
-  z-index: -1;
-  border: 1px solid rgba(239, 68, 68, 0.22);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(239, 68, 68, 0.18), transparent 64%);
+  display: none;
 }
 
 .hero-title {
-  max-width: 46rem;
-  min-height: clamp(8rem, 14vw, 12rem);
-  margin: 1rem 0 1.15rem;
+  max-width: 88rem;
+  min-height: clamp(9rem, 18vw, 18rem);
+  margin: 1rem 0 1.35rem;
   color: #ffffff;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.7rem, 5.2vw, 5.6rem);
-  line-height: 0.98;
+  font-size: clamp(3.2rem, 7.8vw, 8.4rem);
+  font-weight: 900;
+  line-height: 0.95;
   letter-spacing: 0;
+  text-shadow: 0 18px 54px rgba(0, 0, 0, 0.58);
 }
 
 .typing-text {
-  background: linear-gradient(90deg, #ffffff 0%, #ffffff 42%, #ef4444 64%, #7f1d1d 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 40%, #ff5b5b 64%, #991b1b 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -254,11 +239,12 @@ main {
 }
 
 .hero-lead {
-  max-width: 43rem;
+  max-width: 55rem;
   margin: 0;
-  color: #e5e5e5;
-  font-size: clamp(1rem, 1.45vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1.08rem, 1.6vw, 1.45rem);
   line-height: 1.75;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.64);
 }
 
 .hero-actions {
@@ -1394,7 +1380,7 @@ textarea {
 
   .hero-grid {
     min-height: calc(100svh - 13rem);
-    align-items: end;
+    align-items: center;
   }
 
   .hero-typing-panel {
@@ -1402,7 +1388,7 @@ textarea {
   }
 
   .hero-title {
-    min-height: 9rem;
+    min-height: 12rem;
   }
 
   .hero-stats {
@@ -1459,8 +1445,8 @@ textarea {
   }
 
   .hero-title {
-    min-height: 8rem;
-    font-size: clamp(2.35rem, 11vw, 4rem);
+    min-height: 9.5rem;
+    font-size: clamp(2.55rem, 12vw, 4.35rem);
   }
 
   .hero-lead {
