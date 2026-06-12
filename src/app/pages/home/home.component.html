@@ -133,26 +133,119 @@
     </div>
   </section>
 
-  <section class="process process-showcase">
-    <div class="section-heading process-heading">
-      <span>Notre processus</span>
-      <h2><strong>Notre</strong> <em>processus</em><br>de creation sur mesure</h2>
-      <p>Une approche structuree pour transformer vos idees en solutions concretes</p>
-    </div>
+  <section class="process-section">
+    <div class="process-container">
+      <div class="process-header">
+        <span class="section-kicker">
+          <i-lucide name="layers"></i-lucide>
+          Notre Approche
+        </span>
+        <h2>Un processus éprouvé, des résultats garantis</h2>
+        <p>De la stratégie au lancement, accompagnement transparent à chaque étape de votre projet.</p>
+      </div>
 
-    <div class="process-timeline">
-      <article *ngFor="let step of process" class="process-step">
-        <div class="process-icon-wrap">
-          <span class="process-number">{{ step.number }}</span>
-          <div class="process-icon">
-            <i-lucide [name]="step.icon"></i-lucide>
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="step-badge">01</div>
+          <div class="step-icon-wrap">
+            <div class="step-icon">
+              <i-lucide name="compass"></i-lucide>
+            </div>
+          </div>
+          <div class="step-card">
+            <h3>Audit & Stratégie</h3>
+            <p>
+              Analyse profonde de vos besoins, marché, concurrence.
+              On crée une roadmap claire et réaliste pour atteindre vos objectifs.
+            </p>
+            <ul class="step-details">
+              <li>Audit technique & UX/UI</li>
+              <li>Définition des KPIs</li>
+              <li>Roadmap produit</li>
+            </ul>
           </div>
         </div>
-        <div class="process-card">
-          <h3>{{ step.title }}</h3>
-          <p>{{ step.text }}</p>
+
+        <div class="process-step">
+          <div class="step-badge">02</div>
+          <div class="step-icon-wrap">
+            <div class="step-icon">
+              <i-lucide name="palette"></i-lucide>
+            </div>
+          </div>
+          <div class="step-card">
+            <h3>Design & Conception</h3>
+            <p>
+              UX/UI moderne et convertissante. Wireframes, prototypes interactifs,
+              tests utilisateur. On itère jusqu'à la perfection.
+            </p>
+            <ul class="step-details">
+              <li>Wireframing & prototypage</li>
+              <li>Design system</li>
+              <li>User testing & feedback</li>
+            </ul>
+          </div>
         </div>
-      </article>
+
+        <div class="process-step">
+          <div class="step-badge">03</div>
+          <div class="step-icon-wrap">
+            <div class="step-icon">
+              <i-lucide name="code"></i-lucide>
+            </div>
+          </div>
+          <div class="step-card">
+            <h3>Développement Agile</h3>
+            <p>
+              Sprints court (2-3 semaines). Tech stack moderne: React, Node, TypeScript, etc.
+              Code clean, testé, documenté. Reviews hebdos avec vous.
+            </p>
+            <ul class="step-details">
+              <li>Development par sprints</li>
+              <li>QA & testing automatisé</li>
+              <li>Déploiement continu</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-badge">04</div>
+          <div class="step-icon-wrap">
+            <div class="step-icon">
+              <i-lucide name="trending-up"></i-lucide>
+            </div>
+          </div>
+          <div class="step-card">
+            <h3>Lancement & Scaling</h3>
+            <p>
+              Déploiement en prod, monitoring, optimisations. On reste avec vous
+              pour la croissance: ajouts features, scaling infra, A/B testing.
+            </p>
+            <ul class="step-details">
+              <li>Go-to-market support</li>
+              <li>Performance monitoring</li>
+              <li>Maintenance & évolutions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-stats">
+        <div class="stat">
+          <strong>2-3 mois</strong>
+          <span>Cycle complet start-to-launch</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <strong>Agile Certified</strong>
+          <span>Sprints & methodology éprouvée</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <strong>Transparent</strong>
+          <span>Dashboards, reviews, communication claire</span>
+        </div>
+      </div>
     </div>
   </section>
 
