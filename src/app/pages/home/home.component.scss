@@ -90,26 +90,39 @@ main {
 .hero {
   position: relative;
   min-height: 100svh;
-  padding: 7.4rem 5vw 0;
+  padding: 9.5rem 5vw 0;
   overflow: hidden;
   color: #ffffff;
   background:
-    radial-gradient(circle at 68% 24%, rgba(239, 68, 68, 0.32), transparent 28rem),
-    radial-gradient(circle at 35% 86%, rgba(127, 29, 29, 0.24), transparent 26rem),
-    linear-gradient(rgba(239, 68, 68, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(239, 68, 68, 0.07) 1px, transparent 1px),
-    #050505;
-  background-size: auto, auto, 72px 72px, 72px 72px, auto;
+    linear-gradient(90deg, rgba(8, 8, 10, 0.84) 0%, rgba(8, 8, 10, 0.54) 43%, rgba(8, 8, 10, 0.18) 100%),
+    linear-gradient(180deg, rgba(8, 8, 10, 0.22) 0%, rgba(8, 8, 10, 0.62) 100%),
+    url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2200&q=85') center / cover no-repeat;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 84% 24%, rgba(239, 68, 68, 0.24), transparent 24rem),
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: auto, 80px 80px, 80px 80px;
+  mix-blend-mode: screen;
+  opacity: 0.55;
 }
 
 .hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
-  place-items: center;
+  align-items: end;
   max-width: 1540px;
-  min-height: calc(100svh - 12rem);
+  min-height: calc(100svh - 15.5rem);
   margin: 0 auto;
-  padding-top: 2rem;
+  padding: 2rem 0 4rem;
 }
 
 .eyebrow,
@@ -172,20 +185,21 @@ main {
 .hero-typing-panel {
   position: relative;
   isolation: isolate;
-  width: min(100%, 76rem);
-  min-height: clamp(24rem, 43vw, 36rem);
+  width: min(100%, 54rem);
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(2rem, 5vw, 5rem);
-  border: 1px solid rgba(239, 68, 68, 0.18);
-  border-radius: 14px;
+  padding: clamp(1.6rem, 4vw, 3.2rem);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 4px solid #ef4444;
+  border-radius: 8px;
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
-    radial-gradient(circle at 78% 28%, rgba(239, 68, 68, 0.24), transparent 24rem),
-    rgba(10, 10, 10, 0.72);
-  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    linear-gradient(135deg, rgba(16, 16, 18, 0.82), rgba(28, 28, 30, 0.66)),
+    radial-gradient(circle at 20% 0%, rgba(239, 68, 68, 0.22), transparent 18rem);
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
 }
 
 .hero-typing-panel::before {
@@ -193,21 +207,17 @@ main {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background:
-    linear-gradient(rgba(239, 68, 68, 0.11) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(239, 68, 68, 0.1) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(90deg, #000, transparent 82%);
-  opacity: 0.65;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), transparent 42%);
+  opacity: 0.8;
 }
 
 .hero-typing-panel::after {
   content: '';
   position: absolute;
-  width: 24rem;
-  height: 24rem;
-  right: -6rem;
-  bottom: -8rem;
+  width: 14rem;
+  height: 14rem;
+  right: -4rem;
+  bottom: -5rem;
   z-index: -1;
   border: 1px solid rgba(239, 68, 68, 0.22);
   border-radius: 50%;
@@ -215,13 +225,13 @@ main {
 }
 
 .hero-title {
-  max-width: 65rem;
-  min-height: clamp(10rem, 22vw, 18rem);
+  max-width: 46rem;
+  min-height: clamp(8rem, 14vw, 12rem);
   margin: 1rem 0 1.15rem;
   color: #ffffff;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(3rem, 7.2vw, 7.6rem);
-  line-height: 0.94;
+  font-size: clamp(2.7rem, 5.2vw, 5.6rem);
+  line-height: 0.98;
   letter-spacing: 0;
 }
 
@@ -244,11 +254,34 @@ main {
 }
 
 .hero-lead {
-  max-width: 50rem;
+  max-width: 43rem;
   margin: 0;
   color: #e5e5e5;
   font-size: clamp(1rem, 1.45vw, 1.3rem);
   line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.8rem;
+}
+
+.btn.primary {
+  border-color: transparent;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  text-decoration: none;
+  box-shadow: 0 18px 38px rgba(220, 38, 38, 0.28);
+}
+
+.btn.ghost {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  text-decoration: none;
+  backdrop-filter: blur(10px);
 }
 
 @keyframes cursorBlink {
@@ -258,6 +291,8 @@ main {
 }
 
 .hero-stats {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0;
@@ -1348,7 +1383,7 @@ textarea {
 
 @media (max-width: 980px) {
   .hero {
-    padding-top: 6.8rem;
+    padding-top: 7.2rem;
   }
 
   .hero-grid,
@@ -1358,15 +1393,16 @@ textarea {
   }
 
   .hero-grid {
-    min-height: auto;
+    min-height: calc(100svh - 13rem);
+    align-items: end;
   }
 
   .hero-typing-panel {
-    min-height: 30rem;
+    min-height: auto;
   }
 
   .hero-title {
-    min-height: 12rem;
+    min-height: 9rem;
   }
 
   .hero-stats {
@@ -1407,26 +1443,33 @@ textarea {
 
 @media (max-width: 620px) {
   .hero {
+    min-height: 100svh;
+    padding-top: 6.5rem;
     padding-bottom: 0;
   }
 
   .hero-grid {
-    padding-top: 1.6rem;
+    min-height: calc(100svh - 12rem);
+    padding: 1.6rem 0 2rem;
   }
 
   .hero-typing-panel {
-    min-height: 26rem;
     padding: 1.4rem;
-    border-radius: 10px;
+    border-radius: 8px;
   }
 
   .hero-title {
-    min-height: 11rem;
+    min-height: 8rem;
     font-size: clamp(2.35rem, 11vw, 4rem);
   }
 
   .hero-lead {
     font-size: 0.96rem;
+  }
+
+  .hero-actions {
+    display: grid;
+    gap: 0.75rem;
   }
 
   .form-header {
