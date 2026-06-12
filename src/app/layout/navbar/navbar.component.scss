@@ -32,40 +32,30 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
 .hero-shell {
   position: fixed;
   inset: 0 0 auto;
-  z-index: 60;
-  padding: 0 5vw;
+  z-index: 70;
+  padding: 0 5vw 0.75rem;
   background: transparent;
   border-bottom: 1px solid transparent;
   transition: all $transition-smooth;
-  backdrop-filter: blur(4px);
-  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+  text-shadow: none;
   
   &.scrolled {
-    background: rgba($color-bg, 0.96);
-    border-bottom-color: $color-border;
-    box-shadow: $shadow-md;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-    backdrop-filter: blur(18px);
+    background: #0b0f17;
+    border-bottom-color: rgba(#ffffff, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.26);
+    padding-top: 0.2rem;
+    padding-bottom: 0.6rem;
     text-shadow: none;
-    
-    .top-strip {
-      max-height: 0;
-      opacity: 0;
-      padding: 0;
-      visibility: hidden;
-      transition: all $transition-smooth, visibility $transition-smooth;
-    }
 
     .top-strip {
-      color: $color-text-light;
+      color: rgba(#ffffff, 0.82);
     }
 
     .top-link {
-      color: $color-primary;
+      color: rgba(#ffffff, 0.92);
 
       &:hover {
-        color: $color-primary-dark;
+        color: #ffffff;
       }
     }
 
@@ -89,12 +79,13 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0.7rem 0;
-  color: rgba(#ffffff, 0.82);
+  padding: 0.8rem 0 0.65rem;
+  color: rgba(#ffffff, 0.9);
   font-size: 0.95rem;
   font-weight: 800;
   transition: all $transition-smooth;
   overflow: hidden;
+  border-bottom: 1px solid rgba(#ffffff, 0.08);
 
   > span {
     display: none;
@@ -119,7 +110,7 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   display: inline-flex;
   align-items: center;
   gap: $spacing-sm;
-  color: rgba(#ffffff, 0.92);
+  color: rgba(#ffffff, 0.95);
   text-decoration: none;
   font-weight: 800;
   transition: color $transition-fast;
@@ -145,12 +136,17 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   max-width: 1500px;
   min-height: 5rem;
   margin: 0 auto;
-  padding: 0.75rem 1rem;
+  padding: 0.95rem 1.15rem;
   gap: $spacing-lg;
+  background: rgba(#ffffff, 0.98);
+  border: 1px solid rgba($color-border, 0.9);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 22px rgba(2, 6, 23, 0.08);
 
   @media (max-width: 620px) {
     min-height: 4rem;
     padding: 0.6rem 0.8rem;
+    border-radius: 1rem;
   }
 }
 
@@ -244,7 +240,7 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   gap: $spacing-sm;
   padding: 0.65rem 0.85rem;
   border-radius: $border-radius;
-  color: rgba(#ffffff, 0.94);
+  color: $color-text;
   font-weight: 900;
   font-size: clamp(0.92rem, 1.05vw, 1.08rem);
   line-height: 1.2;
@@ -278,7 +274,7 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   }
 
   &:hover {
-    color: #ffffff;
+    color: $color-primary;
     background: transparent;
 
     &::after {
@@ -291,7 +287,7 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   }
 
   &.active {
-    color: #ffffff;
+    color: $color-primary;
     background: transparent;
 
     &::after {
@@ -473,7 +469,7 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   padding: 0;
   border: none;
   background: transparent;
-  color: rgba(#ffffff, 0.94);
+  color: $color-text;
   cursor: pointer;
   transition: all $transition-fast;
   border-radius: $border-radius;
@@ -490,8 +486,8 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   }
 
   &:hover {
-    background: rgba(#ffffff, 0.12);
-    color: #ffffff;
+    background: rgba($color-primary, 0.08);
+    color: $color-primary;
   }
 
   &:focus-visible {
@@ -533,38 +529,30 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   align-items: center;
   gap: $spacing-sm;
   margin-left: clamp(0.6rem, 1.3vw, 1.4rem);
-  min-height: 4.5rem;
-  padding: 0 2rem;
-  border-radius: $border-radius;
-  background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+  min-height: 3.95rem;
+  padding: 0 1.55rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff5a5f 0%, #e11d48 50%, #c81e1e 100%);
   color: #ffffff;
   font-weight: 900;
-  font-size: clamp(0.95rem, 1.1vw, 1.12rem);
+  font-size: clamp(0.9rem, 1.0vw, 1.04rem);
   line-height: 1.25;
   text-decoration: none;
-  border: none;
+  border: 1px solid rgba(#ffffff, 0.12);
   cursor: pointer;
   transition: all $transition-normal;
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
 
   @media (max-width: 980px) {
     margin-left: 0;
     width: 100%;
     justify-content: center;
     margin-top: $spacing-md;
-    padding: 0.85rem 1.4rem;
-  }
-
-  // Glow effect
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(#ffffff, 0.2);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform $transition-normal;
+    padding: 0.85rem 1.15rem;
   }
 
   i-lucide {
@@ -575,15 +563,10 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   }
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba($color-primary, 0.35);
-
-    &::before {
-      transform: scaleX(1);
-    }
+    transform: translateY(-1px);
 
     i-lucide {
-      transform: translateX(2px);
+      transform: translateX(3px);
     }
   }
 
@@ -592,49 +575,51 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   }
 
   &:focus-visible {
-    outline: 2px solid #ffffff;
-    outline-offset: 2px;
+    outline: 2px solid rgba(#ffffff, 0.92);
+    outline-offset: 3px;
   }
 }
 
 // ✅ DARK MODE (Director route)
 :host-context(body.director-route) {
   .hero-shell {
-    background: rgba(17, 24, 39, 0.98);
-    border-bottom-color: rgba(#ffffff, 0.1);
+    background: transparent;
+    border-bottom-color: transparent;
 
     &.scrolled {
-      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
+      background: #0b0f17;
+      border-bottom-color: rgba(#ffffff, 0.08);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.26);
     }
   }
 
   .top-strip {
-    color: rgba(#ffffff, 0.6);
+    color: rgba(#ffffff, 0.82);
 
     > span {
-      color: rgba(#ffffff, 0.5);
+      color: rgba(#ffffff, 0.82);
     }
   }
 
   .top-link {
-    color: $color-primary;
+    color: rgba(#ffffff, 0.92);
 
     &:hover {
-      color: $color-primary-dark;
+      color: #ffffff;
     }
   }
 
   .nav-link {
-    color: rgba(#ffffff, 0.85);
+    color: $color-text;
 
     &:hover {
       color: $color-primary;
-      background: rgba($color-primary, 0.12);
+      background: transparent;
     }
 
     &.active {
       color: $color-primary;
-      background: rgba($color-primary, 0.12);
+      background: transparent;
     }
   }
 
@@ -669,11 +654,11 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
   }
 
   .nav-toggle {
-    color: rgba(#ffffff, 0.85);
+    color: $color-text;
 
     &:hover {
       color: $color-primary;
-      background: rgba($color-primary, 0.12);
+      background: rgba($color-primary, 0.08);
     }
   }
 }
@@ -738,7 +723,7 @@ $shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.12);
 
   .nav-cta {
     font-size: 0.85rem;
-    padding: 0.7rem 1.2rem;
+    padding: 0.72rem 1.15rem;
   }
 
   .dropdown-menu {
