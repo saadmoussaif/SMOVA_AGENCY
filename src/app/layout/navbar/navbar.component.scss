@@ -146,8 +146,8 @@ $border-radius: 8px;
   max-width: 1600px;
   width: 100%;
   margin: 0 auto;
-  padding: 1rem 5vw;
-  gap: 2rem;
+  padding: 0.85rem 5vw;
+  gap: 1.25rem;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -187,13 +187,13 @@ $border-radius: 8px;
 
 .brand-logo {
   display: block;
-  height: 3.2rem;
+  height: 2.9rem;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
 
   @media (max-width: 620px) {
-    height: 2.2rem;
+    height: 2rem;
   }
 
   .hero-shell.scrolled & {
@@ -205,7 +205,7 @@ $border-radius: 8px;
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
   flex: 1;
   justify-content: center;
   margin: 0;
@@ -247,11 +247,11 @@ $border-radius: 8px;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.65rem 1rem;
+  padding: 0.6rem 0.95rem;
   border-radius: $border-radius;
   color: #ffffff;
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   text-decoration: none;
   cursor: pointer;
   background: transparent;
@@ -530,14 +530,14 @@ $border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  min-height: 3.4rem;
-  padding: 0.8rem 2rem;
+  gap: 0.45rem;
+  min-height: 2.95rem;
+  padding: 0.68rem 1.25rem;
   border-radius: 999px;
   background: linear-gradient(135deg, #ff5a5f, $primary, $primary-dark);
   color: #ffffff;
   font-weight: 900;
-  font-size: 0.95rem;
+  font-size: 0.87rem;
   line-height: 1.3;
   text-decoration: none;
   border: none;
@@ -548,19 +548,19 @@ $border-radius: 8px;
   letter-spacing: 0.01em;
   white-space: nowrap;
   flex-shrink: 0;
-  box-shadow: 0 6px 24px rgba($primary, 0.35);
+  box-shadow: 0 8px 20px rgba($primary, 0.24);
 
   @media (max-width: 980px) {
     min-height: auto;
-    padding: 0.8rem 1.8rem;
-    font-size: 0.9rem;
+    padding: 0.75rem 1.4rem;
+    font-size: 0.85rem;
     margin-top: 0.75rem;
     width: 100%;
   }
 
   @media (max-width: 620px) {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.85rem;
+    padding: 0.7rem 1.25rem;
+    font-size: 0.82rem;
   }
 
   i-lucide {
@@ -572,7 +572,7 @@ $border-radius: 8px;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 36px rgba($primary, 0.45);
+    box-shadow: 0 10px 26px rgba($primary, 0.3);
 
     i-lucide {
       transform: translateX(3px);
