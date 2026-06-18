@@ -102,6 +102,15 @@
         class="nav-link">
         {{ i18n.t('nav.technologies') }}
       </a>
+
+      <a
+        routerLink="/"
+        fragment="contact"
+        (click)="closeMenu()"
+        class="nav-cta nav-cta-mobile">
+        {{ i18n.t('nav.cta') }}
+        <i-lucide name="arrow-right"></i-lucide>
+      </a>
     </div>
 
     <!-- CTA Button (LARGE & PROMINENT) -->
