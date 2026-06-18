@@ -80,6 +80,15 @@ $border-radius: 8px;
     font-size: 0.8rem;
     gap: 1rem;
   }
+
+  // ✅ MOBILE : réorganisation complète
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+    padding: 0.5rem 3.5vw;
+    font-size: 0.7rem;
+  }
 }
 
 .top-strip-brand {
@@ -89,6 +98,15 @@ $border-radius: 8px;
     display: block;
     font-weight: 700;
     letter-spacing: 0.01em;
+  }
+
+  // ✅ Afficher le texte sur mobile si on veut
+  @media (max-width: 480px) {
+    display: block;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
   }
 }
 
@@ -107,6 +125,15 @@ $border-radius: 8px;
     flex-direction: column;
     align-items: flex-end;
     margin-left: 0;
+  }
+
+  // ✅ MOBILE : row avec espacement
+  @media (max-width: 480px) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-left: 0;
+    flex-wrap: wrap;
   }
 }
 
@@ -133,6 +160,22 @@ $border-radius: 8px;
     @media (max-width: 620px) {
       display: none;
     }
+
+    // ✅ Réafficher sur très petit
+    @media (max-width: 480px) {
+      display: inline-flex;
+      font-size: 0.65rem;
+    }
+  }
+
+  // ✅ Adapter taille sur mobile
+  @media (max-width: 480px) {
+    font-size: 0.65rem;
+    
+    i-lucide {
+      width: 0.7rem;
+      height: 0.7rem;
+    }
   }
 }
 
@@ -146,8 +189,8 @@ $border-radius: 8px;
   max-width: 1600px;
   width: 100%;
   margin: 0 auto;
-  padding: 0.85rem 5vw;
-  gap: 1.25rem;
+  padding: 1rem 5vw;
+  gap: 2rem;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -162,6 +205,13 @@ $border-radius: 8px;
   @media (max-width: 620px) {
     padding: 0.7rem 3.5vw;
     gap: 0.75rem;
+  }
+
+  // ✅ MOBILE : meilleur alignement
+  @media (max-width: 480px) {
+    padding: 0.5rem 3vw;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 }
 
@@ -187,13 +237,17 @@ $border-radius: 8px;
 
 .brand-logo {
   display: block;
-  height: 2.9rem;
+  height: 3.2rem;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
 
   @media (max-width: 620px) {
-    height: 2rem;
+    height: 2.2rem;
+  }
+
+  @media (max-width: 480px) {
+    height: 1.8rem;
   }
 
   .hero-shell.scrolled & {
@@ -205,7 +259,7 @@ $border-radius: 8px;
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
   flex: 1;
   justify-content: center;
   margin: 0;
@@ -240,6 +294,15 @@ $border-radius: 8px;
       transform: translateY(0) scaleY(1);
     }
   }
+
+  // ✅ MOBILE : meilleur padding
+  @media (max-width: 480px) {
+    .navbar.open & {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 0.8rem;
+    }
+  }
 }
 
 // ✅ NAV LINK (Regular link)
@@ -247,11 +310,11 @@ $border-radius: 8px;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.6rem 0.95rem;
+  padding: 0.65rem 1rem;
   border-radius: $border-radius;
   color: #ffffff;
   font-weight: 800;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   text-decoration: none;
   cursor: pointer;
   background: transparent;
@@ -270,6 +333,11 @@ $border-radius: 8px;
       color: $primary;
       background: rgba($primary, 0.08);
     }
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.85rem;
   }
 
   // Underline animation
@@ -383,6 +451,10 @@ $border-radius: 8px;
     margin-top: 0.5rem;
   }
 
+  @media (max-width: 480px) {
+    padding-left: 1.5rem;
+  }
+
   &.open {
     opacity: 1;
     visibility: visible;
@@ -424,6 +496,12 @@ $border-radius: 8px;
     white-space: normal;
     padding: 0.65rem 1rem;
     min-height: 2.4rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+    min-height: 2rem;
   }
 
   i-lucide {
@@ -488,6 +566,11 @@ $border-radius: 8px;
     display: flex;
   }
 
+  @media (max-width: 480px) {
+    width: 2rem;
+    height: 2rem;
+  }
+
   &:hover {
     color: $primary;
   }
@@ -525,62 +608,80 @@ $border-radius: 8px;
   }
 }
 
-// ✅ NAV CTA (LARGE PROMINENT BUTTON)
+// ✅ NAV CTA — VERSION COMPACTE & ÉLÉGANTE
 .nav-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  min-height: 2.95rem;
-  padding: 0.68rem 1.25rem;
+  gap: 0.5rem;
+  min-height: 2.4rem;
+  padding: 0.45rem 1.2rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, #ff5a5f, $primary, $primary-dark);
+  background: $primary;
   color: #ffffff;
-  font-weight: 900;
-  font-size: 0.87rem;
-  line-height: 1.3;
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 1.2;
   text-decoration: none;
   border: none;
   cursor: pointer;
   transition: all $transition-fast;
   position: relative;
   overflow: hidden;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.3px;
   white-space: nowrap;
   flex-shrink: 0;
-  box-shadow: 0 8px 20px rgba($primary, 0.24);
+  box-shadow: 0 4px 14px rgba($primary, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 
   @media (max-width: 980px) {
-    min-height: auto;
-    padding: 0.75rem 1.4rem;
-    font-size: 0.85rem;
-    margin-top: 0.75rem;
+    min-height: 2.6rem;
+    padding: 0.5rem 1.4rem;
+    font-size: 0.8rem;
+    margin-top: 0.6rem;
     width: 100%;
   }
 
   @media (max-width: 620px) {
-    padding: 0.7rem 1.25rem;
-    font-size: 0.82rem;
+    min-height: 2.2rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 2rem;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.65rem;
+    border-radius: 30px;
+    width: 100%;
+    margin-top: 0.5rem;
+    
+    i-lucide {
+      width: 0.7rem;
+      height: 0.7rem;
+      display: none; // Cache l'icône sur très petit
+    }
   }
 
   i-lucide {
-    width: 1.2rem;
-    height: 1.2rem;
-    stroke-width: 2.8;
+    width: 0.9rem;
+    height: 0.9rem;
+    stroke-width: 2.5;
     transition: transform $transition-fast;
   }
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 26px rgba($primary, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba($primary, 0.35);
+    background: $primary-dark;
 
     i-lucide {
-      transform: translateX(3px);
+      transform: translateX(2px);
     }
   }
 
   &:active {
-    transform: translateY(0);
+    transform: scale(0.96);
   }
 
   &:focus-visible {
@@ -589,7 +690,7 @@ $border-radius: 8px;
   }
 }
 
-// ✅ RESPONSIVE
+// ✅ RESPONSIVE - Version mobile améliorée
 @media (max-width: 980px) {
   .hero-shell {
     padding: 0;
@@ -635,5 +736,162 @@ $border-radius: 8px;
 
   .dropdown-menu {
     padding-left: 2.5rem;
+  }
+}
+
+// ✅ TRÈS PETIT ÉCRAN (mobile)
+@media (max-width: 480px) {
+  .hero-shell {
+    &.scrolled {
+      .navbar {
+        border: none;
+        border-bottom: 1px solid $border-light;
+      }
+    }
+  }
+
+  .navbar {
+    padding: 0.4rem 3vw;
+    gap: 0.3rem;
+    flex-wrap: nowrap;
+
+    &.open {
+      .nav-links {
+        left: 3vw;
+        right: 3vw;
+        top: calc(100% + 0.5rem);
+        padding: 0.8rem;
+        border-radius: 6px;
+        max-height: 65vh;
+        overflow-y: auto;
+      }
+    }
+  }
+
+  .brand {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .brand-logo {
+    height: 1.6rem;
+  }
+
+  .nav-links {
+    .navbar.open & {
+      max-height: 65vh;
+      overflow-y: auto;
+      padding: 0.8rem;
+    }
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .dropdown-menu {
+    padding-left: 1.2rem;
+    
+    .dropdown-item {
+      padding: 0.4rem 0.6rem;
+      font-size: 0.8rem;
+      min-height: 1.8rem;
+    }
+  }
+
+  .nav-toggle {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  // ✅ CTA en bas du menu mobile
+  .nav-cta {
+    min-height: 1.8rem;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.6rem;
+    margin-top: 0.4rem;
+    border-radius: 20px;
+    
+    i-lucide {
+      display: none;
+    }
+  }
+
+  // ✅ Top strip mobile
+  .top-strip {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+    padding: 0.4rem 3vw;
+    font-size: 0.65rem;
+  }
+
+  .top-strip-brand {
+    display: block;
+    text-align: center;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .top-strip-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .top-link {
+    font-size: 0.6rem;
+    
+    i-lucide {
+      width: 0.6rem;
+      height: 0.6rem;
+    }
+
+    &.phone {
+      display: inline-flex;
+    }
+  }
+}
+
+// ✅ Très petit écran (moins de 360px)
+@media (max-width: 360px) {
+  .navbar {
+    padding: 0.3rem 2vw;
+    
+    &.open .nav-links {
+      padding: 0.6rem;
+    }
+  }
+
+  .brand-logo {
+    height: 1.4rem;
+  }
+
+  .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .nav-cta {
+    min-height: 1.6rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.55rem;
+  }
+
+  .top-strip {
+    padding: 0.3rem 2vw;
+    font-size: 0.55rem;
+  }
+
+  .top-link {
+    font-size: 0.55rem;
+    
+    i-lucide {
+      width: 0.5rem;
+      height: 0.5rem;
+    }
   }
 }
