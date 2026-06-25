@@ -1,4 +1,6 @@
-:host { display: block; }
+:host {
+  display: block;
+}
 
 // ✅ VARIABLES
 $primary: #ef4444;
@@ -40,7 +42,6 @@ $border-radius: 8px;
     .top-strip { border-bottom: 1px solid rgba(0,0,0,.06); }
   }
 
-  // ✅ Menu mobile ouvert → cache le top-strip (comme Wave)
   &.menu-open {
     .top-strip {
       @media (max-width: 980px) {
@@ -49,68 +50,74 @@ $border-radius: 8px;
     }
   }
 }
-// ✅ TOP STRIP — Fix mobile complet
-// Remplace uniquement la section .top-strip et ses enfants dans ton SCSS
-// ✅ TOP STRIP — Version simplifiée et claire
+
+// ✅ TOP STRIP — Version améliorée avec plus d'espace
 .top-strip {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   margin: 0 auto;
-  padding: 0.6rem 5vw;
+  padding: 0.8rem 5vw;
   background: $black;
   color: #ffffff;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 600;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   transition: all $transition;
-  gap: 1rem;
+  gap: 2rem;
 
   @media (max-width: 768px) {
-    padding: 0.55rem 4vw;
-    font-size: 0.82rem;
+    padding: 0.7rem 4vw;
+    font-size: 0.85rem;
+    gap: 1.5rem;
   }
 
   @media (max-width: 620px) {
-    padding: 0.5rem 4vw;
+    padding: 0.6rem 4vw;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 0;
+    gap: 1rem;
   }
 
   @media (max-width: 380px) {
-    padding: 0.45rem 3.5vw;
+    padding: 0.5rem 3.5vw;
+    gap: 0.8rem;
   }
 }
 
-// ✅ Texte gauche : "Agence digitale startup au Maroc"
+// ✅ Texte gauche : "Agence digitale startup au Maroc" — plus visible
 .top-strip-brand {
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
   flex: 1;
+  font-size: 0.95rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
 
   @media (max-width: 620px) {
-    font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.78rem;
+    font-weight: 600;
   }
 
   @media (max-width: 480px) {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
   }
 
   @media (max-width: 380px) {
-    display: none; // Cache sur très petit écran
+    display: none;
   }
 }
 
-// ✅ Actions : "Réserver un appel" à droite
+// ✅ Actions : "Réserver un appel" à droite — bien visible
 .top-strip-actions {
   display: flex;
   align-items: center;
@@ -127,32 +134,37 @@ $border-radius: 8px;
   }
 }
 
-// ✅ Lien "Réserver un appel" (UNIQUEMENT)
+// ✅ Lien "Réserver un appel" — plus visible
 .top-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   white-space: nowrap;
   transition: color $transition-fast;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
 
   i-lucide {
-    width: 0.95rem;
-    height: 0.95rem;
+    width: 1rem;
+    height: 1rem;
     stroke-width: 2.5;
     flex-shrink: 0;
   }
 
   &:hover {
     color: $primary;
+    background: rgba(255, 255, 255, 0.1);
   }
 
-  // ─── Responsive ───────────────────────────
   @media (max-width: 768px) {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+    padding: 0.25rem 0.6rem;
 
     i-lucide {
       width: 0.9rem;
@@ -161,8 +173,9 @@ $border-radius: 8px;
   }
 
   @media (max-width: 620px) {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     gap: 0.4rem;
+    padding: 0.2rem 0.5rem;
 
     i-lucide {
       width: 0.85rem;
@@ -171,8 +184,9 @@ $border-radius: 8px;
   }
 
   @media (max-width: 480px) {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     gap: 0.3rem;
+    padding: 0.15rem 0.4rem;
 
     i-lucide {
       width: 0.8rem;
@@ -181,8 +195,9 @@ $border-radius: 8px;
   }
 
   @media (max-width: 380px) {
-    font-size: 0.65rem;
+    font-size: 0.68rem;
     gap: 0.25rem;
+    padding: 0.1rem 0.3rem;
 
     i-lucide {
       width: 0.75rem;
@@ -190,11 +205,11 @@ $border-radius: 8px;
     }
   }
 
-  // ✅ PAS de séparateur (supprimé)
   &::after {
     display: none;
   }
 }
+
 // ✅ NAVBAR
 .navbar {
   position: relative;
@@ -214,7 +229,6 @@ $border-radius: 8px;
   @media (max-width: 620px) { padding: 0.7rem 3.5vw; gap: 0.75rem; }
   @media (max-width: 480px) { padding: 0.5rem 3vw; gap: 0.5rem; flex-wrap: nowrap; }
 
-  // ✅ Quand le menu mobile est ouvert : pas de flex-reverse, layout simple
   &.open {
     @media (max-width: 980px) {
       flex-direction: row;
@@ -223,22 +237,32 @@ $border-radius: 8px;
   }
 }
 
-// ✅ BRAND
+// ✅ BRAND — Logo bien visible
 .brand {
-  display: inline-flex; align-items: center; text-decoration: none;
-  flex-shrink: 0; transition: opacity $transition-fast; z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: opacity $transition-fast;
+  z-index: 10;
+  
   &:hover { opacity: 0.8; }
   &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; border-radius: $border-radius; }
 }
 
 .brand-logo {
-  display: block; height: 3.2rem; width: auto; object-fit: contain;
+  display: block;
+  height: 3.4rem;
+  width: auto;
+  object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,.1));
-  @media (max-width: 620px) { height: 2.2rem; }
-  @media (max-width: 480px) { height: 1.8rem; }
+  
+  @media (max-width: 768px) { height: 2.8rem; }
+  @media (max-width: 620px) { height: 2.4rem; }
+  @media (max-width: 480px) { height: 2rem; }
+  
   .hero-shell.scrolled & { filter: drop-shadow(0 1px 4px rgba(0,0,0,.08)); }
 
-  // ✅ Logo blanc/clair quand menu mobile sombre est ouvert
   .navbar.open & {
     @media (max-width: 980px) {
       filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,.3));
@@ -246,7 +270,7 @@ $border-radius: 8px;
   }
 }
 
-// ✅ NAV LINKS — Style Wave : pleine largeur, sombre, espacé
+// ✅ NAV LINKS
 .nav-links {
   display: flex;
   align-items: center;
@@ -286,7 +310,6 @@ $border-radius: 8px;
     }
   }
 
-  // Liens blancs, séparés par une ligne fine — comme Wave
   .nav-link, .dropdown-trigger {
     @media (max-width: 980px) {
       color: #fff !important;
@@ -297,7 +320,7 @@ $border-radius: 8px;
       font-size: 1.05rem !important;
       font-weight: 600 !important;
 
-      &::after { display: none; } // pas de soulignement rouge en mobile
+      &::after { display: none; }
 
       &:hover, &.active {
         color: $primary !important;
@@ -309,18 +332,36 @@ $border-radius: 8px;
 
 // ✅ NAV LINK (desktop)
 .nav-link {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  padding: 0.65rem 1rem; border-radius: $border-radius;
-  color: #fff; font-weight: 800; font-size: 0.95rem;
-  text-decoration: none; cursor: pointer; background: transparent; border: none;
-  transition: all $transition-fast; position: relative; white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  border-radius: $border-radius;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: all $transition-fast;
+  position: relative;
+  white-space: nowrap;
 
   @media (max-width: 480px) { padding: 0.6rem 0.9rem; font-size: 0.85rem; }
 
   &::after {
-    content: ''; position: absolute; bottom: 0.4rem; left: 1rem; right: 1rem;
-    height: 2px; background: $primary; border-radius: 2px;
-    transform: scaleX(0); transform-origin: left; transition: transform $transition-fast;
+    content: '';
+    position: absolute;
+    bottom: 0.4rem;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background: $primary;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-fast;
   }
   &:hover { color: $primary; &::after { transform: scaleX(1); } }
   &.active { color: $primary; &::after { transform: scaleX(1); } }
@@ -329,14 +370,18 @@ $border-radius: 8px;
 
 // ✅ DROPDOWN
 .nav-dropdown {
-  position: relative; display: flex; align-items: center;
+  position: relative;
+  display: flex;
+  align-items: center;
   @media (max-width: 980px) { flex-direction: column; align-items: stretch; gap: 0; }
 }
 
 .dropdown-trigger {
   position: relative;
   .chevron {
-    width: 1rem; height: 1rem; stroke-width: 2.5;
+    width: 1rem;
+    height: 1rem;
+    stroke-width: 2.5;
     transition: transform $transition-fast;
     @media (max-width: 980px) { transform: rotate(0deg) !important; }
   }
@@ -350,39 +395,75 @@ $border-radius: 8px;
 }
 
 .dropdown-menu {
-  position: absolute; top: calc(100% + 0.75rem); left: 50%;
-  display: grid; min-width: 18rem; padding: 0.6rem;
-  background: $bg-white; border: 1px solid $border-light; border-radius: $border-radius;
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 50%;
+  display: grid;
+  min-width: 18rem;
+  padding: 0.6rem;
+  background: $bg-white;
+  border: 1px solid $border-light;
+  border-radius: $border-radius;
   box-shadow: 0 12px 40px rgba(0,0,0,.12);
-  opacity: 0; visibility: hidden; transform: translate(-50%, 10px);
-  transition: all $transition-fast; z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 10px);
+  transition: all $transition-fast;
+  z-index: 100;
 
   @media (max-width: 980px) {
-    position: static; min-width: 0; padding: 0; border: none;
-    background: transparent; box-shadow: none; transform: none; margin-top: 0;
-    max-height: 0; opacity: 0; visibility: hidden; overflow: hidden;
+    position: static;
+    min-width: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+    margin-top: 0;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
     transition: max-height $transition, opacity $transition, margin-top $transition;
   }
 
   &.open {
-    opacity: 1; visibility: visible; transform: translate(-50%, 0);
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
     @media (max-width: 980px) {
-      max-height: 30rem; opacity: 1; visibility: visible; transform: none;
-      margin-top: 0; padding: 0;
+      max-height: 30rem;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      margin-top: 0;
+      padding: 0;
     }
   }
 
   &::before {
-    content: ''; position: absolute; inset: -0.75rem 0 auto; height: 0.75rem;
+    content: '';
+    position: absolute;
+    inset: -0.75rem 0 auto;
+    height: 0.75rem;
     @media (max-width: 980px) { display: none; }
   }
 }
 
 .dropdown-item {
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  min-height: 2.8rem; padding: 0.75rem 1rem; border-radius: 6px;
-  color: $text-dark; text-decoration: none; font-weight: 500; font-size: 0.9rem;
-  transition: all $transition-fast; white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 2.8rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  color: $text-dark;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all $transition-fast;
+  white-space: nowrap;
 
   @media (max-width: 980px) {
     white-space: normal;
@@ -402,27 +483,40 @@ $border-radius: 8px;
   }
 
   i-lucide {
-    width: 1rem; height: 1rem; color: $text-light;
-    transition: all $transition-fast; opacity: 0; transform: translateX(-4px);
+    width: 1rem;
+    height: 1rem;
+    color: $text-light;
+    transition: all $transition-fast;
+    opacity: 0;
+    transform: translateX(-4px);
     @media (max-width: 980px) { opacity: 1; transform: none; }
   }
 
   &:hover {
-    color: $primary; background: rgba($primary, .08);
+    color: $primary;
+    background: rgba($primary, .08);
     i-lucide { color: $primary; opacity: 1; transform: translateX(4px); @media (max-width: 980px) { transform: none; } }
   }
 
   &:focus-visible { outline: 2px solid $primary; outline-offset: -2px; }
 }
 
-// ✅ NAV TOGGLE — hamburger qui devient X (PAS de flèche retour séparée)
+// ✅ NAV TOGGLE
 .nav-toggle {
   display: none;
-  align-items: center; justify-content: center;
-  width: 2.5rem; height: 2.5rem; padding: 0; border: none;
-  background: transparent; color: #fff; cursor: pointer;
-  transition: all $transition-fast; border-radius: $border-radius;
-  flex-shrink: 0; z-index: 30;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all $transition-fast;
+  border-radius: $border-radius;
+  flex-shrink: 0;
+  z-index: 30;
 
   svg { width: 100%; height: 100%; display: block; }
 
@@ -432,7 +526,6 @@ $border-radius: 8px;
   &:hover { color: $primary; }
   &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; }
 
-  // ✅ Sur fond sombre (menu ouvert), toggle reste blanc et visible
   .navbar.open & {
     @media (max-width: 980px) {
       position: fixed;
@@ -444,7 +537,12 @@ $border-radius: 8px;
   }
 }
 
-.ham-line { stroke-linecap: round; stroke-linejoin: round; transform-origin: center; transition: all $transition-fast; }
+.ham-line {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: center;
+  transition: all $transition-fast;
+}
 
 .navbar.open {
   .ham-top { transform: rotate(45deg) translateY(10px); stroke-dasharray: 20 100; stroke-dashoffset: -8; }
@@ -454,12 +552,27 @@ $border-radius: 8px;
 
 // ✅ NAV CTA — Desktop
 .nav-cta {
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-  min-height: 2.4rem; padding: 0.45rem 1.2rem; border-radius: 999px;
-  background: $primary; color: #fff; font-weight: 700; font-size: 0.8rem; line-height: 1.2;
-  text-decoration: none; border: 1px solid rgba(255,255,255,.15); cursor: pointer;
-  transition: all $transition-fast; position: relative; overflow: hidden;
-  letter-spacing: 0.3px; white-space: nowrap; flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.4rem;
+  padding: 0.45rem 1.2rem;
+  border-radius: 999px;
+  background: $primary;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.15);
+  cursor: pointer;
+  transition: all $transition-fast;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
   box-shadow: 0 4px 14px rgba($primary, .25);
 
   @media (max-width: 980px) { display: none; }
@@ -467,7 +580,8 @@ $border-radius: 8px;
   i-lucide { width: 0.9rem; height: 0.9rem; stroke-width: 2.5; transition: transform $transition-fast; }
 
   &:hover {
-    transform: translateY(-1px); box-shadow: 0 6px 18px rgba($primary, .35);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba($primary, .35);
     background: $primary-dark;
     i-lucide { transform: translateX(2px); }
   }
@@ -475,20 +589,27 @@ $border-radius: 8px;
   &:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 }
 
-// ✅ NAV CTA MOBILE — pleine largeur, fixé en bas du menu (style Wave)
+// ✅ NAV CTA MOBILE
 .nav-cta-mobile {
   display: none;
 
   @media (max-width: 980px) {
     display: inline-flex;
-    align-items: center; justify-content: center; gap: 0.6rem;
-    min-height: 3.2rem; padding: 0.9rem 1rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3.2rem;
+    padding: 0.9rem 1rem;
     margin-top: 1.5rem;
     border-radius: 999px;
     width: 100%;
     background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
-    color: #fff; font-weight: 700; font-size: 0.95rem;
-    text-decoration: none; border: none; cursor: pointer;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
     transition: all $transition-fast;
     box-shadow: 0 14px 30px rgba($primary, .28);
     flex-shrink: 0;
@@ -496,14 +617,15 @@ $border-radius: 8px;
     i-lucide { width: 1rem; height: 1rem; }
 
     &:hover {
-      transform: translateY(-2px); box-shadow: 0 18px 36px rgba($primary, .35);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba($primary, .35);
       background: linear-gradient(135deg, $primary-dark 0%, darken($primary-dark, 10%) 100%);
     }
     &:active { transform: scale(0.96); }
   }
 }
 
-// ✅ Liens secondaires sous le CTA (optionnel, style Wave : tags IA/Dev/Marketing)
+// ✅ NAV MOBILE TAGS
 .nav-mobile-tags {
   display: none;
   @media (max-width: 980px) {
@@ -524,14 +646,10 @@ $border-radius: 8px;
   }
 }
 
-// ✅ RESPONSIVE — structure générale
+// ✅ RESPONSIVE
 @media (max-width: 980px) {
   .hero-shell { padding: 0; }
-
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+  .navbar { flex-direction: row; justify-content: space-between; }
 }
 
 @media (max-width: 620px) {
@@ -543,21 +661,40 @@ $border-radius: 8px;
   .hero-shell.scrolled .navbar { border: none; border-bottom: 1px solid $border-light; }
 
   .navbar {
-    padding: 0.4rem 3vw; gap: 0.3rem; flex-wrap: nowrap;
+    padding: 0.4rem 3vw;
+    gap: 0.3rem;
+    flex-wrap: nowrap;
   }
 
   .brand { flex: 1; min-width: 0; }
   .brand-logo { height: 1.6rem; }
-
   .nav-toggle { width: 1.8rem; height: 1.8rem; }
 
   .top-strip {
-    flex-direction: column; align-items: stretch; gap: 0.3rem;
-    padding: 0.4rem 3vw; font-size: 0.65rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+    padding: 0.4rem 3vw;
+    font-size: 0.65rem;
   }
-  .top-strip-brand { display: block; text-align: center; font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,.8); }
-  .top-strip-actions { flex-direction: row; justify-content: center; gap: 0.6rem; flex-wrap: wrap; }
-  .top-link { font-size: 0.6rem; i-lucide { width: 0.6rem; height: 0.6rem; } &.phone { display: inline-flex; } }
+  .top-strip-brand {
+    display: block;
+    text-align: center;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  .top-strip-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .top-link {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.4rem;
+    i-lucide { width: 0.6rem; height: 0.6rem; }
+  }
 }
 
 @media (max-width: 360px) {
