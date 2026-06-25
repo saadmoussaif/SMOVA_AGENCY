@@ -1,4 +1,4 @@
-<section class="hero-shell" id="accueil" [class.scrolled]="isScrolled">
+<section class="hero-shell" id="accueil" [class.scrolled]="isScrolled" [class.menu-open]="menuOpen">
   <!-- TOP STRIP (Always visible - black) -->
   <div class="top-strip">
     <span class="top-strip-brand">Agence digitale startup au Maroc</span>
@@ -7,14 +7,10 @@
         <i-lucide name="calendar-days"></i-lucide> 
         {{ i18n.t('nav.call') }}
       </a>
-      <a href="tel:+212607275093" class="top-link phone">
-        <i-lucide name="phone"></i-lucide> 
-        +212 6 07 27 50 93
-      </a>
     </div>
   </div>
 
-  <!-- NAVBAR (Transparent → White on scroll) -->
+  <!-- NAVBAR -->
   <nav class="navbar" [class.open]="menuOpen">
     <!-- Logo -->
     <a class="brand" routerLink="/" aria-label="SMAgency" (click)="closeMenu()">
@@ -30,7 +26,7 @@
       </svg>
     </button>
 
-    <!-- Navigation Links -->
+    <!-- Navigation Links - Mobile Full Screen -->
     <div class="nav-links">
       <!-- Home -->
       <a 
@@ -52,7 +48,7 @@
       </a>
 
       <!-- Dropdown: Expertises -->
-      <div class="nav-dropdown" (mouseenter)="openDropdown('expertises')" (mouseleave)="closeDropdown()">
+      <div class="nav-dropdown">
         <button 
           class="dropdown-trigger nav-link"
           [class.active]="activeDropdown === 'expertises'"
@@ -103,17 +99,25 @@
         {{ i18n.t('nav.technologies') }}
       </a>
 
+      <!-- Mobile Tags (IA, Développement, Marketing Digital) - style Wave -->
+      <div class="nav-mobile-tags">
+        <span>IA</span>
+        <span>Développement</span>
+        <span>Marketing Digital</span>
+      </div>
+
+      <!-- Mobile CTA Button -->
       <a
         routerLink="/"
         fragment="contact"
         (click)="closeMenu()"
-        class="nav-cta nav-cta-mobile">
+        class="nav-cta-mobile">
         {{ i18n.t('nav.cta') }}
         <i-lucide name="arrow-right"></i-lucide>
       </a>
     </div>
 
-    <!-- CTA Button (LARGE & PROMINENT) -->
+    <!-- Desktop CTA Button -->
     <a 
       routerLink="/" 
       fragment="contact" 
