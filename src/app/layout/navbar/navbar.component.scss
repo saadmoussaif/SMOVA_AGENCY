@@ -50,8 +50,7 @@ $border-radius: 8px;
     }
   }
 }
-
-// ✅ TOP STRIP — Version améliorée avec plus d'espace
+// ✅ TOP STRIP — Titre à gauche, "Réserver un appel" à droite
 .top-strip {
   display: flex;
   justify-content: space-between;
@@ -87,8 +86,9 @@ $border-radius: 8px;
   }
 }
 
-// ✅ Texte gauche : "Agence digitale startup au Maroc" — plus visible
+// ✅ Titre "Agence digitale startup au Maroc" — à gauche (comme le cercle)
 .top-strip-brand {
+  display: block; // ← toujours visible
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #ffffff;
@@ -96,8 +96,9 @@ $border-radius: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
-  flex: 1;
+  flex: 0 1 auto; // ← prend la place nécessaire, pousse à gauche
   font-size: 0.95rem;
+  margin-right: auto; // ← pousse les éléments suivants à droite
 
   @media (max-width: 768px) {
     font-size: 0.85rem;
@@ -113,16 +114,17 @@ $border-radius: 8px;
   }
 
   @media (max-width: 380px) {
-    display: none;
+    font-size: 0.6rem;
   }
 }
 
-// ✅ Actions : "Réserver un appel" à droite — bien visible
+// ✅ Actions : "Réserver un appel" à droite
 .top-strip-actions {
   display: flex;
   align-items: center;
   gap: 0;
   flex-shrink: 0;
+  margin-left: 0; // ← supprimé, le titre pousse
 
   @media (max-width: 620px) {
     margin-left: auto;
@@ -130,11 +132,11 @@ $border-radius: 8px;
 
   @media (max-width: 380px) {
     width: 100%;
-    justify-content: center;
+    justify-content: flex-end; // ← reste à droite
   }
 }
 
-// ✅ Lien "Réserver un appel" — plus visible
+// ✅ Lien "Réserver un appel"
 .top-link {
   display: inline-flex;
   align-items: center;
@@ -209,7 +211,6 @@ $border-radius: 8px;
     display: none;
   }
 }
-
 // ✅ NAVBAR
 .navbar {
   position: relative;
