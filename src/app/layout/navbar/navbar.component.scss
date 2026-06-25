@@ -50,45 +50,45 @@ $border-radius: 8px;
     }
   }
 }
-// ✅ TOP STRIP — Titre à gauche, "Réserver un appel" à droite
+// ✅ TOP STRIP — Titre à gauche, "Réserver un appel" à droite, espace réduit
 .top-strip {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   margin: 0 auto;
-  padding: 0.8rem 5vw;
+  padding: 0.4rem 5vw; // ← padding réduit (était 0.8rem)
   background: $black;
   color: #ffffff;
-  font-size: 0.92rem;
+  font-size: 0.85rem; // ← légèrement réduit
   font-weight: 600;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   transition: all $transition;
-  gap: 2rem;
+  gap: 1.5rem; // ← espace réduit
 
   @media (max-width: 768px) {
-    padding: 0.7rem 4vw;
-    font-size: 0.85rem;
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 620px) {
-    padding: 0.6rem 4vw;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    padding: 0.35rem 4vw;
+    font-size: 0.8rem;
     gap: 1rem;
   }
 
-  @media (max-width: 380px) {
-    padding: 0.5rem 3.5vw;
+  @media (max-width: 620px) {
+    padding: 0.3rem 4vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     gap: 0.8rem;
+  }
+
+  @media (max-width: 380px) {
+    padding: 0.25rem 3.5vw;
+    gap: 0.5rem;
   }
 }
 
-// ✅ Titre "Agence digitale startup au Maroc" — à gauche (comme le cercle)
+// ✅ Titre "Agence digitale startup au Maroc" — à gauche
 .top-strip-brand {
-  display: block; // ← toujours visible
+  display: block;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #ffffff;
@@ -96,25 +96,25 @@ $border-radius: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
-  flex: 0 1 auto; // ← prend la place nécessaire, pousse à gauche
-  font-size: 0.95rem;
-  margin-right: auto; // ← pousse les éléments suivants à droite
+  flex: 0 1 auto;
+  font-size: 0.88rem; // ← légèrement réduit
+  margin-right: auto;
 
   @media (max-width: 768px) {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   @media (max-width: 620px) {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 600;
   }
 
   @media (max-width: 480px) {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   @media (max-width: 380px) {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
 }
 
@@ -124,7 +124,7 @@ $border-radius: 8px;
   align-items: center;
   gap: 0;
   flex-shrink: 0;
-  margin-left: 0; // ← supprimé, le titre pousse
+  margin-left: 0;
 
   @media (max-width: 620px) {
     margin-left: auto;
@@ -132,7 +132,7 @@ $border-radius: 8px;
 
   @media (max-width: 380px) {
     width: 100%;
-    justify-content: flex-end; // ← reste à droite
+    justify-content: flex-end;
   }
 }
 
@@ -140,20 +140,20 @@ $border-radius: 8px;
 .top-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem; // ← espace réduit
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.85rem; // ← légèrement réduit
   white-space: nowrap;
   transition: color $transition-fast;
-  padding: 0.3rem 0.8rem;
+  padding: 0.2rem 0.6rem; // ← padding réduit
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.05);
 
   i-lucide {
-    width: 1rem;
-    height: 1rem;
+    width: 0.9rem; // ← plus petit
+    height: 0.9rem;
     stroke-width: 2.5;
     flex-shrink: 0;
   }
@@ -164,31 +164,9 @@ $border-radius: 8px;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.85rem;
-    gap: 0.5rem;
-    padding: 0.25rem 0.6rem;
-
-    i-lucide {
-      width: 0.9rem;
-      height: 0.9rem;
-    }
-  }
-
-  @media (max-width: 620px) {
     font-size: 0.78rem;
     gap: 0.4rem;
-    padding: 0.2rem 0.5rem;
-
-    i-lucide {
-      width: 0.85rem;
-      height: 0.85rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    font-size: 0.72rem;
-    gap: 0.3rem;
-    padding: 0.15rem 0.4rem;
+    padding: 0.15rem 0.5rem;
 
     i-lucide {
       width: 0.8rem;
@@ -196,14 +174,36 @@ $border-radius: 8px;
     }
   }
 
-  @media (max-width: 380px) {
-    font-size: 0.68rem;
-    gap: 0.25rem;
-    padding: 0.1rem 0.3rem;
+  @media (max-width: 620px) {
+    font-size: 0.72rem;
+    gap: 0.35rem;
+    padding: 0.1rem 0.4rem;
 
     i-lucide {
       width: 0.75rem;
       height: 0.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.65rem;
+    gap: 0.25rem;
+    padding: 0.1rem 0.35rem;
+
+    i-lucide {
+      width: 0.7rem;
+      height: 0.7rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    font-size: 0.6rem;
+    gap: 0.2rem;
+    padding: 0.05rem 0.25rem;
+
+    i-lucide {
+      width: 0.65rem;
+      height: 0.65rem;
     }
   }
 
