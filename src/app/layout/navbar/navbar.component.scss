@@ -49,49 +49,147 @@ $border-radius: 8px;
     }
   }
 }
+// ✅ TOP STRIP — Fix mobile complet
+// Remplace uniquement la section .top-strip et ses enfants dans ton SCSS
 
-// ✅ TOP STRIP
 .top-strip {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1600px;
   width: 100%;
   margin: 0 auto;
-  padding: 0.85rem 5vw;
+  padding: 0.6rem 5vw;
   background: $black;
   color: #fff;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.07);
   transition: all $transition;
+  gap: 1rem;
 
-  @media (max-width: 768px) { padding: 0.75rem 4vw; font-size: 0.85rem; }
-  @media (max-width: 620px) { padding: 0.65rem 3.5vw; font-size: 0.8rem; gap: 1rem; }
-  @media (max-width: 480px) { flex-direction: column; align-items: stretch; gap: 0.4rem; padding: 0.5rem 3.5vw; font-size: 0.7rem; }
+  // ─── TABLETTE ─────────────────────────────
+  @media (max-width: 768px) {
+    padding: 0.55rem 4vw;
+    font-size: 0.82rem;
+  }
+
+  // ─── MOBILE ── une seule ligne propre ─────
+  @media (max-width: 620px) {
+    padding: 0.55rem 4vw;
+    flex-direction: row;        // ← reste sur une ligne
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  // ─── Très petit ───────────────────────────
+  @media (max-width: 380px) {
+    padding: 0.5rem 3.5vw;
+  }
 }
 
+// Texte gauche : "Agence digitale startup au Maroc"
 .top-strip-brand {
-  display: none;
-  @media (min-width: 768px) { display: block; font-weight: 700; letter-spacing: 0.01em; }
-  @media (max-width: 480px) { display: block; text-align: center; font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,.8); }
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(255,255,255,.75);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 1;
+
+  @media (max-width: 620px) {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,.65);
+    // Texte raccourci sur mobile
+    &::after {
+      content: none;
+    }
+  }
+
+  @media (max-width: 380px) {
+    display: none; // ← cache le texte sur très petit écran, garde les liens
+  }
 }
 
+// Actions : liens à droite
 .top-strip-actions {
-  display: flex; gap: 2rem; align-items: center; margin-left: auto;
-  @media (max-width: 768px) { gap: 1.5rem; }
-  @media (max-width: 620px) { gap: 1rem; }
-  @media (max-width: 480px) { flex-direction: row; justify-content: center; gap: 0.8rem; margin-left: 0; flex-wrap: wrap; }
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-shrink: 0;
+
+  @media (max-width: 620px) {
+    gap: 0.8rem;
+    margin-left: auto;
+  }
+
+  @media (max-width: 380px) {
+    gap: 0.6rem;
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .top-link {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  color: #fff; text-decoration: none; font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  white-space: nowrap;
   transition: color $transition-fast;
-  i-lucide { width: 1rem; height: 1rem; stroke-width: 2.5; }
+
+  i-lucide {
+    width: 0.95rem;
+    height: 0.95rem;
+    stroke-width: 2.5;
+    flex-shrink: 0;
+  }
+
   &:hover { color: $primary; }
-  &.phone { @media (max-width: 620px) { display: none; } @media (max-width: 480px) { display: inline-flex; font-size: 0.65rem; } }
-  @media (max-width: 480px) { font-size: 0.65rem; i-lucide { width: 0.7rem; height: 0.7rem; } }
+
+  // ─── Mobile ───────────────────────────────
+  @media (max-width: 620px) {
+    font-size: 0.78rem;
+    gap: 0.3rem;
+
+    i-lucide {
+      width: 0.85rem;
+      height: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.72rem;
+
+    i-lucide {
+      width: 0.78rem;
+      height: 0.78rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    font-size: 0.68rem;
+    gap: 0.25rem;
+
+    i-lucide { width: 0.72rem; height: 0.72rem; }
+  }
+
+  // Séparateur entre les 2 liens
+  &:not(:last-child)::after {
+    content: '|';
+    margin-left: 1.2rem;
+    color: rgba(255,255,255,.2);
+    font-weight: 400;
+
+    @media (max-width: 620px) { margin-left: 0.8rem; }
+    @media (max-width: 380px) { margin-left: 0.6rem; }
+  }
 }
 
 // ✅ NAVBAR
