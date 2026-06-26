@@ -120,28 +120,41 @@ $border-radius: 8px;
   flex-shrink: 0;
   margin-left: 0;
 }
-
-// ✅ Bouton "Réserver un appel"
+// ✅ Bouton "Réserver un appel" — icône + texte bien alignés
 .top-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  justify-content: center;
+  gap: 0.4rem;
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
   white-space: nowrap;
   font-size: 0.82rem;
-  padding: 0.28rem 0.75rem;
+  padding: 0.28rem 0.85rem 0.28rem 0.65rem; // ← plus de padding à gauche pour l'icône
   border-radius: 4px;
   background: $primary;
   border: 1px solid $primary;
   transition: all $transition-fast;
+  line-height: 1;
 
   i-lucide {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 0.85rem;
     height: 0.85rem;
+    min-width: 0.85rem; // ← empêche la compression
     stroke-width: 2.5;
     flex-shrink: 0;
+    position: relative; // ← reset position
+    top: 0;             // ← reset tout offset parasite
+    left: 0;
+  }
+
+  span {
+    display: inline-block;
+    line-height: 1;
   }
 
   &:hover {
@@ -150,42 +163,47 @@ $border-radius: 8px;
     color: #fff;
   }
 
+  // Tablet
   @media (max-width: 768px) {
     font-size: 0.72rem;
-    padding: 0.22rem 0.55rem;
-    gap: 0.28rem;
+    padding: 0.22rem 0.7rem 0.22rem 0.5rem;
+    gap: 0.3rem;
 
     i-lucide {
       width: 0.75rem;
       height: 0.75rem;
+      min-width: 0.75rem;
     }
   }
 
+  // Mobile
   @media (max-width: 480px) {
     font-size: 0.65rem;
-    padding: 0.18rem 0.45rem;
-    gap: 0.22rem;
+    padding: 0.2rem 0.6rem 0.2rem 0.45rem;
+    gap: 0.25rem;
 
     i-lucide {
       width: 0.68rem;
       height: 0.68rem;
+      min-width: 0.68rem;
     }
   }
 
+  // Petit mobile
   @media (max-width: 360px) {
     font-size: 0.58rem;
-    padding: 0.15rem 0.35rem;
-    gap: 0.18rem;
+    padding: 0.18rem 0.5rem 0.18rem 0.38rem;
+    gap: 0.2rem;
 
     i-lucide {
       width: 0.6rem;
       height: 0.6rem;
+      min-width: 0.6rem;
     }
   }
 
   &::after { display: none; }
 }
-
 // ✅ NAVBAR
 .navbar {
   position: relative;
