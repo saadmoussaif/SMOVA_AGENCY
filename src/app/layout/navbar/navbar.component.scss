@@ -50,134 +50,110 @@ $border-radius: 8px;
     }
   }
 }
-// ✅ TOP STRIP — Titre à gauche, "Réserver un appel" à droite, espace réduit
+
+// ✅ TOP STRIP — Une seule définition propre
 .top-strip {
   display: flex;
+  flex-direction: row; // ← toujours une ligne
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 0 auto;
-  padding: 0.4rem 5vw; // ← padding réduit (était 0.8rem)
+  padding: 0.45rem 5vw;
   background: $black;
   color: #ffffff;
-  font-size: 0.85rem; // ← légèrement réduit
+  font-size: 0.88rem;
   font-weight: 600;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   transition: all $transition;
-  gap: 1.5rem; // ← espace réduit
+  box-sizing: border-box;
+  overflow: hidden;
+  gap: 1rem;
 
   @media (max-width: 768px) {
-    padding: 0.35rem 4vw;
-    font-size: 0.8rem;
-    gap: 1rem;
+    padding: 0.4rem 4vw;
+    font-size: 0.78rem;
+    gap: 0.75rem;
   }
 
-  @media (max-width: 620px) {
-    padding: 0.3rem 4vw;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.8rem;
-  }
-
-  @media (max-width: 380px) {
-    padding: 0.25rem 3.5vw;
+  @media (max-width: 480px) {
+    padding: 0.35rem 3.5vw;
+    font-size: 0.68rem;
     gap: 0.5rem;
+  }
+
+  @media (max-width: 360px) {
+    padding: 0.3rem 3vw;
+    font-size: 0.6rem;
+    gap: 0.4rem;
   }
 }
 
-// ✅ Titre "Agence digitale startup au Maroc" — à gauche
+// ✅ Texte gauche — troncature si trop long
 .top-strip-brand {
-  display: block;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  flex: 1;
   min-width: 0;
-  flex: 0 1 auto;
-  font-size: 0.88rem; // ← légèrement réduit
-  margin-right: auto;
+  font-size: 0.88rem;
 
   @media (max-width: 768px) {
-    font-size: 0.8rem;
-  }
-
-  @media (max-width: 620px) {
-    font-size: 0.72rem;
-    font-weight: 600;
+    font-size: 0.75rem;
   }
 
   @media (max-width: 480px) {
     font-size: 0.65rem;
   }
 
-  @media (max-width: 380px) {
-    font-size: 0.55rem;
+  @media (max-width: 360px) {
+    font-size: 0.58rem;
   }
 }
 
-// ✅ Actions : "Réserver un appel" à droite
+// ✅ Actions droite — ne rétrécit jamais
 .top-strip-actions {
   display: flex;
   align-items: center;
-  gap: 0;
   flex-shrink: 0;
   margin-left: 0;
-
-  @media (max-width: 620px) {
-    margin-left: auto;
-  }
-
-  @media (max-width: 380px) {
-    width: 100%;
-    justify-content: flex-end;
-  }
 }
 
-// ✅ Lien "Réserver un appel"
+// ✅ Bouton "Réserver un appel"
 .top-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem; // ← espace réduit
+  gap: 0.35rem;
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.85rem; // ← légèrement réduit
   white-space: nowrap;
-  transition: color $transition-fast;
-  padding: 0.2rem 0.6rem; // ← padding réduit
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.82rem;
+  padding: 0.28rem 0.75rem;
+  border-radius: 4px;
+  background: $primary;
+  border: 1px solid $primary;
+  transition: all $transition-fast;
 
   i-lucide {
-    width: 0.9rem; // ← plus petit
-    height: 0.9rem;
+    width: 0.85rem;
+    height: 0.85rem;
     stroke-width: 2.5;
     flex-shrink: 0;
   }
 
   &:hover {
-    color: $primary;
-    background: rgba(255, 255, 255, 0.1);
+    background: $primary-dark;
+    border-color: $primary-dark;
+    color: #fff;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.78rem;
-    gap: 0.4rem;
-    padding: 0.15rem 0.5rem;
-
-    i-lucide {
-      width: 0.8rem;
-      height: 0.8rem;
-    }
-  }
-
-  @media (max-width: 620px) {
     font-size: 0.72rem;
-    gap: 0.35rem;
-    padding: 0.1rem 0.4rem;
+    padding: 0.22rem 0.55rem;
+    gap: 0.28rem;
 
     i-lucide {
       width: 0.75rem;
@@ -187,30 +163,29 @@ $border-radius: 8px;
 
   @media (max-width: 480px) {
     font-size: 0.65rem;
-    gap: 0.25rem;
-    padding: 0.1rem 0.35rem;
+    padding: 0.18rem 0.45rem;
+    gap: 0.22rem;
 
     i-lucide {
-      width: 0.7rem;
-      height: 0.7rem;
+      width: 0.68rem;
+      height: 0.68rem;
     }
   }
 
-  @media (max-width: 380px) {
-    font-size: 0.6rem;
-    gap: 0.2rem;
-    padding: 0.05rem 0.25rem;
+  @media (max-width: 360px) {
+    font-size: 0.58rem;
+    padding: 0.15rem 0.35rem;
+    gap: 0.18rem;
 
     i-lucide {
-      width: 0.65rem;
-      height: 0.65rem;
+      width: 0.6rem;
+      height: 0.6rem;
     }
   }
 
-  &::after {
-    display: none;
-  }
+  &::after { display: none; }
 }
+
 // ✅ NAVBAR
 .navbar {
   position: relative;
@@ -238,7 +213,7 @@ $border-radius: 8px;
   }
 }
 
-// ✅ BRAND — Logo bien visible
+// ✅ BRAND
 .brand {
   display: inline-flex;
   align-items: center;
@@ -246,7 +221,7 @@ $border-radius: 8px;
   flex-shrink: 0;
   transition: opacity $transition-fast;
   z-index: 10;
-  
+
   &:hover { opacity: 0.8; }
   &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; border-radius: $border-radius; }
 }
@@ -257,11 +232,12 @@ $border-radius: 8px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,.1));
-  
+
   @media (max-width: 768px) { height: 2.8rem; }
   @media (max-width: 620px) { height: 2.4rem; }
   @media (max-width: 480px) { height: 2rem; }
-  
+  @media (max-width: 360px) { height: 1.6rem; }
+
   .hero-shell.scrolled & { filter: drop-shadow(0 1px 4px rgba(0,0,0,.08)); }
 
   .navbar.open & {
@@ -290,10 +266,8 @@ $border-radius: 8px;
     gap: 0;
     margin: 0;
     padding: 6.5rem 1.5rem 2rem;
-
     background: rgba(10, 15, 29, 0.99);
     backdrop-filter: blur(20px);
-
     max-height: none;
     height: 100vh;
     opacity: 0;
@@ -364,6 +338,7 @@ $border-radius: 8px;
     transform-origin: left;
     transition: transform $transition-fast;
   }
+
   &:hover { color: $primary; &::after { transform: scaleX(1); } }
   &.active { color: $primary; &::after { transform: scaleX(1); } }
   &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; }
@@ -379,6 +354,7 @@ $border-radius: 8px;
 
 .dropdown-trigger {
   position: relative;
+
   .chevron {
     width: 1rem;
     height: 1rem;
@@ -386,9 +362,12 @@ $border-radius: 8px;
     transition: transform $transition-fast;
     @media (max-width: 980px) { transform: rotate(0deg) !important; }
   }
-  &:hover .chevron, &.active .chevron {
+
+  &:hover .chevron,
+  &.active .chevron {
     @media (min-width: 981px) { transform: rotate(180deg); }
   }
+
   @media (max-width: 980px) {
     padding-right: 0.25rem !important;
     &::after { display: none; }
@@ -432,6 +411,7 @@ $border-radius: 8px;
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, 0);
+
     @media (max-width: 980px) {
       max-height: 30rem;
       opacity: 1;
@@ -496,7 +476,13 @@ $border-radius: 8px;
   &:hover {
     color: $primary;
     background: rgba($primary, .08);
-    i-lucide { color: $primary; opacity: 1; transform: translateX(4px); @media (max-width: 980px) { transform: none; } }
+
+    i-lucide {
+      color: $primary;
+      opacity: 1;
+      transform: translateX(4px);
+      @media (max-width: 980px) { transform: none; }
+    }
   }
 
   &:focus-visible { outline: 2px solid $primary; outline-offset: -2px; }
@@ -523,6 +509,7 @@ $border-radius: 8px;
 
   @media (max-width: 980px) { display: flex; }
   @media (max-width: 480px) { width: 2rem; height: 2rem; }
+  @media (max-width: 360px) { width: 1.8rem; height: 1.8rem; }
 
   &:hover { color: $primary; }
   &:focus-visible { outline: 2px solid $primary; outline-offset: 2px; }
@@ -551,7 +538,7 @@ $border-radius: 8px;
   .ham-bot { transform: rotate(-45deg) translateY(-10px); stroke-dasharray: 20 100; stroke-dashoffset: -8; }
 }
 
-// ✅ NAV CTA — Desktop
+// ✅ NAV CTA — Desktop uniquement
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -629,6 +616,7 @@ $border-radius: 8px;
 // ✅ NAV MOBILE TAGS
 .nav-mobile-tags {
   display: none;
+
   @media (max-width: 980px) {
     display: flex;
     gap: 0.6rem;
@@ -647,15 +635,10 @@ $border-radius: 8px;
   }
 }
 
-// ✅ RESPONSIVE
+// ✅ RESPONSIVE GLOBAL
 @media (max-width: 980px) {
   .hero-shell { padding: 0; }
   .navbar { flex-direction: row; justify-content: space-between; }
-}
-
-@media (max-width: 620px) {
-  .navbar { padding: 0.6rem 3.5vw; }
-  .brand-logo { height: 1.8rem; }
 }
 
 @media (max-width: 480px) {
@@ -668,39 +651,4 @@ $border-radius: 8px;
   }
 
   .brand { flex: 1; min-width: 0; }
-  .brand-logo { height: 1.6rem; }
-  .nav-toggle { width: 1.8rem; height: 1.8rem; }
-
-  .top-strip {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.3rem;
-    padding: 0.4rem 3vw;
-    font-size: 0.65rem;
-  }
-  .top-strip-brand {
-    display: block;
-    text-align: center;
-    font-size: 0.65rem;
-    font-weight: 600;
-    color: #ffffff;
-  }
-  .top-strip-actions {
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-  }
-  .top-link {
-    font-size: 0.6rem;
-    padding: 0.15rem 0.4rem;
-    i-lucide { width: 0.6rem; height: 0.6rem; }
-  }
-}
-
-@media (max-width: 360px) {
-  .navbar { padding: 0.3rem 2vw; }
-  .brand-logo { height: 1.4rem; }
-  .top-strip { padding: 0.3rem 2vw; font-size: 0.55rem; }
-  .top-link { font-size: 0.55rem; i-lucide { width: 0.5rem; height: 0.5rem; } }
 }
