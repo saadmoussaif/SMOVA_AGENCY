@@ -8,6 +8,9 @@ import { SystemsComponent } from './pages/expertises/systems/systems.component';
 import { WebAppsComponent } from './pages/expertises/web-apps/web-apps.component';
 import { LegalNoticeComponent } from './pages/legal-notice/legal-notice.component';
 import { StaticInfoComponent } from './pages/static-info/static-info.component';
+import { CarrieresComponent } from './pages/carrieres/carrieres.component';
+import { OffresEmploiComponent } from './pages/carrieres/offres-emploi/offres-emploi.component';
+import { StagesComponent } from './pages/carrieres/stages/stages.component';
 
 export const routes: Routes = [
   {
@@ -80,36 +83,38 @@ export const routes: Routes = [
       ]
     }
   },
+
+  // ✅ CARRIÈRES — parent avec children
   {
     path: 'carrieres',
-    component: StaticInfoComponent,
+    component: CarrieresComponent,
     title: 'SMAgency - Carrieres',
-    data: {
-      kicker: 'Carrieres',
-      title: 'Rejoindre SMAgency',
-      description: 'Nous construisons une equipe technique et creative pour accompagner des projets digitaux ambitieux.',
-      items: [
-        'Les opportunites seront publiees ici selon les besoins de l agence.',
-        'Profils recherches: developpement web, mobile, design, marketing digital et gestion de projet.',
-        'Vous pouvez envoyer une candidature spontanee via le formulaire de contact.'
-      ]
-    }
+    children: [
+      {
+        path: '',
+        redirectTo: 'offres-emploi',
+        pathMatch: 'full'
+      },
+      {
+        path: 'offres-emploi',
+        component: OffresEmploiComponent,
+        title: 'SMAgency - Offres d emploi'
+      },
+      {
+        path: 'stages',
+        component: StagesComponent,
+        title: 'SMAgency - Stages'
+      }
+    ]
   },
+
+  // ✅ Redirection ancienne route /stages vers /carrieres/stages
   {
     path: 'stages',
-    component: StaticInfoComponent,
-    title: 'SMAgency - Stages',
-    data: {
-      kicker: 'Stages',
-      title: 'Stages chez SMAgency',
-      description: 'Nous accueillons des profils motives souhaitant progresser sur des projets digitaux concrets.',
-      items: [
-        'Les offres de stage seront ajoutees ici prochainement.',
-        'Domaines possibles: Angular, design UI, applications mobiles, marketing digital et automatisation.',
-        'Pour proposer votre candidature, utilisez le formulaire de contact avec le sujet Stage.'
-      ]
-    }
+    redirectTo: 'carrieres/stages',
+    pathMatch: 'full'
   },
+
   {
     path: '**',
     redirectTo: ''
