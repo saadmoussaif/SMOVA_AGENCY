@@ -1,1 +1,325 @@
-<p>carrieres works!</p>
+<!-- carrieres.component.html -->
+<div class="carrieres-page">
+
+  <!-- HERO -->
+  <section class="carrieres-hero">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span>5 postes ouverts</span>
+    </div>
+    <h1 class="hero-title">
+      Rejoignez<br>
+      <span class="hero-accent">smmAGENCY</span>
+    </h1>
+    <p class="hero-subtitle">
+      Intégrez une équipe passionnée qui façonne l'avenir du digital au Maroc.
+      Développez vos compétences sur des projets innovants et ambitieux.
+    </p>
+    <div class="hero-actions">
+      <a href="#postes" class="btn-primary">
+        <i-lucide name="briefcase"></i-lucide>
+        Voir nos offres
+      </a>
+      <a href="#candidature" class="btn-outline">
+        <i-lucide name="send"></i-lucide>
+        Candidature spontanée
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">5</span>
+        <span class="stat-label">Postes ouverts</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">7+</span>
+        <span class="stat-label">Collaborateurs</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">200%</span>
+        <span class="stat-label">Croissance</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">B2B</span>
+        <span class="stat-label">Clients startups</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- POURQUOI NOUS -->
+  <section class="section-why">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-kicker">Culture</span>
+        <h2>Pourquoi nous rejoindre ?</h2>
+        <p>Découvrez les avantages de faire partie de l'équipe smmAGENCY</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <i-lucide name="rocket"></i-lucide>
+          </div>
+          <h3>Évolution rapide</h3>
+          <p>Opportunités de croissance et de promotion basées sur vos performances réelles.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <i-lucide name="globe"></i-lucide>
+          </div>
+          <h3>Projets ambitieux</h3>
+          <p>Travaillez sur des projets digitaux concrets pour des clients B2B et startups.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <i-lucide name="brain"></i-lucide>
+          </div>
+          <h3>IA & Innovation</h3>
+          <p>Implémentez des solutions IA, RAG et LLM au cœur de vos missions.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <i-lucide name="users"></i-lucide>
+          </div>
+          <h3>Équipe bienveillante</h3>
+          <p>Un environnement respectueux où chacun peut s'épanouir et progresser.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALEURS -->
+  <section class="section-values">
+    <div class="section-container">
+      <div class="section-header light">
+        <span class="section-kicker">ADN</span>
+        <h2>Nos valeurs</h2>
+        <p>Les principes qui guident notre équipe au quotidien</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-item">
+          <i-lucide name="zap"></i-lucide>
+          <div>
+            <h4>Innovation</h4>
+            <p>Nous encourageons la créativité et l'expérimentation pour rester à la pointe.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <i-lucide name="handshake"></i-lucide>
+          <div>
+            <h4>Collaboration</h4>
+            <p>L'esprit d'équipe et l'entraide sont au cœur de notre culture d'entreprise.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <i-lucide name="award"></i-lucide>
+          <div>
+            <h4>Excellence</h4>
+            <p>Nous visons l'excellence dans tout ce que nous faisons, pour nos clients.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <i-lucide name="heart"></i-lucide>
+          <div>
+            <h4>Bienveillance</h4>
+            <p>Un environnement de travail respectueux où chacun peut s'épanouir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGES BANNER -->
+  <section class="section-stage-banner">
+    <div class="section-container">
+      <div class="stage-banner">
+        <div class="stage-banner-content">
+          <i-lucide name="graduation-cap"></i-lucide>
+          <div>
+            <h3>Vous êtes encore étudiant(e) ?</h3>
+            <p>Découvrez nos offres de stage pour lancer votre carrière dans le digital.</p>
+          </div>
+        </div>
+        <a routerLink="/carrieres/stages" class="btn-primary">
+          Voir nos offres de stage
+          <i-lucide name="arrow-right"></i-lucide>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSTES OUVERTS -->
+  <section class="section-postes" id="postes">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-kicker">Opportunités</span>
+        <h2>Postes ouverts</h2>
+        <p>Trouvez le poste qui correspond à vos ambitions</p>
+      </div>
+      <div class="postes-list">
+
+        <div class="poste-card">
+          <div class="poste-header">
+            <div class="poste-info">
+              <span class="poste-badge cdi">CDI</span>
+              <h3>Développeur Full Stack</h3>
+              <p>Développez des applications web et mobiles innovantes avec Angular, Spring Boot et les dernières technologies IA.</p>
+            </div>
+            <a href="#candidature" class="poste-cta" (click)="setPoste('Développeur Full Stack')">
+              Postuler
+              <i-lucide name="arrow-right"></i-lucide>
+            </a>
+          </div>
+          <div class="poste-meta">
+            <span><i-lucide name="map-pin"></i-lucide> Casablanca</span>
+            <span><i-lucide name="clock"></i-lucide> 2-3 ans</span>
+            <span><i-lucide name="code"></i-lucide> Angular · Spring Boot · Docker</span>
+          </div>
+        </div>
+
+        <div class="poste-card">
+          <div class="poste-header">
+            <div class="poste-info">
+              <span class="poste-badge freelance">Freelance</span>
+              <h3>Designer UI/UX</h3>
+              <p>Créez des expériences utilisateur exceptionnelles pour nos clients dans différents secteurs d'activité.</p>
+            </div>
+            <a href="#candidature" class="poste-cta" (click)="setPoste('Designer UI/UX')">
+              Postuler
+              <i-lucide name="arrow-right"></i-lucide>
+            </a>
+          </div>
+          <div class="poste-meta">
+            <span><i-lucide name="map-pin"></i-lucide> Remote</span>
+            <span><i-lucide name="clock"></i-lucide> 2-4 ans</span>
+            <span><i-lucide name="code"></i-lucide> Figma · Tailwind · Prototypage</span>
+          </div>
+        </div>
+
+        <div class="poste-card">
+          <div class="poste-header">
+            <div class="poste-info">
+              <span class="poste-badge cdd">CDD</span>
+              <h3>Consultant IA & Data</h3>
+              <p>Accompagnez nos clients dans leur transformation digitale grâce à l'IA et à l'analyse de données.</p>
+            </div>
+            <a href="#candidature" class="poste-cta" (click)="setPoste('Consultant IA & Data')">
+              Postuler
+              <i-lucide name="arrow-right"></i-lucide>
+            </a>
+          </div>
+          <div class="poste-meta">
+            <span><i-lucide name="map-pin"></i-lucide> Casablanca</span>
+            <span><i-lucide name="clock"></i-lucide> 3-5 ans</span>
+            <span><i-lucide name="code"></i-lucide> Python · LangChain · RAG · LLM</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULAIRE CANDIDATURE -->
+  <section class="section-form" id="candidature">
+    <div class="section-container">
+      <div class="form-wrapper">
+        <div class="form-left">
+          <span class="section-kicker">Rejoignez-nous</span>
+          <h2>Postulez maintenant</h2>
+          <p>Envoyez-nous votre candidature et rejoignez notre équipe de talents.</p>
+          <div class="form-perks">
+            <div class="perk">
+              <i-lucide name="check-circle"></i-lucide>
+              <span>Réponse sous 48h</span>
+            </div>
+            <div class="perk">
+              <i-lucide name="check-circle"></i-lucide>
+              <span>Processus simple en 2 étapes</span>
+            </div>
+            <div class="perk">
+              <i-lucide name="check-circle"></i-lucide>
+              <span>Entretien détendu et bienveillant</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="candidature-form" (ngSubmit)="submitForm()">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom *</label>
+              <input type="text" [(ngModel)]="form.prenom" name="prenom" placeholder="Votre prénom" required>
+            </div>
+            <div class="form-group">
+              <label>Nom *</label>
+              <input type="text" [(ngModel)]="form.nom" name="nom" placeholder="Votre nom" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" [(ngModel)]="form.email" name="email" placeholder="votre@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>Téléphone *</label>
+              <input type="tel" [(ngModel)]="form.telephone" name="telephone" placeholder="+212 6 XX XX XX XX" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Poste visé *</label>
+              <select [(ngModel)]="form.poste" name="poste" required>
+                <option value="" disabled>Sélectionnez un poste</option>
+                <option>Développeur Full Stack</option>
+                <option>Designer UI/UX</option>
+                <option>Consultant IA & Data</option>
+                <option>Candidature spontanée</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Expérience *</label>
+              <select [(ngModel)]="form.experience" name="experience" required>
+                <option value="" disabled>Années d'expérience</option>
+                <option>0-1 an</option>
+                <option>1-3 ans</option>
+                <option>3-5 ans</option>
+                <option>5-10 ans</option>
+                <option>10+ ans</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Technologies maîtrisées</label>
+            <input type="text" [(ngModel)]="form.technologies" name="technologies" placeholder="Ex: Angular, Spring Boot, Docker...">
+          </div>
+
+          <div class="form-group">
+            <label>Portfolio / LinkedIn</label>
+            <input type="url" [(ngModel)]="form.portfolio" name="portfolio" placeholder="https://...">
+          </div>
+
+          <div class="form-group">
+            <label>Lettre de motivation *</label>
+            <textarea [(ngModel)]="form.lettre" name="lettre" rows="5"
+              placeholder="Présentez-vous et expliquez pourquoi vous souhaitez rejoindre smmAGENCY..." required></textarea>
+          </div>
+
+          <div class="form-footer">
+            <p class="form-notice">
+              <i-lucide name="shield"></i-lucide>
+              En envoyant votre candidature, vous acceptez que vos données soient traitées dans le cadre de notre processus de recrutement.
+            </p>
+            <button type="submit" class="btn-submit">
+              <i-lucide name="send"></i-lucide>
+              Envoyer ma candidature
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div>
