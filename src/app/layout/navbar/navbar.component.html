@@ -1,23 +1,21 @@
 <section class="hero-shell" id="accueil" [class.scrolled]="isScrolled" [class.menu-open]="menuOpen">
-  <!-- TOP STRIP (Always visible - black) -->
+
   <div class="top-strip">
     <span class="top-strip-brand">Agence digitale startup au Maroc</span>
     <div class="top-strip-actions">
       <a href="#contact" class="top-link">
-        <i-lucide name="calendar-days"></i-lucide> 
+        <i-lucide name="calendar-days"></i-lucide>
         {{ i18n.t('nav.call') }}
       </a>
     </div>
   </div>
 
-  <!-- NAVBAR -->
   <nav class="navbar" [class.open]="menuOpen">
-    <!-- Logo -->
+
     <a class="brand" routerLink="/" aria-label="SMAgency" (click)="closeMenu()">
       <img class="brand-logo" src="/smagency-logo.svg" alt="SMAgency">
     </a>
 
-    <!-- Hamburger Menu -->
     <button class="nav-toggle" type="button" (click)="toggleMenu()" aria-label="Menu" [attr.aria-expanded]="menuOpen">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <line class="ham-line ham-top" x1="3" y1="6" x2="21" y2="6"></line>
@@ -26,105 +24,138 @@
       </svg>
     </button>
 
-    <!-- Navigation Links - Mobile Full Screen -->
     <div class="nav-links">
-      <!-- Home -->
-      <a 
-        routerLink="/" 
-        routerLinkActive="active" 
-        [routerLinkActiveOptions]="{ exact: true }" 
-        (click)="closeMenu()"
-        class="nav-link">
+
+      <a routerLink="/"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }"
+         (click)="closeMenu()"
+         class="nav-link">
         {{ i18n.t('nav.home') }}
       </a>
 
-      <!-- Director -->
-      <a 
-        routerLink="/mot-du-directeur" 
-        routerLinkActive="active" 
-        (click)="closeMenu()"
-        class="nav-link">
+      <a routerLink="/mot-du-directeur"
+         routerLinkActive="active"
+         (click)="closeMenu()"
+         class="nav-link">
         Mot du Directeur
       </a>
 
-      <!-- Dropdown: Expertises -->
       <div class="nav-dropdown">
-        <button 
-          class="dropdown-trigger nav-link"
-          [class.active]="activeDropdown === 'expertises'"
-          (click)="toggleDropdown('expertises')">
+        <button class="dropdown-trigger nav-link"
+                [class.active]="activeDropdown === 'expertises'"
+                (click)="toggleDropdown('expertises')">
           Nos expertises
           <i-lucide name="chevron-down" class="chevron"></i-lucide>
         </button>
-        
         <div class="dropdown-menu" [class.open]="activeDropdown === 'expertises'">
           <a routerLink="/services" (click)="closeMenu()" class="dropdown-item">
-            <span>Vue globale</span>
-            <i-lucide name="arrow-right"></i-lucide>
+            <div class="dropdown-item-content">
+              <i-lucide name="layout-grid"></i-lucide>
+              <span>Vue globale</span>
+            </div>
+            <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
           <a routerLink="/expertises/applications-web" (click)="closeMenu()" class="dropdown-item">
-            <span>Applications web</span>
-            <i-lucide name="arrow-right"></i-lucide>
+            <div class="dropdown-item-content">
+              <i-lucide name="monitor"></i-lucide>
+              <span>Applications web</span>
+            </div>
+            <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
           <a routerLink="/expertises/applications-mobiles" (click)="closeMenu()" class="dropdown-item">
-            <span>Applications mobiles</span>
-            <i-lucide name="arrow-right"></i-lucide>
+            <div class="dropdown-item-content">
+              <i-lucide name="smartphone"></i-lucide>
+              <span>Applications mobiles</span>
+            </div>
+            <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
           <a routerLink="/expertises/marketing-digital" (click)="closeMenu()" class="dropdown-item">
-            <span>Marketing digital</span>
-            <i-lucide name="arrow-right"></i-lucide>
+            <div class="dropdown-item-content">
+              <i-lucide name="trending-up"></i-lucide>
+              <span>Marketing digital</span>
+            </div>
+            <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
           <a routerLink="/expertises/systemes" (click)="closeMenu()" class="dropdown-item">
-            <span>Systemes digitaux</span>
-            <i-lucide name="arrow-right"></i-lucide>
+            <div class="dropdown-item-content">
+              <i-lucide name="server"></i-lucide>
+              <span>Systemes digitaux</span>
+            </div>
+            <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
         </div>
       </div>
 
-      <!-- Sectors -->
-      <a 
-        routerLink="/" 
-        fragment="secteurs" 
-        (click)="closeMenu()"
-        class="nav-link">
+      <a routerLink="/"
+         fragment="secteurs"
+         (click)="closeMenu()"
+         class="nav-link">
         {{ i18n.t('nav.sectors') }}
       </a>
 
-      <!-- Technologies -->
-      <a 
-        routerLink="/" 
-        fragment="technologies" 
-        (click)="closeMenu()"
-        class="nav-link">
+      <a routerLink="/"
+         fragment="technologies"
+         (click)="closeMenu()"
+         class="nav-link">
         {{ i18n.t('nav.technologies') }}
       </a>
 
-      <!-- Mobile Tags (IA, Développement, Marketing Digital) - style Wave -->
+      <div class="nav-dropdown">
+        <button class="dropdown-trigger nav-link"
+                [class.active]="activeDropdown === 'carrieres'"
+                (click)="toggleDropdown('carrieres')">
+          Carrière
+          <i-lucide name="chevron-down" class="chevron"></i-lucide>
+        </button>
+        <div class="dropdown-menu" [class.open]="activeDropdown === 'carrieres'">
+          <a routerLink="/carrieres/offres-emploi"
+             routerLinkActive="active"
+             (click)="closeMenu()"
+             class="dropdown-item">
+            <div class="dropdown-item-content">
+              <i-lucide name="briefcase"></i-lucide>
+              <span>Offres d'emploi</span>
+            </div>
+            <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
+          </a>
+          <a routerLink="/carrieres/stages"
+             routerLinkActive="active"
+             (click)="closeMenu()"
+             class="dropdown-item">
+            <div class="dropdown-item-content">
+              <i-lucide name="graduation-cap"></i-lucide>
+              <span>Stage</span>
+            </div>
+            <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
+          </a>
+        </div>
+      </div>
+
       <div class="nav-mobile-tags">
         <span>IA</span>
         <span>Développement</span>
         <span>Marketing Digital</span>
       </div>
 
-      <!-- Mobile CTA Button -->
-      <a
-        routerLink="/"
-        fragment="contact"
-        (click)="closeMenu()"
-        class="nav-cta-mobile">
+      <a routerLink="/"
+         fragment="contact"
+         (click)="closeMenu()"
+         class="nav-cta-mobile">
         {{ i18n.t('nav.cta') }}
         <i-lucide name="arrow-right"></i-lucide>
       </a>
+
     </div>
 
-    <!-- Desktop CTA Button -->
-    <a 
-      routerLink="/" 
-      fragment="contact" 
-      (click)="closeMenu()"
-      class="nav-cta">
+    <a routerLink="/"
+       fragment="contact"
+       (click)="closeMenu()"
+       class="nav-cta">
       {{ i18n.t('nav.cta') }}
       <i-lucide name="arrow-right"></i-lucide>
     </a>
+
   </nav>
+
 </section>
