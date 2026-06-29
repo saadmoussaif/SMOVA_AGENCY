@@ -113,6 +113,7 @@ $border-radius: 8px;
   }
 
   &:hover { background: $primary-dark; border-color: $primary-dark; }
+  &::after { display: none; }
 
   @media (max-width: 768px) {
     font-size: 0.72rem;
@@ -129,8 +130,6 @@ $border-radius: 8px;
     padding: 0.18rem 0.5rem 0.18rem 0.38rem;
     i-lucide { width: 0.6rem; height: 0.6rem; min-width: 0.6rem; }
   }
-
-  &::after { display: none; }
 }
 
 // ─── NAVBAR ───────────────────────────────────────
@@ -181,9 +180,7 @@ $border-radius: 8px;
   @media (max-width: 360px) { height: 1.6rem; }
 
   .navbar.open & {
-    @media (max-width: 980px) {
-      filter: brightness(0) invert(1);
-    }
+    @media (max-width: 980px) { filter: brightness(0) invert(1); }
   }
 }
 
@@ -309,12 +306,12 @@ $border-radius: 8px;
   top: calc(100% + 0.75rem);
   left: 50%;
   display: grid;
-  min-width: 20rem;
+  min-width: 22rem;
   padding: 0.5rem;
   background: $bg-white;
   border: 1px solid $border-light;
-  border-radius: 12px;
-  box-shadow: 0 16px 48px rgba(0,0,0,.14);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.15);
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, 10px);
@@ -364,22 +361,13 @@ $border-radius: 8px;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 3rem;
+  min-height: 3.2rem;
   padding: 0.65rem 0.75rem;
-  border-radius: 8px;
+  border-radius: 10px;
   color: $text-dark;
   text-decoration: none;
   transition: all $transition-fast;
 
-  // ✅ RESET GLOBAL — aucune icône cachée par défaut
-  i-lucide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  // ✅ Contenu gauche : icône colorée + texte
   .dropdown-item-content {
     display: flex;
     align-items: center;
@@ -388,62 +376,76 @@ $border-radius: 8px;
     min-width: 0;
   }
 
-  // ✅ Wrapper icône — fond coloré style pill
+  // ✅ Icône gauche
   .item-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    min-width: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    min-width: 2.2rem;
     background: rgba($primary, 0.08);
-    border-radius: 8px;
+    border-radius: 10px;
     color: $primary;
     flex-shrink: 0;
     transition: all $transition-fast;
 
-    i-lucide {
-      width: 1rem;
-      height: 1rem;
-      // ✅ PAS de opacity: 0 ici — icône toujours visible
+    svg {
+      width: 1.05rem;
+      height: 1.05rem;
+      stroke: currentColor;
+      display: block;
+      flex-shrink: 0;
     }
   }
 
   span {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     font-weight: 600;
     color: $text-dark;
     transition: color $transition-fast;
     white-space: nowrap;
 
-    @media (max-width: 980px) { color: rgba(255,255,255,0.85); white-space: normal; }
+    @media (max-width: 980px) {
+      color: rgba(255,255,255,0.85);
+      white-space: normal;
+    }
   }
 
-  // ✅ Flèche droite — cachée par défaut, visible au hover
+  // ✅ Flèche droite
   .arrow-icon {
-    width: 0.9rem;
-    height: 0.9rem;
-    min-width: 0.9rem;
-    color: $text-light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.2rem;
+    height: 1.2rem;
+    min-width: 1.2rem;
+    flex-shrink: 0;
     opacity: 0;
     transform: translateX(-4px);
     transition: all $transition-fast;
-    flex-shrink: 0;
+
+    svg {
+      width: 0.9rem;
+      height: 0.9rem;
+      stroke: $text-light;
+      display: block;
+    }
 
     @media (max-width: 980px) {
       opacity: 1;
       transform: none;
-      color: rgba(255,255,255,0.4);
+      svg { stroke: rgba(255,255,255,0.4); }
     }
   }
 
   // ✅ HOVER
   &:hover {
-    background: rgba($primary, .06);
+    background: rgba($primary, 0.06);
 
     .item-icon {
       background: $primary;
-      color: #fff;
+      svg { stroke: #fff; }
     }
 
     span { color: $primary; }
@@ -451,31 +453,35 @@ $border-radius: 8px;
     .arrow-icon {
       opacity: 1;
       transform: translateX(0);
-      color: $primary;
+      svg { stroke: $primary; }
 
-      @media (max-width: 980px) { transform: none; color: $primary; }
+      @media (max-width: 980px) { transform: none; }
     }
   }
 
-  // Mobile
+  // ─── Mobile ───────────────────────────────────
   @media (max-width: 980px) {
     padding: 0.85rem 0.25rem 0.85rem 0.5rem;
     border-bottom: 1px solid rgba(255,255,255,.05);
     border-radius: 0;
-    min-height: 2.8rem;
+    min-height: 3rem;
 
     .item-icon {
       background: rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.7);
+      svg { stroke: rgba(255,255,255,0.7); }
     }
 
     &:hover {
       background: transparent;
-      .item-icon { background: rgba($primary, 0.2); color: $primary; }
+
+      .item-icon {
+        background: rgba($primary, 0.2);
+        svg { stroke: $primary; }
+      }
+
+      .arrow-icon svg { stroke: $primary; }
     }
   }
-
-  &:focus-visible { outline: 2px solid $primary; outline-offset: -2px; }
 }
 
 // ─── NAV TOGGLE ───────────────────────────────────
