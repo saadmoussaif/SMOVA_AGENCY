@@ -16,8 +16,10 @@
       <img class="brand-logo" src="/smagency-logo.svg" alt="SMAgency">
     </a>
 
-    <button class="nav-toggle" type="button" (click)="toggleMenu()" aria-label="Menu" [attr.aria-expanded]="menuOpen">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <button class="nav-toggle" type="button" (click)="toggleMenu()"
+            aria-label="Menu" [attr.aria-expanded]="menuOpen">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.5">
         <line class="ham-line ham-top" x1="3" y1="6" x2="21" y2="6"></line>
         <line class="ham-line ham-mid" x1="3" y1="12" x2="21" y2="12"></line>
         <line class="ham-line ham-bot" x1="3" y1="18" x2="21" y2="18"></line>
@@ -41,6 +43,7 @@
         Mot du Directeur
       </a>
 
+      <!-- Dropdown Expertises -->
       <div class="nav-dropdown">
         <button class="dropdown-trigger nav-link"
                 [class.active]="activeDropdown === 'expertises'"
@@ -48,42 +51,59 @@
           Nos expertises
           <i-lucide name="chevron-down" class="chevron"></i-lucide>
         </button>
+
         <div class="dropdown-menu" [class.open]="activeDropdown === 'expertises'">
+
           <a routerLink="/services" (click)="closeMenu()" class="dropdown-item">
             <div class="dropdown-item-content">
-              <i-lucide name="layout-grid"></i-lucide>
+              <div class="item-icon">
+                <i-lucide name="layout-dashboard"></i-lucide>
+              </div>
               <span>Vue globale</span>
             </div>
             <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
+
           <a routerLink="/expertises/applications-web" (click)="closeMenu()" class="dropdown-item">
             <div class="dropdown-item-content">
-              <i-lucide name="house"></i-lucide>
+              <div class="item-icon">
+                <i-lucide name="globe"></i-lucide>
+              </div>
               <span>Applications web</span>
             </div>
             <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
+
           <a routerLink="/expertises/applications-mobiles" (click)="closeMenu()" class="dropdown-item">
             <div class="dropdown-item-content">
-              <i-lucide name="smartphone"></i-lucide>
+              <div class="item-icon">
+                <i-lucide name="smartphone"></i-lucide>
+              </div>
               <span>Applications mobiles</span>
             </div>
             <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
+
           <a routerLink="/expertises/marketing-digital" (click)="closeMenu()" class="dropdown-item">
             <div class="dropdown-item-content">
-              <i-lucide name="trending-up"></i-lucide>
+              <div class="item-icon">
+                <i-lucide name="trending-up"></i-lucide>
+              </div>
               <span>Marketing digital</span>
             </div>
             <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
+
           <a routerLink="/expertises/systemes" (click)="closeMenu()" class="dropdown-item">
             <div class="dropdown-item-content">
-              <i-lucide name="server"></i-lucide>
+              <div class="item-icon">
+                <i-lucide name="cpu"></i-lucide>
+              </div>
               <span>Systemes digitaux</span>
             </div>
             <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
+
         </div>
       </div>
 
@@ -101,6 +121,7 @@
         {{ i18n.t('nav.technologies') }}
       </a>
 
+      <!-- Dropdown Carrière -->
       <div class="nav-dropdown">
         <button class="dropdown-trigger nav-link"
                 [class.active]="activeDropdown === 'carrieres'"
@@ -108,27 +129,35 @@
           Carrière
           <i-lucide name="chevron-down" class="chevron"></i-lucide>
         </button>
+
         <div class="dropdown-menu" [class.open]="activeDropdown === 'carrieres'">
+
           <a routerLink="/carrieres/offres-emploi"
              routerLinkActive="active"
              (click)="closeMenu()"
              class="dropdown-item">
             <div class="dropdown-item-content">
-              <i-lucide name="briefcase"></i-lucide>
+              <div class="item-icon">
+                <i-lucide name="briefcase"></i-lucide>
+              </div>
               <span>Offres d'emploi</span>
             </div>
             <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
+
           <a routerLink="/carrieres/stages"
              routerLinkActive="active"
              (click)="closeMenu()"
              class="dropdown-item">
             <div class="dropdown-item-content">
-              <i-lucide name="graduation-cap"></i-lucide>
+              <div class="item-icon">
+                <i-lucide name="graduation-cap"></i-lucide>
+              </div>
               <span>Stage</span>
             </div>
             <i-lucide name="arrow-right" class="arrow-icon"></i-lucide>
           </a>
+
         </div>
       </div>
 
