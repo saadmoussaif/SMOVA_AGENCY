@@ -215,9 +215,33 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       }, 4000);
     }, 1800);
   }
+// ✅ Remplace ces deux lignes dans ta classe HomeComponent
 
-  readonly clients = Array.from({ length: 40 }, (_, index) => `Client ${String(index + 1).padStart(2, '0')}`);
-  readonly partners = Array.from({ length: 24 }, (_, index) => `Partner ${String(index + 1).padStart(2, '0')}`);
+readonly clients = [
+  'TurnKey Immobilier',
+  'Nutrilair',
+  'CMTR',
+  'Titanium Immobilier',
+  'AUTO24',
+  'Cuisinéco',
+  'Mama Box',
+  'Ticka',
+  'GlobalTrade Corp',
+  'Atlas Ventures',
+  'Nexa Solutions',
+  'Horizon Group',
+];
+
+readonly partners = [
+  'Meducate Health',
+  'AutoZone Maroc',
+  'Pulse Digital',
+  'Vertex Capital',
+  'Skyline Partners',
+  'Quantum Labs',
+  'Northstar Group',
+  'Cedar Ventures',
+];
 
   readonly sectors: SectorItem[] = [
     {
