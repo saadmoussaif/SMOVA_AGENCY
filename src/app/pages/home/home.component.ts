@@ -236,10 +236,10 @@ readonly partners = [
   'Meducate Health',
   'AutoZone Maroc',
   'Pulse Digital',
-  'Vertex Capital',
+  'Vertex Capitalo',
   'Skyline Partners',
   'Quantum Labs',
-  'Northstar Group',
+  'Northstar Groupo',
   'Cedar Ventures',
 ];
 
