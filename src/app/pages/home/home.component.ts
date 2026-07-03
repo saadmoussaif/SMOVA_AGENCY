@@ -166,21 +166,20 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   submitting = false;
   submitted = false;
 
-  // ✅ Logos clients typés
   readonly clients: ClientLogo[] = [
-    { name: 'Yassir', type: 'image', logoUrl: 'https://logo.clearbit.com/yassir.io' },
-    { name: 'Inwi', type: 'image', logoUrl: 'https://logo.clearbit.com/inwi.ma' },
-    { name: 'CIH Bank', type: 'image', logoUrl: 'https://logo.clearbit.com/cihbank.ma' },
-    { name: 'Jumia', type: 'image', logoUrl: 'https://logo.clearbit.com/jumia.ma' },
-    { name: 'Revolut', type: 'image', logoUrl: 'https://logo.clearbit.com/revolut.com' },
-    { name: 'Doctolib', type: 'image', logoUrl: 'https://logo.clearbit.com/doctolib.fr' },
-    { name: 'BlaBlaCar', type: 'image', logoUrl: 'https://logo.clearbit.com/blablacar.com' },
-    { name: 'Vinted', type: 'image', logoUrl: 'https://logo.clearbit.com/vinted.com' },
-    { name: 'Klarna', type: 'image', logoUrl: 'https://logo.clearbit.com/klarna.com' },
-    { name: 'N26', type: 'image', logoUrl: 'https://logo.clearbit.com/n26.com' },
-    { name: 'Glovo', type: 'image', logoUrl: 'https://logo.clearbit.com/glovoapp.com' },
-    { name: 'Contentsquare', type: 'image', logoUrl: 'https://logo.clearbit.com/contentsquare.com' },
-  ];
+  { name: 'Yassir',        type: 'image', logoUrl: 'https://img.logo.dev/yassir.io?token=pk_free' },
+  { name: 'Inwi',          type: 'image', logoUrl: 'https://img.logo.dev/inwi.ma?token=pk_free' },
+  { name: 'CIH Bank',      type: 'image', logoUrl: 'https://img.logo.dev/cihbank.ma?token=pk_free' },
+  { name: 'Jumia',         type: 'image', logoUrl: 'https://img.logo.dev/jumia.ma?token=pk_free' },
+  { name: 'Revolut',       type: 'image', logoUrl: 'https://img.logo.dev/revolut.com?token=pk_free' },
+  { name: 'Doctolib',      type: 'image', logoUrl: 'https://img.logo.dev/doctolib.fr?token=pk_free' },
+  { name: 'BlaBlaCar',     type: 'image', logoUrl: 'https://img.logo.dev/blablacar.com?token=pk_free' },
+  { name: 'Vinted',        type: 'image', logoUrl: 'https://img.logo.dev/vinted.com?token=pk_free' },
+  { name: 'Klarna',        type: 'image', logoUrl: 'https://img.logo.dev/klarna.com?token=pk_free' },
+  { name: 'N26',           type: 'image', logoUrl: 'https://img.logo.dev/n26.com?token=pk_free' },
+  { name: 'Glovo',         type: 'image', logoUrl: 'https://img.logo.dev/glovoapp.com?token=pk_free' },
+  { name: 'Contentsquare', type: 'image', logoUrl: 'https://img.logo.dev/contentsquare.com?token=pk_free' },
+];
 
   readonly partners: ClientLogo[] = [
     { name: 'Payfit', type: 'image', logoUrl: 'https://logo.clearbit.com/payfit.com' },
