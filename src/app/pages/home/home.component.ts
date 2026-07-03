@@ -246,7 +246,7 @@ readonly partners = [
   readonly sectors: SectorItem[] = [
     {
       icon: 'rocket',
-      title: 'SaaS & startups',
+      title: 'Saa & startups',
       text: 'MVP, scale-up, onboarding et outils internes pour equipes ambitieuses.',
       detail: 'Nous concevons des produits SaaS avec parcours d inscription, dashboard, roles utilisateurs, paiement, analytics et architecture prete a evoluer.',
       image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80',
