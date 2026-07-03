@@ -14,6 +14,7 @@ type SectorIcon =
   | 'landmark'
   | 'plane'
   | 'factory';
+
 type SectorItem = {
   icon: SectorIcon;
   title: string;
@@ -22,7 +23,9 @@ type SectorItem = {
   image: string;
   alt: string;
 };
+
 type ProcessIcon = 'search' | 'palette' | 'code-2' | 'rocket';
+
 type StackIcon =
   | 'brain'
   | 'code-2'
@@ -36,18 +39,21 @@ type StackIcon =
   | 'smartphone'
   | 'cloud'
   | 'settings';
+
 type StackItem = {
   icon: StackIcon;
   title: string;
   tools: string;
   detail: string;
 };
+
 type CountryCode = {
   iso: string;
   code: string;
   label: string;
   flagClass: string;
 };
+
 type ContactForm = {
   prenom: string;
   email: string;
@@ -58,11 +64,19 @@ type ContactForm = {
   sujet: string;
   message: string;
 };
+
 type ContactCountry = {
   iso: string;
   code: string;
   name: string;
   flagUrl: string;
+};
+
+// ✅ Type pour les logos clients
+type ClientLogo = {
+  name: string;
+  type: 'image' | 'text';
+  logoUrl?: string;
 };
 
 @Component({
@@ -78,6 +92,7 @@ type ContactCountry = {
   styleUrls: ['./home.component.scss', './home-contact.component.scss']
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
+
   @ViewChild('loader') loader?: ElementRef<HTMLElement>;
   selectedSectorIndex = 0;
   expandedSectorIndex: number | null = null;
@@ -101,6 +116,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     { iso: 'US', code: '+1', label: 'Etats-Unis', flagClass: 'flag-us' },
     { iso: 'ES', code: '+34', label: 'Espagne', flagClass: 'flag-es' }
   ];
+
   selectedCountryIso = 'MA';
   countryMenuOpen = false;
 
@@ -113,6 +129,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     'Consulting digital & IA',
     'Autre besoin'
   ];
+
   readonly countries: ContactCountry[] = [
     { iso: 'MA', code: '+212', name: 'Maroc', flagUrl: 'https://flagcdn.com/w40/ma.png' },
     { iso: 'FR', code: '+33', name: 'France', flagUrl: 'https://flagcdn.com/w40/fr.png' },
@@ -132,7 +149,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     { iso: 'EG', code: '+20', name: 'Egypte', flagUrl: 'https://flagcdn.com/w40/eg.png' },
     { iso: 'NG', code: '+234', name: 'Nigeria', flagUrl: 'https://flagcdn.com/w40/ng.png' }
   ];
+
   focused: Record<string, boolean> = {};
+
   form: ContactForm = {
     prenom: '',
     email: '',
@@ -143,105 +162,36 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     sujet: '',
     message: ''
   };
+
   submitting = false;
   submitted = false;
 
-  get selectedCountry(): CountryCode {
-    return this.countryCodes.find((country) => country.iso === this.selectedCountryIso) ?? this.countryCodes[0];
-  }
+  // ✅ Logos clients typés
+  readonly clients: ClientLogo[] = [
+    { name: 'Yassir', type: 'image', logoUrl: 'https://logo.clearbit.com/yassir.io' },
+    { name: 'Inwi', type: 'image', logoUrl: 'https://logo.clearbit.com/inwi.ma' },
+    { name: 'CIH Bank', type: 'image', logoUrl: 'https://logo.clearbit.com/cihbank.ma' },
+    { name: 'Jumia', type: 'image', logoUrl: 'https://logo.clearbit.com/jumia.ma' },
+    { name: 'Revolut', type: 'image', logoUrl: 'https://logo.clearbit.com/revolut.com' },
+    { name: 'Doctolib', type: 'image', logoUrl: 'https://logo.clearbit.com/doctolib.fr' },
+    { name: 'BlaBlaCar', type: 'image', logoUrl: 'https://logo.clearbit.com/blablacar.com' },
+    { name: 'Vinted', type: 'image', logoUrl: 'https://logo.clearbit.com/vinted.com' },
+    { name: 'Klarna', type: 'image', logoUrl: 'https://logo.clearbit.com/klarna.com' },
+    { name: 'N26', type: 'image', logoUrl: 'https://logo.clearbit.com/n26.com' },
+    { name: 'Glovo', type: 'image', logoUrl: 'https://logo.clearbit.com/glovoapp.com' },
+    { name: 'Contentsquare', type: 'image', logoUrl: 'https://logo.clearbit.com/contentsquare.com' },
+  ];
 
-  toggleCountryMenu(): void {
-    this.countryMenuOpen = !this.countryMenuOpen;
-  }
-
-  selectCountry(countryIso: string): void {
-    this.selectedCountryIso = countryIso;
-    this.countryMenuOpen = false;
-  }
-
-  get selectedContactCountry(): ContactCountry {
-    return this.countries.find((country) => country.iso === this.form.countryIso) ?? this.countries[0];
-  }
-
-  selectContactCountry(countryIso: string): void {
-    const country = this.countries.find((item) => item.iso === countryIso);
-
-    if (!country) {
-      return;
-    }
-
-    this.form.countryIso = country.iso;
-    this.form.countryCode = country.code;
-  }
-
-  numbersOnly(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    const sanitizedValue = input.value.replace(/\D/g, '');
-
-    input.value = sanitizedValue;
-    this.form.tel = sanitizedValue;
-  }
-
-  setFocus(field: string, value: boolean): void {
-    this.focused = { ...this.focused, [field]: value };
-  }
-
-  onSubmit(event: Event): void {
-    event.preventDefault();
-
-    if (!this.form.prenom || !this.form.email || !this.form.sujet || !this.form.message) {
-      return;
-    }
-
-    this.submitting = true;
-    this.submitted = false;
-
-    setTimeout(() => {
-      this.submitting = false;
-      this.submitted = true;
-
-      setTimeout(() => {
-        this.submitted = false;
-        this.form = {
-          prenom: '',
-          email: '',
-          societe: '',
-          countryIso: 'MA',
-          countryCode: '+212',
-          tel: '',
-          sujet: '',
-          message: ''
-        };
-      }, 4000);
-    }, 1800);
-  }
-// ✅ Remplace ces deux lignes dans ta classe HomeComponent
-
-readonly clients = [
-  'TurnKey Immobilier',
-  'Nutrilair',
-  'CMTR',
-  'Titanium Immobilier',
-  'AUTO24',
-  'Cuisinéco',
-  'Mama Box',
-  'Ticka',
-  'GlobalTrade Corp',
-  'Atlas Ventures',
-  'Nexa Solutions',
-  'Horizon Group',
-];
-
-readonly partners = [
-  'Meducate Health',
-  'AutoZone Maroc',
-  'Pulse Digital',
-  'Vertex Capitalo',
-  'Skyline Partners',
-  'Quantum Labs',
-  'Northstar Groupo',
-  'Cedar Ventures',
-];
+  readonly partners: ClientLogo[] = [
+    { name: 'Payfit', type: 'image', logoUrl: 'https://logo.clearbit.com/payfit.com' },
+    { name: 'Pennylane', type: 'image', logoUrl: 'https://logo.clearbit.com/pennylane.com' },
+    { name: 'Swile', type: 'image', logoUrl: 'https://logo.clearbit.com/swile.co' },
+    { name: 'Luko', type: 'image', logoUrl: 'https://logo.clearbit.com/luko.eu' },
+    { name: 'Lydia', type: 'image', logoUrl: 'https://logo.clearbit.com/lydia-app.com' },
+    { name: 'Alan', type: 'image', logoUrl: 'https://logo.clearbit.com/alan.com' },
+    { name: 'Algolia', type: 'image', logoUrl: 'https://logo.clearbit.com/algolia.com' },
+    { name: 'Dataiku', type: 'image', logoUrl: 'https://logo.clearbit.com/dataiku.com' },
+  ];
 
   readonly sectors: SectorItem[] = [
     {
@@ -352,25 +302,89 @@ readonly partners = [
     { icon: 'settings', title: 'DevOps', tools: 'Docker - CI/CD - Monitoring', detail: 'Pipelines, livraison continue et environnements fiables.' }
   ];
 
+  get selectedCountry(): CountryCode {
+    return this.countryCodes.find((c) => c.iso === this.selectedCountryIso) ?? this.countryCodes[0];
+  }
+
+  get selectedContactCountry(): ContactCountry {
+    return this.countries.find((c) => c.iso === this.form.countryIso) ?? this.countries[0];
+  }
+
+  toggleCountryMenu(): void {
+    this.countryMenuOpen = !this.countryMenuOpen;
+  }
+
+  selectCountry(countryIso: string): void {
+    this.selectedCountryIso = countryIso;
+    this.countryMenuOpen = false;
+  }
+
+  selectContactCountry(countryIso: string): void {
+    const country = this.countries.find((c) => c.iso === countryIso);
+    if (!country) return;
+    this.form.countryIso = country.iso;
+    this.form.countryCode = country.code;
+  }
+
+  numbersOnly(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const sanitizedValue = input.value.replace(/\D/g, '');
+    input.value = sanitizedValue;
+    this.form.tel = sanitizedValue;
+  }
+
+  setFocus(field: string, value: boolean): void {
+    this.focused = { ...this.focused, [field]: value };
+  }
+
+  // ✅ Fallback si le logo Clearbit ne charge pas
+  onLogoError(event: Event, name: string): void {
+    const img = event.target as HTMLImageElement;
+    img.style.display = 'none';
+    const span = document.createElement('span');
+    span.className = 'logo-text';
+    span.textContent = name;
+    img.parentElement?.appendChild(span);
+  }
+
+  onSubmit(event: Event): void {
+    event.preventDefault();
+    if (!this.form.prenom || !this.form.email || !this.form.sujet || !this.form.message) return;
+
+    this.submitting = true;
+    this.submitted = false;
+
+    setTimeout(() => {
+      this.submitting = false;
+      this.submitted = true;
+
+      setTimeout(() => {
+        this.submitted = false;
+        this.form = {
+          prenom: '',
+          email: '',
+          societe: '',
+          countryIso: 'MA',
+          countryCode: '+212',
+          tel: '',
+          sujet: '',
+          message: ''
+        };
+      }, 4000);
+    }, 1800);
+  }
+
   ngAfterViewInit(): void {
     const loader = this.loader?.nativeElement;
     this.typingTimer = setTimeout(() => this.runHeroTyping(), 180);
+
     gsap.from('.hero-typing-panel > *', {
-      y: 38,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power3.out',
-      stagger: 0.08,
-      delay: 0.25
+      y: 38, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.08, delay: 0.25
     });
     gsap.from('.reveal-item', {
-      y: 24,
-      opacity: 0,
-      duration: 0.7,
-      ease: 'power2.out',
-      stagger: 0.08,
-      delay: 0.55
+      y: 24, opacity: 0, duration: 0.7, ease: 'power2.out', stagger: 0.08, delay: 0.55
     });
+
     if (loader) {
       gsap.to(loader, {
         opacity: 0,
@@ -384,9 +398,7 @@ readonly partners = [
   }
 
   ngOnDestroy(): void {
-    if (this.typingTimer) {
-      clearTimeout(this.typingTimer);
-    }
+    if (this.typingTimer) clearTimeout(this.typingTimer);
   }
 
   private runHeroTyping(): void {
@@ -399,7 +411,6 @@ readonly partners = [
     }
 
     this.displayedHeroText = currentPhrase.slice(0, this.heroLetterIndex);
-
     let delay = this.isDeletingHeroText ? 34 : 58;
 
     if (!this.isDeletingHeroText && this.heroLetterIndex === currentPhrase.length) {

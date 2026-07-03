@@ -10,6 +10,8 @@
 </div>
 
 <main>
+
+  <!-- ─── HERO ─────────────────────────────────── -->
   <section class="hero">
     <div class="hero-grid">
       <div class="hero-typing-panel reveal-item">
@@ -19,7 +21,8 @@
           <span class="typing-cursor" aria-hidden="true"></span>
         </h1>
         <p class="hero-lead">
-          Agence digitale marocaine pour creer des plateformes web, applications, automatisations IA et campagnes de croissance avec une execution claire et serieuse.
+          Agence digitale marocaine pour creer des plateformes web, applications,
+          automatisations IA et campagnes de croissance avec une execution claire et serieuse.
         </p>
         <div class="hero-actions">
           <a class="btn primary" href="#services">
@@ -34,34 +37,87 @@
     </div>
 
     <div class="hero-stats reveal-item" aria-label="Chiffres SMAgency">
-      <article><i-lucide name="users"></i-lucide><strong>50+</strong><span>Clients satisfaits</span></article>
-      <article><i-lucide name="code-2"></i-lucide><strong>120+</strong><span>Projets realises</span></article>
-      <article><i-lucide name="rocket"></i-lucide><strong>5+</strong><span>Annees d experience</span></article>
-      <article><i-lucide name="line-chart"></i-lucide><strong>200%</strong><span>Croissance moyenne</span></article>
-      <article><i-lucide name="shield-check"></i-lucide><strong>100%</strong><span>Engagement qualite</span></article>
+      <article>
+        <i-lucide name="users"></i-lucide>
+        <strong>50+</strong>
+        <span>Clients satisfaits</span>
+      </article>
+      <article>
+        <i-lucide name="code-2"></i-lucide>
+        <strong>120+</strong>
+        <span>Projets realises</span>
+      </article>
+      <article>
+        <i-lucide name="rocket"></i-lucide>
+        <strong>5+</strong>
+        <span>Annees d experience</span>
+      </article>
+      <article>
+        <i-lucide name="line-chart"></i-lucide>
+        <strong>200%</strong>
+        <span>Croissance moyenne</span>
+      </article>
+      <article>
+        <i-lucide name="shield-check"></i-lucide>
+        <strong>100%</strong>
+        <span>Engagement qualite</span>
+      </article>
     </div>
   </section>
 
+  <!-- ─── TRUST / LOGOS ─────────────────────────── -->
   <section class="trust section-band">
     <div class="section-heading compact">
       <span>Ils nous font confiance</span>
-      <h2>Plus de 200 entreprises accompagnees dans leur transformation digitale</h2>
-      <p>Startups, PME, ecoles, cabinets et acteurs e-commerce: une selection de logos placeholder prete a remplacer par vos vrais clients.</p>
+      <h2>Startups marocaines et européennes qui nous accompagnent</h2>
+      <p>
+        De Casablanca à Paris, nous construisons des solutions digitales
+        pour les équipes les plus ambitieuses.
+      </p>
     </div>
+
+    <!-- Ligne 1 : vrais clients -->
     <div class="logo-cloud">
-      <span *ngFor="let client of clients">{{ client }}</span>
+      <div class="logo-item" *ngFor="let client of clients">
+        <img
+          *ngIf="client.type === 'image'"
+          [src]="client.logoUrl"
+          [alt]="client.name"
+          class="logo-img"
+          (error)="onLogoError($event, client.name)"
+        >
+        <span *ngIf="client.type === 'text'" class="logo-text">
+          {{ client.name }}
+        </span>
+      </div>
     </div>
+
+    <!-- Ligne 2 : partenaires -->
     <div class="logo-cloud partners">
-      <span *ngFor="let partner of partners">{{ partner }}</span>
+      <div class="logo-item" *ngFor="let partner of partners">
+        <img
+          *ngIf="partner.type === 'image'"
+          [src]="partner.logoUrl"
+          [alt]="partner.name"
+          class="logo-img"
+          (error)="onLogoError($event, partner.name)"
+        >
+        <span *ngIf="partner.type === 'text'" class="logo-text">
+          {{ partner.name }}
+        </span>
+      </div>
     </div>
   </section>
 
+  <!-- ─── PRÉSENTATION ──────────────────────────── -->
   <section class="presentation">
     <div class="presentation-copy">
       <span class="section-kicker">Votre partenaire digital d exception</span>
       <h2>Une agence marocaine agile pour creer, lancer et optimiser vos solutions tech.</h2>
       <p>
-        Notre force: une equipe technique basee au Maroc, connectee aux standards internationaux, capable de livrer vite sans sacrifier la qualite produit, le design ou la strategie business.
+        Notre force: une equipe technique basee au Maroc, connectee aux standards
+        internationaux, capable de livrer vite sans sacrifier la qualite produit,
+        le design ou la strategie business.
       </p>
     </div>
     <div class="values">
@@ -83,14 +139,20 @@
     </div>
   </section>
 
+  <!-- ─── SERVICES ──────────────────────────────── -->
   <app-services></app-services>
 
+  <!-- ─── SECTEURS ──────────────────────────────── -->
   <section class="sectors section-band" id="secteurs">
     <div class="section-heading">
       <span>Secteurs</span>
       <h2>Une expertise reconnue dans des marches exigeants</h2>
-      <p>Nous adaptons la strategie, l UX et la stack a votre secteur plutot que d appliquer une recette unique.</p>
+      <p>
+        Nous adaptons la strategie, l UX et la stack a votre secteur
+        plutot que d appliquer une recette unique.
+      </p>
     </div>
+
     <div class="sector-carousel-controls" aria-label="Navigation secteurs">
       <button type="button" (click)="previousSector()" aria-label="Secteur precedent">
         <i-lucide name="chevron-left"></i-lucide>
@@ -100,6 +162,7 @@
         <i-lucide name="chevron-right"></i-lucide>
       </button>
     </div>
+
     <div class="sector-grid">
       <article
         *ngFor="let sector of sectors; let index = index"
@@ -133,6 +196,7 @@
     </div>
   </section>
 
+  <!-- ─── PROCESS ───────────────────────────────── -->
   <section class="process-section">
     <div class="process-container">
       <div class="process-header">
@@ -145,6 +209,7 @@
       </div>
 
       <div class="process-timeline">
+
         <div class="process-step">
           <div class="step-badge">01</div>
           <div class="step-icon-wrap">
@@ -228,6 +293,7 @@
             </ul>
           </div>
         </div>
+
       </div>
 
       <div class="process-stats">
@@ -249,6 +315,7 @@
     </div>
   </section>
 
+  <!-- ─── TECHNOLOGIES ──────────────────────────── -->
   <section class="technologies tech-showcase" id="technologies">
     <div class="section-heading tech-heading">
       <span>Stack technologique moderne</span>
@@ -267,6 +334,7 @@
     </div>
   </section>
 
+  <!-- ─── CONTACT ───────────────────────────────── -->
   <section class="contact" id="contact">
     <div class="contact-copy">
       <span class="section-kicker">Pret a accelerer ?</span>
@@ -329,8 +397,11 @@
       </div>
 
       <form class="contact-form" (submit)="onSubmit($event)" novalidate>
+
         <div class="form-row">
-          <div class="form-group" [class.focused]="focused['prenom']" [class.filled]="form.prenom">
+          <div class="form-group"
+               [class.focused]="focused['prenom']"
+               [class.filled]="form.prenom">
             <label for="prenom">Prenom <span class="required">*</span></label>
             <input
               id="prenom"
@@ -343,7 +414,9 @@
               autocomplete="given-name"
             />
           </div>
-          <div class="form-group" [class.focused]="focused['email']" [class.filled]="form.email">
+          <div class="form-group"
+               [class.focused]="focused['email']"
+               [class.filled]="form.email">
             <label for="email">Email professionnel <span class="required">*</span></label>
             <input
               id="email"
@@ -359,7 +432,9 @@
         </div>
 
         <div class="form-row">
-          <div class="form-group" [class.focused]="focused['societe']" [class.filled]="form.societe">
+          <div class="form-group"
+               [class.focused]="focused['societe']"
+               [class.filled]="form.societe">
             <label for="societe">Societe</label>
             <input
               id="societe"
@@ -372,7 +447,9 @@
               autocomplete="organization"
             />
           </div>
-          <div class="form-group" [class.focused]="focused['tel']" [class.filled]="form.tel">
+          <div class="form-group"
+               [class.focused]="focused['tel']"
+               [class.filled]="form.tel">
             <label for="tel">Telephone</label>
             <div class="tel-input-wrap">
               <div class="country-select-wrap">
@@ -413,7 +490,9 @@
           </div>
         </div>
 
-        <div class="form-group" [class.focused]="focused['sujet']" [class.filled]="form.sujet">
+        <div class="form-group"
+             [class.focused]="focused['sujet']"
+             [class.filled]="form.sujet">
           <label for="sujet">Sujet <span class="required">*</span></label>
           <div class="select-wrap">
             <select
@@ -431,13 +510,16 @@
               <option value="audit">Audit & conseil digital</option>
               <option value="autre">Autre</option>
             </select>
-            <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg class="select-chevron" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
               <polyline points="6 9 12 15 18 9"/>
             </svg>
           </div>
         </div>
 
-        <div class="form-group textarea-group" [class.focused]="focused['message']" [class.filled]="form.message">
+        <div class="form-group textarea-group"
+             [class.focused]="focused['message']"
+             [class.filled]="form.message">
           <label for="message">
             Votre message <span class="required">*</span>
             <span class="char-count">{{ form.message.length }}/500</span>
@@ -457,7 +539,8 @@
         <button type="submit" class="btn-submit" [class.loading]="submitting">
           <span *ngIf="!submitting && !submitted">
             Planifier un appel
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" width="16" height="16">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </span>
@@ -466,7 +549,9 @@
         </button>
 
         <p class="form-note">Reponse sous 24 h · Devis gratuit · Sans engagement</p>
+
       </form>
     </div>
   </section>
+
 </main>
