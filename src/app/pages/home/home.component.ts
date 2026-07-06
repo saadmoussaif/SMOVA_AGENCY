@@ -177,7 +177,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   { name: 'Vinted',        type: 'image', logoUrl: 'https://img.logo.dev/vinted.com?token=pk_free' },
   { name: 'Klarna',        type: 'image', logoUrl: 'https://img.logo.dev/klarna.com?token=pk_free' },
   { name: 'N26',           type: 'image', logoUrl: 'https://img.logo.dev/n26.com?token=pk_free' },
-  { name: 'Glovo',         type: 'image', logoUrl: 'https://img.logo.dev/glovoapp.com?token=pk_free' },
+  { name: 'GlovoSS',         type: 'image', logoUrl: 'https://img.logo.dev/glovoapp.com?token=pk_free' },
   { name: 'Contentsquare', type: 'image', logoUrl: 'https://img.logo.dev/contentsquare.com?token=pk_free' },
 ];
 
