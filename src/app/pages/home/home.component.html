@@ -65,7 +65,7 @@
     </div>
   </section>
 
-  <!-- ─── TRUST / LOGOS ─────────────────────────── -->
+  <!-- ─── TRUST / MARQUEE ───────────────────────── -->
   <section class="trust section-band">
     <div class="section-heading compact">
       <span>Ils nous font confiance</span>
@@ -76,35 +76,35 @@
       </p>
     </div>
 
-    <!-- Ligne 1 : vrais clients -->
-    <div class="logo-cloud">
-      <div class="logo-item" *ngFor="let client of clients">
-        <img
-          *ngIf="client.type === 'image'"
-          [src]="client.logoUrl"
-          [alt]="client.name"
-          class="logo-img"
-          (error)="onLogoError($event, client.name)"
-        >
-        <span *ngIf="client.type === 'text'" class="logo-text">
-          {{ client.name }}
-        </span>
+    <!-- Ligne 1 → défile vers la gauche -->
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <div class="logo-pill" *ngFor="let client of clients">
+            <span class="pill-text">{{ client.name }}</span>
+          </div>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <div class="logo-pill" *ngFor="let client of clients">
+            <span class="pill-text">{{ client.name }}</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Ligne 2 : partenaires -->
-    <div class="logo-cloud partners">
-      <div class="logo-item" *ngFor="let partner of partners">
-        <img
-          *ngIf="partner.type === 'image'"
-          [src]="partner.logoUrl"
-          [alt]="partner.name"
-          class="logo-img"
-          (error)="onLogoError($event, partner.name)"
-        >
-        <span *ngIf="partner.type === 'text'" class="logo-text">
-          {{ partner.name }}
-        </span>
+    <!-- Ligne 2 → défile vers la droite -->
+    <div class="marquee-wrapper reverse">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <div class="logo-pill" *ngFor="let partner of partners">
+            <span class="pill-text">{{ partner.name }}</span>
+          </div>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <div class="logo-pill" *ngFor="let partner of partners">
+            <span class="pill-text">{{ partner.name }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -209,20 +209,14 @@
       </div>
 
       <div class="process-timeline">
-
         <div class="process-step">
           <div class="step-badge">01</div>
           <div class="step-icon-wrap">
-            <div class="step-icon">
-              <i-lucide name="compass"></i-lucide>
-            </div>
+            <div class="step-icon"><i-lucide name="compass"></i-lucide></div>
           </div>
           <div class="step-card">
             <h3>Audit & Stratégie</h3>
-            <p>
-              Analyse profonde de vos besoins, marché, concurrence.
-              On crée une roadmap claire et réaliste pour atteindre vos objectifs.
-            </p>
+            <p>Analyse profonde de vos besoins, marché, concurrence. On crée une roadmap claire et réaliste.</p>
             <ul class="step-details">
               <li>Audit technique & UX/UI</li>
               <li>Définition des KPIs</li>
@@ -234,16 +228,11 @@
         <div class="process-step">
           <div class="step-badge">02</div>
           <div class="step-icon-wrap">
-            <div class="step-icon">
-              <i-lucide name="palette"></i-lucide>
-            </div>
+            <div class="step-icon"><i-lucide name="palette"></i-lucide></div>
           </div>
           <div class="step-card">
             <h3>Design & Conception</h3>
-            <p>
-              UX/UI moderne et convertissante. Wireframes, prototypes interactifs,
-              tests utilisateur. On itère jusqu'à la perfection.
-            </p>
+            <p>UX/UI moderne et convertissante. Wireframes, prototypes interactifs, tests utilisateur.</p>
             <ul class="step-details">
               <li>Wireframing & prototypage</li>
               <li>Design system</li>
@@ -255,16 +244,11 @@
         <div class="process-step">
           <div class="step-badge">03</div>
           <div class="step-icon-wrap">
-            <div class="step-icon">
-              <i-lucide name="code"></i-lucide>
-            </div>
+            <div class="step-icon"><i-lucide name="code"></i-lucide></div>
           </div>
           <div class="step-card">
             <h3>Développement Agile</h3>
-            <p>
-              Sprints court (2-3 semaines). Tech stack moderne: React, Node, TypeScript, etc.
-              Code clean, testé, documenté. Reviews hebdos avec vous.
-            </p>
+            <p>Sprints courts (2-3 semaines). Tech stack moderne. Code clean, testé, documenté.</p>
             <ul class="step-details">
               <li>Development par sprints</li>
               <li>QA & testing automatisé</li>
@@ -276,16 +260,11 @@
         <div class="process-step">
           <div class="step-badge">04</div>
           <div class="step-icon-wrap">
-            <div class="step-icon">
-              <i-lucide name="trending-up"></i-lucide>
-            </div>
+            <div class="step-icon"><i-lucide name="trending-up"></i-lucide></div>
           </div>
           <div class="step-card">
             <h3>Lancement & Scaling</h3>
-            <p>
-              Déploiement en prod, monitoring, optimisations. On reste avec vous
-              pour la croissance: ajouts features, scaling infra, A/B testing.
-            </p>
+            <p>Déploiement en prod, monitoring, optimisations. On reste avec vous pour la croissance.</p>
             <ul class="step-details">
               <li>Go-to-market support</li>
               <li>Performance monitoring</li>
@@ -293,7 +272,6 @@
             </ul>
           </div>
         </div>
-
       </div>
 
       <div class="process-stats">
@@ -399,109 +377,62 @@
       <form class="contact-form" (submit)="onSubmit($event)" novalidate>
 
         <div class="form-row">
-          <div class="form-group"
-               [class.focused]="focused['prenom']"
-               [class.filled]="form.prenom">
+          <div class="form-group" [class.focused]="focused['prenom']" [class.filled]="form.prenom">
             <label for="prenom">Prenom <span class="required">*</span></label>
-            <input
-              id="prenom"
-              type="text"
-              placeholder="Votre prenom"
-              [(ngModel)]="form.prenom"
-              name="prenom"
-              (focus)="setFocus('prenom', true)"
-              (blur)="setFocus('prenom', false)"
-              autocomplete="given-name"
-            />
+            <input id="prenom" type="text" placeholder="Votre prenom"
+              [(ngModel)]="form.prenom" name="prenom"
+              (focus)="setFocus('prenom', true)" (blur)="setFocus('prenom', false)"
+              autocomplete="given-name"/>
           </div>
-          <div class="form-group"
-               [class.focused]="focused['email']"
-               [class.filled]="form.email">
+          <div class="form-group" [class.focused]="focused['email']" [class.filled]="form.email">
             <label for="email">Email professionnel <span class="required">*</span></label>
-            <input
-              id="email"
-              type="email"
-              placeholder="vous@entreprise.com"
-              [(ngModel)]="form.email"
-              name="email"
-              (focus)="setFocus('email', true)"
-              (blur)="setFocus('email', false)"
-              autocomplete="email"
-            />
+            <input id="email" type="email" placeholder="vous@entreprise.com"
+              [(ngModel)]="form.email" name="email"
+              (focus)="setFocus('email', true)" (blur)="setFocus('email', false)"
+              autocomplete="email"/>
           </div>
         </div>
 
         <div class="form-row">
-          <div class="form-group"
-               [class.focused]="focused['societe']"
-               [class.filled]="form.societe">
+          <div class="form-group" [class.focused]="focused['societe']" [class.filled]="form.societe">
             <label for="societe">Societe</label>
-            <input
-              id="societe"
-              type="text"
-              placeholder="Nom de votre societe"
-              [(ngModel)]="form.societe"
-              name="societe"
-              (focus)="setFocus('societe', true)"
-              (blur)="setFocus('societe', false)"
-              autocomplete="organization"
-            />
+            <input id="societe" type="text" placeholder="Nom de votre societe"
+              [(ngModel)]="form.societe" name="societe"
+              (focus)="setFocus('societe', true)" (blur)="setFocus('societe', false)"
+              autocomplete="organization"/>
           </div>
-          <div class="form-group"
-               [class.focused]="focused['tel']"
-               [class.filled]="form.tel">
+          <div class="form-group" [class.focused]="focused['tel']" [class.filled]="form.tel">
             <label for="tel">Telephone</label>
             <div class="tel-input-wrap">
               <div class="country-select-wrap">
-                <img
-                  class="country-real-flag"
+                <img class="country-real-flag"
                   [src]="selectedContactCountry.flagUrl"
                   [alt]="selectedContactCountry.name"
-                  width="40"
-                  height="30"
-                >
-                <select
-                  class="country-select"
+                  width="40" height="30">
+                <select class="country-select"
                   [ngModel]="form.countryIso"
                   (ngModelChange)="selectContactCountry($event)"
-                  name="countryIso"
-                  aria-label="Indicatif pays"
-                >
+                  name="countryIso" aria-label="Indicatif pays">
                   <option *ngFor="let c of countries" [value]="c.iso">
                     {{ c.iso }} {{ c.code }}
                   </option>
                 </select>
               </div>
-              <input
-                id="tel"
-                type="tel"
-                placeholder=""
-                [(ngModel)]="form.tel"
-                name="tel"
-                class="tel-input"
-                inputmode="numeric"
-                pattern="[0-9]*"
+              <input id="tel" type="tel" placeholder=""
+                [(ngModel)]="form.tel" name="tel"
+                class="tel-input" inputmode="numeric" pattern="[0-9]*"
                 (input)="numbersOnly($event)"
-                (focus)="setFocus('tel', true)"
-                (blur)="setFocus('tel', false)"
-                autocomplete="tel"
-              />
+                (focus)="setFocus('tel', true)" (blur)="setFocus('tel', false)"
+                autocomplete="tel"/>
             </div>
           </div>
         </div>
 
-        <div class="form-group"
-             [class.focused]="focused['sujet']"
-             [class.filled]="form.sujet">
+        <div class="form-group" [class.focused]="focused['sujet']" [class.filled]="form.sujet">
           <label for="sujet">Sujet <span class="required">*</span></label>
           <div class="select-wrap">
-            <select
-              id="sujet"
-              [(ngModel)]="form.sujet"
-              name="sujet"
-              (focus)="setFocus('sujet', true)"
-              (blur)="setFocus('sujet', false)"
-            >
+            <select id="sujet" [(ngModel)]="form.sujet" name="sujet"
+              (focus)="setFocus('sujet', true)" (blur)="setFocus('sujet', false)">
               <option value="" disabled selected>Choisissez un sujet</option>
               <option value="site">Creation de site web</option>
               <option value="app">Application web / mobile</option>
@@ -518,22 +449,16 @@
         </div>
 
         <div class="form-group textarea-group"
-             [class.focused]="focused['message']"
-             [class.filled]="form.message">
+             [class.focused]="focused['message']" [class.filled]="form.message">
           <label for="message">
             Votre message <span class="required">*</span>
             <span class="char-count">{{ form.message.length }}/500</span>
           </label>
-          <textarea
-            id="message"
-            rows="5"
+          <textarea id="message" rows="5"
             placeholder="Decrivez votre projet, vos besoins, votre budget estime..."
-            [(ngModel)]="form.message"
-            name="message"
-            maxlength="500"
-            (focus)="setFocus('message', true)"
-            (blur)="setFocus('message', false)"
-          ></textarea>
+            [(ngModel)]="form.message" name="message" maxlength="500"
+            (focus)="setFocus('message', true)" (blur)="setFocus('message', false)">
+          </textarea>
         </div>
 
         <button type="submit" class="btn-submit" [class.loading]="submitting">
@@ -549,7 +474,6 @@
         </button>
 
         <p class="form-note">Reponse sous 24 h · Devis gratuit · Sans engagement</p>
-
       </form>
     </div>
   </section>

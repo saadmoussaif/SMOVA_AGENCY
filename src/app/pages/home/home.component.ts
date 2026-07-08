@@ -72,7 +72,6 @@ type ContactCountry = {
   flagUrl: string;
 };
 
-// ✅ Type pour les logos clients
 type ClientLogo = {
   name: string;
   type: 'image' | 'text';
@@ -166,30 +165,36 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   submitting = false;
   submitted = false;
 
+  // ✅ Ligne 1 — Startups Maroc
   readonly clients: ClientLogo[] = [
-  { name: 'Yassir',        type: 'image', logoUrl: 'https://img.logo.dev/yassir.io?token=pk_free' },
-  { name: 'Inwi',          type: 'image', logoUrl: 'https://img.logo.dev/inwi.ma?token=pk_free' },
-  { name: 'CIH Bank',      type: 'image', logoUrl: 'https://img.logo.dev/cihbank.ma?token=pk_free' },
-  { name: 'Jumia',         type: 'image', logoUrl: 'https://img.logo.dev/jumia.ma?token=pk_free' },
-  { name: 'Revolut',       type: 'image', logoUrl: 'https://img.logo.dev/revolut.com?token=pk_free' },
-  { name: 'Doctolib',      type: 'image', logoUrl: 'https://img.logo.dev/doctolib.fr?token=pk_free' },
-  { name: 'BlaBlaCar',     type: 'image', logoUrl: 'https://img.logo.dev/blablacar.com?token=pk_free' },
-  { name: 'Vinted',        type: 'image', logoUrl: 'https://img.logo.dev/vinted.com?token=pk_free' },
-  { name: 'Klarna',        type: 'image', logoUrl: 'https://img.logo.dev/klarna.com?token=pk_free' },
-  { name: 'N26',           type: 'image', logoUrl: 'https://img.logo.dev/n26.com?token=pk_free' },
-  { name: 'GlovoSS',         type: 'image', logoUrl: 'https://img.logo.dev/glovoapp.com?token=pk_free' },
-  { name: 'Contentsquare', type: 'image', logoUrl: 'https://img.logo.dev/contentsquare.com?token=pk_free' },
-];
+    { name: 'TurnKey Immobilier', type: 'text' },
+    { name: 'Ticka', type: 'text' },
+    { name: 'Meducate', type: 'text' },
+    { name: 'Nutrilair', type: 'text' },
+    { name: 'AUTO24', type: 'text' },
+    { name: 'CMTR', type: 'text' },
+    { name: 'Titanium', type: 'text' },
+    { name: 'Cuisinéco', type: 'text' },
+    { name: 'Mama Box', type: 'text' },
+    { name: 'Yassir', type: 'text' },
+    { name: 'Inwi', type: 'text' },
+    { name: 'CIH Bank', type: 'text' },
+  ];
 
+  // ✅ Ligne 2 — Startups Europe
   readonly partners: ClientLogo[] = [
-    { name: 'Payfit', type: 'image', logoUrl: 'https://logo.clearbit.com/payfit.com' },
-    { name: 'Pennylane', type: 'image', logoUrl: 'https://logo.clearbit.com/pennylane.com' },
-    { name: 'Swile', type: 'image', logoUrl: 'https://logo.clearbit.com/swile.co' },
-    { name: 'Luko', type: 'image', logoUrl: 'https://logo.clearbit.com/luko.eu' },
-    { name: 'Lydia', type: 'image', logoUrl: 'https://logo.clearbit.com/lydia-app.com' },
-    { name: 'Alan', type: 'image', logoUrl: 'https://logo.clearbit.com/alan.com' },
-    { name: 'Algolia', type: 'image', logoUrl: 'https://logo.clearbit.com/algolia.com' },
-    { name: 'Dataiku', type: 'image', logoUrl: 'https://logo.clearbit.com/dataiku.com' },
+    { name: 'Revolut', type: 'text' },
+    { name: 'Doctolib', type: 'text' },
+    { name: 'BlaBlaCar', type: 'text' },
+    { name: 'Vinted', type: 'text' },
+    { name: 'Klarna', type: 'text' },
+    { name: 'N26', type: 'text' },
+    { name: 'Glovo', type: 'text' },
+    { name: 'Algolia', type: 'text' },
+    { name: 'Dataiku', type: 'text' },
+    { name: 'Payfit', type: 'text' },
+    { name: 'Alan', type: 'text' },
+    { name: 'Pennylane', type: 'text' },
   ];
 
   readonly sectors: SectorItem[] = [
@@ -260,30 +265,10 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ];
 
   readonly process: Array<{ number: string; icon: ProcessIcon; title: string; text: string }> = [
-    {
-      number: '1',
-      icon: 'search',
-      title: 'Audit & Strategie',
-      text: 'Analyse approfondie de vos besoins et objectifs pour etablir une strategie sur mesure.'
-    },
-    {
-      number: '2',
-      icon: 'palette',
-      title: 'Conception & Design',
-      text: 'Creation d une experience utilisateur intuitive et d un design moderne.'
-    },
-    {
-      number: '3',
-      icon: 'code-2',
-      title: 'Developpement',
-      text: 'Developpement agile avec des technologies de pointe pour des solutions performantes.'
-    },
-    {
-      number: '4',
-      icon: 'rocket',
-      title: 'Lancement & Suivi',
-      text: 'Deploiement optimise et accompagnement continu pour votre reussite.'
-    }
+    { number: '1', icon: 'search', title: 'Audit & Strategie', text: 'Analyse approfondie de vos besoins et objectifs pour etablir une strategie sur mesure.' },
+    { number: '2', icon: 'palette', title: 'Conception & Design', text: 'Creation d une experience utilisateur intuitive et d un design moderne.' },
+    { number: '3', icon: 'code-2', title: 'Developpement', text: 'Developpement agile avec des technologies de pointe pour des solutions performantes.' },
+    { number: '4', icon: 'rocket', title: 'Lancement & Suivi', text: 'Deploiement optimise et accompagnement continu pour votre reussite.' }
   ];
 
   readonly techStack: StackItem[] = [
@@ -336,12 +321,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.focused = { ...this.focused, [field]: value };
   }
 
-  // ✅ Fallback si le logo Clearbit ne charge pas
   onLogoError(event: Event, name: string): void {
     const img = event.target as HTMLImageElement;
     img.style.display = 'none';
     const span = document.createElement('span');
-    span.className = 'logo-text';
+    span.className = 'pill-text';
     span.textContent = name;
     img.parentElement?.appendChild(span);
   }
