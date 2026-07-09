@@ -164,39 +164,35 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   submitting = false;
   submitted = false;
+readonly clients: ClientLogo[] = [
+  { name: 'TurnKey', type: 'image', logoUrl: 'https://img.logo.dev/turnkey.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Ticka', type: 'image', logoUrl: 'https://img.logo.dev/ticka.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Meducate', type: 'image', logoUrl: 'https://img.logo.dev/meducate.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Nutrilair', type: 'image', logoUrl: 'https://img.logo.dev/nutrilair.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'AUTO24', type: 'image', logoUrl: 'https://img.logo.dev/auto24.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'CMTR', type: 'image', logoUrl: 'https://img.logo.dev/cmtr.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Yassir', type: 'image', logoUrl: 'https://img.logo.dev/yassir.io?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Inwi', type: 'image', logoUrl: 'https://img.logo.dev/inwi.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'CIH Bank', type: 'image', logoUrl: 'https://img.logo.dev/cihbank.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Jumia', type: 'image', logoUrl: 'https://img.logo.dev/jumia.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Cuisinéco', type: 'image', logoUrl: 'https://img.logo.dev/cuisineco.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Mama Box', type: 'image', logoUrl: 'https://img.logo.dev/mamabox.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+];
 
-  // ✅ Ligne 1 — Startups Maroc
-  readonly clients: ClientLogo[] = [
-    { name: 'TurnKey Immobilier', type: 'text' },
-    { name: 'Ticka', type: 'text' },
-    { name: 'Meducate', type: 'text' },
-    { name: 'Nutrilair', type: 'text' },
-    { name: 'AUTO24', type: 'text' },
-    { name: 'CMTR', type: 'text' },
-    { name: 'Titanium', type: 'text' },
-    { name: 'Cuisinéco', type: 'text' },
-    { name: 'Mama Box', type: 'text' },
-    { name: 'Yassir', type: 'text' },
-    { name: 'Inwi', type: 'text' },
-    { name: 'CIH Bank', type: 'text' },
-  ];
-
-  // ✅ Ligne 2 — Startups Europe
-  readonly partners: ClientLogo[] = [
-    { name: 'Revolut', type: 'text' },
-    { name: 'Doctolib', type: 'text' },
-    { name: 'BlaBlaCar', type: 'text' },
-    { name: 'Vinted', type: 'text' },
-    { name: 'Klarna', type: 'text' },
-    { name: 'N26', type: 'text' },
-    { name: 'Glovo', type: 'text' },
-    { name: 'Algolia', type: 'text' },
-    { name: 'Dataiku', type: 'text' },
-    { name: 'Payfit', type: 'text' },
-    { name: 'Alan', type: 'text' },
-    { name: 'Pennylane', type: 'text' },
-  ];
-
+readonly partners: ClientLogo[] = [
+  { name: 'Revolut', type: 'image', logoUrl: 'https://img.logo.dev/revolut.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Doctolib', type: 'image', logoUrl: 'https://img.logo.dev/doctolib.fr?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'BlaBlaCar', type: 'image', logoUrl: 'https://img.logo.dev/blablacar.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Vinted', type: 'image', logoUrl: 'https://img.logo.dev/vinted.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Klarna', type: 'image', logoUrl: 'https://img.logo.dev/klarna.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'N26', type: 'image', logoUrl: 'https://img.logo.dev/n26.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Glovo', type: 'image', logoUrl: 'https://img.logo.dev/glovoapp.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Algolia', type: 'image', logoUrl: 'https://img.logo.dev/algolia.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Dataiku', type: 'image', logoUrl: 'https://img.logo.dev/dataiku.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Payfit', type: 'image', logoUrl: 'https://img.logo.dev/payfit.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Alan', type: 'image', logoUrl: 'https://img.logo.dev/alan.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Pennylane', type: 'image', logoUrl: 'https://img.logo.dev/pennylane.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+];
   readonly sectors: SectorItem[] = [
     {
       icon: 'rocket',

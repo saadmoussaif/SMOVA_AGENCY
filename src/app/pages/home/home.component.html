@@ -66,49 +66,86 @@
   </section>
 
   <!-- ─── TRUST / MARQUEE ───────────────────────── -->
-  <section class="trust section-band">
-    <div class="section-heading compact">
-      <span>Ils nous font confiance</span>
-      <h2>Startups marocaines et européennes qui nous accompagnent</h2>
-      <p>
-        De Casablanca à Paris, nous construisons des solutions digitales
-        pour les équipes les plus ambitieuses.
-      </p>
-    </div>
+  <!-- ─── TRUST / MARQUEE ───────────────────────── -->
+<section class="trust section-band">
+  <div class="section-heading compact">
+    <span>Ils nous font confiance</span>
+    <h2>Startups marocaines et européennes qui nous accompagnent</h2>
+    <p>
+      De Casablanca à Paris, nous construisons des solutions digitales
+      pour les équipes les plus ambitieuses.
+    </p>
+  </div>
 
-    <!-- Ligne 1 → défile vers la gauche -->
-    <div class="marquee-wrapper">
-      <div class="marquee-track">
-        <div class="marquee-content">
-          <div class="logo-pill" *ngFor="let client of clients">
-            <span class="pill-text">{{ client.name }}</span>
-          </div>
+  <!-- Ligne 1 → défile vers la gauche -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <div class="logo-pill" *ngFor="let client of clients">
+          <img
+            *ngIf="client.type === 'image'"
+            [src]="client.logoUrl"
+            [alt]="client.name"
+            class="pill-logo"
+            (error)="onLogoError($event, client.name)"
+          >
+          <span *ngIf="client.type === 'text'" class="pill-text">
+            {{ client.name }}
+          </span>
         </div>
-        <div class="marquee-content" aria-hidden="true">
-          <div class="logo-pill" *ngFor="let client of clients">
-            <span class="pill-text">{{ client.name }}</span>
-          </div>
+      </div>
+      <div class="marquee-content" aria-hidden="true">
+        <div class="logo-pill" *ngFor="let client of clients">
+          <img
+            *ngIf="client.type === 'image'"
+            [src]="client.logoUrl"
+            [alt]="client.name"
+            class="pill-logo"
+            (error)="onLogoError($event, client.name)"
+          >
+          <span *ngIf="client.type === 'text'" class="pill-text">
+            {{ client.name }}
+          </span>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Ligne 2 → défile vers la droite -->
-    <div class="marquee-wrapper reverse">
-      <div class="marquee-track">
-        <div class="marquee-content">
-          <div class="logo-pill" *ngFor="let partner of partners">
-            <span class="pill-text">{{ partner.name }}</span>
-          </div>
+  <!-- Ligne 2 → défile vers la droite -->
+  <div class="marquee-wrapper reverse">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <div class="logo-pill" *ngFor="let partner of partners">
+          <img
+            *ngIf="partner.type === 'image'"
+            [src]="partner.logoUrl"
+            [alt]="partner.name"
+            class="pill-logo"
+            (error)="onLogoError($event, partner.name)"
+          >
+          <span *ngIf="partner.type === 'text'" class="pill-text">
+            {{ partner.name }}
+          </span>
         </div>
-        <div class="marquee-content" aria-hidden="true">
-          <div class="logo-pill" *ngFor="let partner of partners">
-            <span class="pill-text">{{ partner.name }}</span>
-          </div>
+      </div>
+      <div class="marquee-content" aria-hidden="true">
+        <div class="logo-pill" *ngFor="let partner of partners">
+          <img
+            *ngIf="partner.type === 'image'"
+            [src]="partner.logoUrl"
+            [alt]="partner.name"
+            class="pill-logo"
+            (error)="onLogoError($event, partner.name)"
+          >
+          <span *ngIf="partner.type === 'text'" class="pill-text">
+            {{ partner.name }}
+          </span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
+</section>
   <!-- ─── PRÉSENTATION ──────────────────────────── -->
   <section class="presentation">
     <div class="presentation-copy">
