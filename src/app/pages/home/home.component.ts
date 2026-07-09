@@ -174,9 +174,9 @@ readonly clients: ClientLogo[] = [
   { name: 'Yassir', type: 'image', logoUrl: '/assets/images/glovo.png' },
   { name: 'Inwi', type: 'image', logoUrl: '/assets/images/glovo.png' },
   { name: 'CIH Bank', type: 'image', logoUrl: '/assets/images/cih.jpg' },
-  { name: 'Jumia', type: 'image', logoUrl: '/assets/images/glovo.png' },
+  { name: 'JumiaFOOD', type: 'image', logoUrl: '/assets/images/glovo.png' },
   { name: 'Cuisinéco', type: 'image', logoUrl: '/assets/images/glovo.png' },
-  { name: 'Mama Box', type: 'image', logoUrl: '/assets/images/glovo.png' },
+  { name: 'MamaBox', type: 'image', logoUrl: '/assets/images/glovo.png' },
 ];
 
 readonly partners: ClientLogo[] = [
