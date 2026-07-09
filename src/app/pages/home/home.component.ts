@@ -173,7 +173,7 @@ readonly clients: ClientLogo[] = [
   { name: 'CMTR', type: 'image', logoUrl: '/assets/images/glovo.png' },
   { name: 'Yassir', type: 'image', logoUrl: '/assets/images/glovo.png' },
   { name: 'Inwi', type: 'image', logoUrl: '/assets/images/glovo.png' },
-  { name: 'CIH Bank', type: 'image', logoUrl: '/assets/images/glovo.png' },
+  { name: 'CIH Bank', type: 'image', logoUrl: '/assets/images/cih.jpg' },
   { name: 'Jumia', type: 'image', logoUrl: '/assets/images/glovo.png' },
   { name: 'Cuisinéco', type: 'image', logoUrl: '/assets/images/glovo.png' },
   { name: 'Mama Box', type: 'image', logoUrl: '/assets/images/glovo.png' },
