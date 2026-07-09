@@ -165,7 +165,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   submitting = false;
   submitted = false;
 readonly clients: ClientLogo[] = [
-  { name: 'TurnKey', type: 'image', logoUrl: 'https://img.logo.dev/turnkey.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+ { name: 'TurnKey', type: 'image', logoUrl: 'assets/images/glovo.png' },
   { name: 'Ticka', type: 'image', logoUrl: 'https://img.logo.dev/ticka.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
   { name: 'Meducate', type: 'image', logoUrl: 'https://img.logo.dev/meducate.ma?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
   { name: 'Nutrilair', type: 'image', logoUrl: 'https://img.logo.dev/nutrilair.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
@@ -186,7 +186,7 @@ readonly partners: ClientLogo[] = [
   { name: 'Vinted', type: 'image', logoUrl: 'https://img.logo.dev/vinted.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
   { name: 'Klarna', type: 'image', logoUrl: 'https://img.logo.dev/klarna.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
   { name: 'N26', type: 'image', logoUrl: 'https://img.logo.dev/n26.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
-  { name: 'Glovo', type: 'image', logoUrl: 'https://img.logo.dev/glovoapp.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
+  { name: 'Glovo', type: 'image', logoUrl: 'assets/images/glovo.png' },
   { name: 'Algolia', type: 'image', logoUrl: 'https://img.logo.dev/algolia.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
   { name: 'Dataiku', type: 'image', logoUrl: 'https://img.logo.dev/dataiku.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
   { name: 'Payfit', type: 'image', logoUrl: 'https://img.logo.dev/payfit.com?token=pk_X-1ZO13GSgeOoUrIuJ6BeQ' },
