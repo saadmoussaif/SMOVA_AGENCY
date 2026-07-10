@@ -84,28 +84,20 @@ export const routes: Routes = [
     }
   },
 
-  // ✅ CARRIÈRES — parent avec children
   {
     path: 'carrieres',
     component: CarrieresComponent,
-    title: 'SMAgency - Carrieres',
-    children: [
-      {
-        path: '',
-        redirectTo: 'offres-emploi',
-        pathMatch: 'full'
-      },
-      {
-        path: 'offres-emploi',
-        component: OffresEmploiComponent,
-        title: 'SMAgency - Offres d emploi'
-      },
-      {
-        path: 'stages',
-        component: StagesComponent,
-        title: 'SMAgency - Stages'
-      }
-    ]
+    title: 'SMAgency - Carrieres'
+  },
+  {
+    path: 'carrieres/offres-emploi',
+    component: OffresEmploiComponent,
+    title: 'SMAgency - Offres d emploi'
+  },
+  {
+    path: 'carrieres/stages',
+    component: StagesComponent,
+    title: 'SMAgency - Stages'
   },
 
   // ✅ Redirection ancienne route /stages vers /carrieres/stages
