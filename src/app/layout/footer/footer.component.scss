@@ -9,7 +9,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   color: #e5e7eb;
   background:
-    radial-gradient(circle at 16% 18%, rgba(195, 0, 0, 0.18), transparent 24rem),
+    radial-gradient(circle at 16% 18%, rgba(15, 111, 255, 0.18), transparent 24rem),
     linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 16%),
     #080808;
 }
@@ -88,7 +88,7 @@
 }
 
 .footer-column a:hover {
-    color: #ff3b3b;
+  color: #0f6fff;
 }
 
 .footer-contact p {
@@ -118,14 +118,14 @@
   margin: 0;
   border-radius: 50%;
   color: #fff;
-  background: rgba(195, 0, 0, 0.18);
+  background: rgba(15, 111, 255, 0.18);
   border: 1px solid rgba(255,255,255,0.14);
   transform: none;
 }
 
 .social-links a:hover {
   color: #fff;
-  background: #c30000;
+  background: #0f6fff;
   transform: translateY(-3px);
 }
 

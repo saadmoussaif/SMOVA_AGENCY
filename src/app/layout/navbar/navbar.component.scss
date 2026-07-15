@@ -28,7 +28,7 @@ $border-radius: 8px;
     .navbar {
       background: rgba(0, 0, 0, 0.96);
       border-bottom: 1px solid rgba(255,255,255,0.08);
-      .nav-link { color: #fff; &:hover, &.active { color: #ff3b3b; } }
+      .nav-link { color: #fff; &:hover, &.active { color: $primary; } }
       .nav-toggle { color: #fff; }
     }
     .top-strip { border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -92,7 +92,7 @@ $border-radius: 8px;
   font-size: 0.78rem;
   padding: 0.35rem 1rem 0.35rem 0.8rem;
   border-radius: 6px;
-  background: #c30000;
+  background: $primary;
   border: none;
   transition: all $transition-fast;
   line-height: 1;
@@ -251,8 +251,9 @@ $border-radius: 8px;
     transition: transform $transition-fast;
   }
 
-  &:hover { color: #ff3b3b; &::after { transform: scaleX(1); } }
-  &.active { color: #ff3b3b; &::after { transform: scaleX(1); } }
+  &:hover { color: $primary; &::after { transform: scaleX(1); } }
+  &.active { color: $primary; &::after { transform: scaleX(1); } }
+
 }
 
 // ─── DROPDOWN ─────────────────────────────────────
