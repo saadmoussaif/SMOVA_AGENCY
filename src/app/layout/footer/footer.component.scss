@@ -9,7 +9,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   color: #d4d4d4;
   background:
-    radial-gradient(circle at 16% 18%, rgba(220, 38, 38, 0.16), transparent 24rem),
+    radial-gradient(circle at 16% 18%, rgba(15, 111, 255, 0.16), transparent 24rem),
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 16%),
     #2f2f2f;
 }
@@ -47,7 +47,7 @@
   place-items: center;
   border-radius: 8px;
   color: #262626;
-  background: linear-gradient(135deg, #ef4444, #7f1d1d);
+  background: linear-gradient(135deg, #0f6fff, #0c53b6);
   font-size: 1.15rem;
   letter-spacing: 0;
 }
@@ -88,8 +88,7 @@
 }
 
 .footer-column a:hover {
-  color: #ef4444;
-  transform: translateX(4px);
+    color: #0f6fff;
 }
 
 .footer-contact p {
@@ -118,14 +117,14 @@
   place-items: center;
   margin: 0;
   border-radius: 50%;
-  color: #ef4444;
+  color: #0f6fff;
   background: rgba(255, 255, 255, 0.06);
   transform: none;
 }
 
 .social-links a:hover {
   color: #262626;
-  background: #ef4444;
+  background: #0f6fff;
   transform: translateY(-3px);
 }
 
@@ -167,3 +166,4 @@
     grid-template-columns: 1.5rem 1fr;
   }
 }
+

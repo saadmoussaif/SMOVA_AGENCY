@@ -1,5 +1,5 @@
-$red: #ef4444;
-$red-dark: #dc2626;
+$red: #0f6fff;
+$red-dark: #0c53b6;
 $dark: #0a0a0f;
 $dark-2: #111118;
 $border: rgba(255, 255, 255, 0.08);
@@ -26,7 +26,7 @@ $white: #ffffff;
   padding: clamp(4rem, 8vw, 7rem) max(5vw, calc((100vw - 1300px) / 2));
   color: $white;
   background:
-    radial-gradient(ellipse 60% 50% at 90% 20%, rgba(220, 38, 38, 0.07), transparent),
+    radial-gradient(ellipse 60% 50% at 90% 20%, rgba(15, 111, 255, 0.07), transparent),
     radial-gradient(ellipse 40% 40% at 10% 80%, rgba(139, 0, 0, 0.06), transparent),
     $dark;
 
@@ -543,3 +543,4 @@ $white: #ffffff;
     border-bottom: 1px solid rgba($white, 0.1);
   }
 }
+

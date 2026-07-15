@@ -5,15 +5,15 @@
 :root {
   color-scheme: light;
   --bg: #ffffff;
-  --panel: rgba(255, 255, 255, 0.08);
-  --panel-strong: rgba(255, 255, 255, 0.13);
-  --line: rgba(38, 38, 38, 0.14);
-  --text: #262626;
-  --muted: #737373;
-  --lagoon: #991b1b;
-  --saffron: #dc2626;
-  --cobalt: #991b1b;
-  --rose: #ff5d8f;
+  --panel: rgba(240, 249, 255, 0.9);
+  --panel-strong: rgba(240, 249, 255, 0.97);
+  --line: rgba(15, 23, 42, 0.1);
+  --text: #0f172a;
+  --muted: #64748b;
+  --lagoon: #0f6fff;
+  --saffron: #0f6fff;
+  --cobalt: #0b4fd7;
+  --rose: #93c5fd;
 }
 
 * {
@@ -44,6 +44,6 @@ a {
 }
 
 ::selection {
-  color: #262626;
-  background: #fecaca;
+  color: #0f172a;
+  background: #bae6fd;
 }

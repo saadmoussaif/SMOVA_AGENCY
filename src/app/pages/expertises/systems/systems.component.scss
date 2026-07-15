@@ -1,7 +1,7 @@
 @use '../expertise-page.shared' as *;
 
 :host {
-  --expertise-accent: #b91c1c;
+  --expertise-accent: #0f6fff;
   --expertise-accent-dark: #450a0a;
   --expertise-soft: #fee2e2;
   --expertise-glow: rgba(185, 28, 28, 0.28);
@@ -12,3 +12,4 @@
     radial-gradient(circle at 76% 24%, var(--expertise-glow), transparent 18rem),
     linear-gradient(145deg, #3a3a3a, #0a0a0a);
 }
+

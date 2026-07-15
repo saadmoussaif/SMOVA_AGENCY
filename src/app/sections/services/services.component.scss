@@ -20,7 +20,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    color: #ef4444;
+    color: #0f6fff;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -65,7 +65,7 @@
 
   &:hover {
     transform: translateY(-6px);
-    border-color: rgba(239, 68, 68, 0.28);
+    border-color: rgba(15, 111, 255, 0.28);
     box-shadow: 0 28px 70px rgba(38, 38, 38, 0.13);
   }
 
@@ -87,7 +87,7 @@
     inset: 0;
     background:
       linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.48)),
-      radial-gradient(circle at 18% 15%, rgba(239, 68, 68, 0.24), transparent 12rem);
+      radial-gradient(circle at 18% 15%, rgba(15, 111, 255, 0.24), transparent 12rem);
     pointer-events: none;
   }
 
@@ -111,7 +111,7 @@
     border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 8px;
     color: #ffffff;
-    background: rgba(239, 68, 68, 0.92);
+    background: rgba(15, 111, 255, 0.92);
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
   }
 
@@ -156,7 +156,7 @@
     justify-self: end;
     gap: 0.4rem;
     margin: 0 1.35rem 1.35rem;
-    color: #991b1b;
+    color: #0c53b6;
     font-size: 0.9rem;
     font-weight: 900;
     text-decoration: none;
@@ -171,7 +171,7 @@
   }
 
   .service-link:hover {
-    color: #ef4444;
+    color: #0f6fff;
     transform: translateX(2px);
   }
 
@@ -191,3 +191,4 @@
     grid-template-columns: 1fr;
   }
 }
+
