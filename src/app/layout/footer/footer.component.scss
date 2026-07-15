@@ -6,12 +6,12 @@
   position: relative;
   overflow: hidden;
   padding: clamp(4.5rem, 7vw, 6.8rem) 5vw 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  color: #d4d4d4;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e5e7eb;
   background:
-    radial-gradient(circle at 16% 18%, rgba(15, 111, 255, 0.16), transparent 24rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 16%),
-    #2f2f2f;
+    radial-gradient(circle at 16% 18%, rgba(195, 0, 0, 0.18), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 16%),
+    #080808;
 }
 
 .footer-inner {
@@ -55,7 +55,7 @@
 .footer-brand p {
   max-width: 28rem;
   margin: 1.5rem 0 0;
-  color: #a3a3a3;
+  color: #c4c4c4;
   font-size: clamp(1rem, 1.18vw, 1.18rem);
   line-height: 1.72;
 }
@@ -88,7 +88,7 @@
 }
 
 .footer-column a:hover {
-    color: #0f6fff;
+    color: #ff3b3b;
 }
 
 .footer-contact p {
@@ -117,14 +117,15 @@
   place-items: center;
   margin: 0;
   border-radius: 50%;
-  color: #0f6fff;
-  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  background: rgba(195, 0, 0, 0.18);
+  border: 1px solid rgba(255,255,255,0.14);
   transform: none;
 }
 
 .social-links a:hover {
-  color: #262626;
-  background: #0f6fff;
+  color: #fff;
+  background: #c30000;
   transform: translateY(-3px);
 }
 

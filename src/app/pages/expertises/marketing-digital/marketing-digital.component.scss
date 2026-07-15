@@ -1,10 +1,10 @@
 @use '../expertise-page.shared' as *;
 
 :host {
-  --expertise-accent: #f43f5e;
-  --expertise-accent-dark: #9f1239;
-  --expertise-soft: #ffe4e6;
-  --expertise-glow: rgba(244, 63, 94, 0.3);
+  --expertise-accent: #0f6fff;
+  --expertise-accent-dark: #0c53b6;
+  --expertise-soft: rgba(15, 111, 255, 0.12);
+  --expertise-glow: rgba(15, 111, 255, 0.32);
 }
 
 .hero-panel {
