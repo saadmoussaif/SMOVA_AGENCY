@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnDestroy, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
-import { TranslationService } from '../../core/translation.service';
+import { Lang, TranslationService } from '../../core/translation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,6 +19,7 @@ export class NavbarComponent implements OnDestroy {
   menuOpen = false;
   isScrolled = false;
   activeDropdown: string | null = null;
+  languageMenuOpen = false;
 
   // ✅ Timeout pour fermer le dropdown
   private dropdownTimeout?: ReturnType<typeof setTimeout>;
@@ -57,6 +58,7 @@ export class NavbarComponent implements OnDestroy {
   closeMenu(): void {
     this.menuOpen = false;
     this.activeDropdown = null;
+    this.languageMenuOpen = false;
     document.body.style.overflow = ''; // Réactiver scroll
   }
 
@@ -84,6 +86,16 @@ export class NavbarComponent implements OnDestroy {
    */
   toggleDropdown(dropdown: string): void {
     this.activeDropdown = this.activeDropdown === dropdown ? null : dropdown;
+  }
+
+  toggleLanguageMenu(): void {
+    this.languageMenuOpen = !this.languageMenuOpen;
+    this.activeDropdown = null;
+  }
+
+  selectLanguage(lang: Lang): void {
+    this.i18n.setLang(lang);
+    this.languageMenuOpen = false;
   }
 
   /**
@@ -116,8 +128,9 @@ export class NavbarComponent implements OnDestroy {
     }
 
     // Si clic pas sur .nav-dropdown, fermer le dropdown
-    if (!target.closest('.nav-dropdown')) {
+    if (!target.closest('.nav-dropdown') && !target.closest('.nav-language')) {
       this.activeDropdown = null;
+      this.languageMenuOpen = false;
     }
   }
 

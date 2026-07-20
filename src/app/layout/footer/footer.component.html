@@ -8,7 +8,7 @@
     </div>
 
     <div class="footer-column footer-contact">
-      <h3>Contact</h3>
+      <h3>{{ i18n.t('footer.contact') }}</h3>
       <p>
         <i-lucide name="map-pin"></i-lucide>
         <span>5, rue Dakar, quartier l'Ocean<br>Rabat - MAROC</span>
@@ -20,31 +20,31 @@
     </div>
 
     <div class="footer-column">
-      <h3>Expertises</h3>
-      <a routerLink="/mot-du-directeur">Mot du Directeur</a>
-      <a routerLink="/services">Vue globale</a>
-      <a routerLink="/expertises/applications-web">Applications Web</a>
-      <a routerLink="/expertises/applications-mobiles">Applications Mobiles</a>
-      <a routerLink="/expertises/marketing-digital">Marketing Digital</a>
-      <a routerLink="/expertises/systemes">Systemes digitaux</a>
+      <h3>{{ i18n.t('nav.expertises') }}</h3>
+      <a routerLink="/mot-du-directeur">{{ i18n.t('nav.director') }}</a>
+      <a routerLink="/services">{{ i18n.t('nav.overview') }}</a>
+      <a routerLink="/expertises/applications-web">{{ i18n.t('nav.webApps') }}</a>
+      <a routerLink="/expertises/applications-mobiles">{{ i18n.t('nav.mobileApps') }}</a>
+      <a routerLink="/expertises/marketing-digital">{{ i18n.t('nav.marketing') }}</a>
+      <a routerLink="/expertises/systemes">{{ i18n.t('nav.systems') }}</a>
     </div>
 
     <div class="footer-column footer-social">
-      <h3>Suivez-nous</h3>
+      <h3>{{ i18n.t('footer.follow') }}</h3>
       <div class="social-links">
         <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i-lucide name="linkedin"></i-lucide></a>
         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i-lucide name="facebook"></i-lucide></a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i-lucide name="instagram"></i-lucide></a>
       </div>
-      <a routerLink="/mentions-legales">Mentions legales</a>
-      <a routerLink="/politique-confidentialite">Politique de confidentialite</a>
-      <a routerLink="/actualites">Actualites</a>
-      <a routerLink="/carrieres">Carrieres</a>
-      <a routerLink="/stages">Stages</a>
+      <a routerLink="/mentions-legales">{{ i18n.t('footer.legal') }}</a>
+      <a routerLink="/politique-confidentialite">{{ i18n.t('footer.privacy') }}</a>
+      <a routerLink="/actualites">{{ i18n.t('footer.news') }}</a>
+      <a routerLink="/carrieres">{{ i18n.t('nav.careers') }}</a>
+      <a routerLink="/stages">{{ i18n.t('nav.internships') }}</a>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <small>© SMOVAGENCY, 2026. Tous droits reserves.</small>
+    <small>© SMOVAGENCY, 2026. {{ i18n.t('footer.rights') }}</small>
   </div>
 </footer>
