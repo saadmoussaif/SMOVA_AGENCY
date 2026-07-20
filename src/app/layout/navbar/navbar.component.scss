@@ -1,7 +1,8 @@
 :host { display: block; }
 
-$primary: #0f6fff;
-$primary-dark: #0c53b6;
+$primary: #2563eb;        // ✅ Changé en bleu
+$primary-dark: #1d4ed8;   // ✅ Bleu foncé
+$primary-light: #3b82f6;  // ✅ Bleu clair
 $text-dark: #1f2937;
 $text-light: #6b7280;
 $bg-white: #ffffff;
@@ -21,17 +22,34 @@ $border-radius: 8px;
   display: flex;
   flex-direction: column;
 
+  // ✅ AU SCROLL : fond blanc professionnel
   &.scrolled {
-    background: rgba(0, 0, 0, 0.96);
-    box-shadow: 0 4px 20px rgba(0,0,0,.28);
+    background: $bg-white;
+    box-shadow: 0 1px 0 $border-light, 0 4px 16px rgba(0,0,0,.06);
 
     .navbar {
-      background: rgba(0, 0, 0, 0.96);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      .nav-link { color: #fff; &:hover, &.active { color: $primary; } }
-      .nav-toggle { color: #fff; }
+      background: $bg-white;
+
+      .nav-link {
+        color: $text-dark;
+
+        &:hover { 
+          color: $primary; 
+          background: rgba($primary, 0.06);
+        }
+        &.active { color: $primary; }
+      }
+
+      .dropdown-trigger {
+        color: $text-dark;
+        &:hover { color: $primary; }
+        &.active { color: $primary; }
+      }
+
+      .nav-toggle { color: $text-dark; }
     }
-    .top-strip { border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+    .top-strip { border-bottom: 1px solid $border-light; }
   }
 
   &.menu-open {
@@ -48,10 +66,10 @@ $border-radius: 8px;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0.5rem 4vw;
+  padding: 0.4rem 4vw;
   background: #000;
   color: #fff;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 500;
   border-bottom: 1px solid rgba(255,255,255,0.08);
   transition: all $transition;
@@ -59,8 +77,8 @@ $border-radius: 8px;
   overflow: hidden;
   gap: 1rem;
 
-  @media (max-width: 768px) { padding: 0.4rem 4vw; font-size: 0.75rem; }
-  @media (max-width: 480px) { padding: 0.35rem 3.5vw; font-size: 0.68rem; }
+  @media (max-width: 768px) { padding: 0.35rem 4vw; font-size: 0.72rem; }
+  @media (max-width: 480px) { padding: 0.3rem 3.5vw; font-size: 0.68rem; }
 }
 
 .top-strip-brand {
@@ -84,13 +102,13 @@ $border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0.4rem;
   color: #fff;
   text-decoration: none;
   font-weight: 700;
   white-space: nowrap;
-  font-size: 0.78rem;
-  padding: 0.35rem 1rem 0.35rem 0.8rem;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.9rem 0.3rem 0.7rem;
   border-radius: 6px;
   background: $primary;
   border: none;
@@ -102,9 +120,9 @@ $border-radius: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 0.8rem;
-    height: 0.8rem;
-    min-width: 0.8rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    min-width: 0.75rem;
     flex-shrink: 0;
   }
 
@@ -121,15 +139,16 @@ $border-radius: 8px;
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
-  padding: 0.85rem 4vw;
-  gap: 1.5rem;
+  padding: 0 4vw;
+  height: 56px;
+  gap: 1.2rem;
   background: transparent;
   transition: all $transition;
 
-  @media (max-width: 1400px) { padding: 0.85rem 3vw; gap: 1.2rem; }
-  @media (max-width: 1200px) { gap: 1rem; }
-  @media (max-width: 768px) { padding: 0.75rem 4vw; gap: 1rem; }
-  @media (max-width: 480px) { padding: 0.6rem 3vw; gap: 0.5rem; flex-wrap: nowrap; }
+  @media (max-width: 1400px) { padding: 0 3vw; gap: 1rem; }
+  @media (max-width: 1200px) { gap: 0.8rem; }
+  @media (max-width: 768px)  { padding: 0 4vw; gap: 0.8rem; height: 52px; }
+  @media (max-width: 480px)  { padding: 0 3vw; gap: 0.5rem; height: 48px; flex-wrap: nowrap; }
 
   &.open {
     @media (max-width: 980px) { flex-direction: row; justify-content: space-between; }
@@ -144,20 +163,22 @@ $border-radius: 8px;
   flex-shrink: 0;
   transition: opacity $transition-fast;
   z-index: 10;
+  min-width: 12rem;
 
   &:hover { opacity: 0.85; }
 }
 
 .brand-logo {
   display: block;
-  height: 2.5rem;
-  width: auto;
+  height: auto;
+  width: 180px;
+  max-width: 180px;
   object-fit: contain;
 
-  @media (max-width: 1400px) { height: 2.3rem; }
-  @media (max-width: 768px) { height: 2.2rem; }
-  @media (max-width: 480px) { height: 1.9rem; }
-  @media (max-width: 360px) { height: 1.6rem; }
+  @media (max-width: 1400px) { width: 165px; max-width: 165px; }
+  @media (max-width: 768px)  { width: 145px; max-width: 145px; }
+  @media (max-width: 480px)  { width: 120px; max-width: 120px; }
+  @media (max-width: 360px)  { width: 105px; max-width: 105px; }
 
   .navbar.open & {
     @media (max-width: 980px) { filter: brightness(0) invert(1); }
@@ -168,7 +189,7 @@ $border-radius: 8px;
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.1rem;
+  gap: 0;
   flex: 1;
   justify-content: center;
   margin: 0;
@@ -205,9 +226,9 @@ $border-radius: 8px;
       color: #fff !important;
       width: 100%;
       justify-content: space-between;
-      padding: 1.1rem 0.25rem !important;
+      padding: 1rem 0.25rem !important;
       border-bottom: 1px solid rgba(255,255,255,.08);
-      font-size: 1.05rem !important;
+      font-size: 1rem !important;
       font-weight: 600 !important;
 
       &::after { display: none; }
@@ -220,12 +241,12 @@ $border-radius: 8px;
 .nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.5rem 0.7rem;
+  gap: 0.3rem;
+  padding: 0.4rem 0.75rem;
   border-radius: $border-radius;
   color: #fff;
-  font-weight: 600;
-  font-size: 0.86rem;
+  font-weight: 500;
+  font-size: 0.85rem;
   text-decoration: none;
   cursor: pointer;
   background: transparent;
@@ -235,14 +256,15 @@ $border-radius: 8px;
   white-space: nowrap;
   letter-spacing: 0.01em;
 
-  @media (max-width: 1400px) { font-size: 0.82rem; padding: 0.5rem 0.6rem; }
+  @media (max-width: 1400px) { font-size: 0.82rem; padding: 0.4rem 0.6rem; }
 
+  // ✅ Soulignement bleu au hover
   &::after {
     content: '';
     position: absolute;
-    bottom: 0.25rem;
-    left: 0.7rem;
-    right: 0.7rem;
+    bottom: 0.2rem;
+    left: 0.75rem;
+    right: 0.75rem;
     height: 2px;
     background: $primary;
     border-radius: 2px;
@@ -251,9 +273,26 @@ $border-radius: 8px;
     transition: transform $transition-fast;
   }
 
-  &:hover { color: $primary; &::after { transform: scaleX(1); } }
-  &.active { color: $primary; &::after { transform: scaleX(1); } }
+  // ✅ HOVER : texte bleu, soulignement bleu apparaît
+  &:hover {
+    color: $primary;
+    background: rgba($primary, 0.06);
+    &::after { transform: scaleX(1); }
+  }
 
+  // Scrolled : hover sur fond blanc
+  .hero-shell.scrolled & {
+    color: $text-dark;
+    &:hover { 
+      color: $primary; 
+      background: rgba($primary, 0.06);
+    }
+  }
+
+  &.active {
+    color: $primary;
+    &::after { transform: scaleX(1); }
+  }
 }
 
 // ─── DROPDOWN ─────────────────────────────────────
@@ -267,8 +306,8 @@ $border-radius: 8px;
 
 .dropdown-trigger {
   .chevron {
-    width: 0.85rem;
-    height: 0.85rem;
+    width: 0.8rem;
+    height: 0.8rem;
     stroke-width: 2.5;
     transition: transform $transition-fast;
     @media (max-width: 980px) { transform: rotate(0deg) !important; }
@@ -287,7 +326,7 @@ $border-radius: 8px;
 
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.6rem);
+  top: calc(100% + 0.5rem);
   left: 50%;
   display: grid;
   min-width: 22rem;
@@ -295,10 +334,10 @@ $border-radius: 8px;
   background: $bg-white;
   border: 1px solid rgba(0,0,0,0.08);
   border-radius: 14px;
-  box-shadow: 0 24px 64px rgba(0,0,0,.16);
+  box-shadow: 0 24px 64px rgba(0,0,0,.14);
   opacity: 0;
   visibility: hidden;
-  transform: translate(-50%, 10px);
+  transform: translate(-50%, 8px);
   transition: all $transition-fast;
   z-index: 100;
 
@@ -333,8 +372,8 @@ $border-radius: 8px;
   &::before {
     content: '';
     position: absolute;
-    inset: -0.6rem 0 auto;
-    height: 0.6rem;
+    inset: -0.5rem 0 auto;
+    height: 0.5rem;
     @media (max-width: 980px) { display: none; }
   }
 }
@@ -345,8 +384,8 @@ $border-radius: 8px;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 3.2rem;
-  padding: 0.6rem 0.75rem;
+  min-height: 3rem;
+  padding: 0.55rem 0.7rem;
   border-radius: 10px;
   color: $text-dark;
   text-decoration: none;
@@ -355,7 +394,7 @@ $border-radius: 8px;
   .dropdown-item-content {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.75rem;
     flex: 1;
     min-width: 0;
   }
@@ -364,18 +403,18 @@ $border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.2rem;
-    height: 2.2rem;
-    min-width: 2.2rem;
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
     background: rgba($primary, 0.08);
-    border-radius: 10px;
+    border-radius: 8px;
     color: $primary;
     flex-shrink: 0;
     transition: all $transition-fast;
 
     svg {
-      width: 1.05rem;
-      height: 1.05rem;
+      width: 1rem;
+      height: 1rem;
       stroke: currentColor;
       display: block;
       flex-shrink: 0;
@@ -383,7 +422,7 @@ $border-radius: 8px;
   }
 
   span {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 600;
     color: $text-dark;
     transition: color $transition-fast;
@@ -399,17 +438,17 @@ $border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1.2rem;
-    height: 1.2rem;
-    min-width: 1.2rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    min-width: 1.1rem;
     flex-shrink: 0;
     opacity: 0;
     transform: translateX(-4px);
     transition: all $transition-fast;
 
     svg {
-      width: 0.85rem;
-      height: 0.85rem;
+      width: 0.8rem;
+      height: 0.8rem;
       stroke: $text-light;
       display: block;
     }
@@ -435,7 +474,6 @@ $border-radius: 8px;
       opacity: 1;
       transform: translateX(0);
       svg { stroke: $primary; }
-
       @media (max-width: 980px) { transform: none; }
     }
   }
@@ -467,8 +505,8 @@ $border-radius: 8px;
   display: none;
   align-items: center;
   justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.2rem;
+  height: 2.2rem;
   padding: 0;
   border: none;
   background: transparent;
@@ -482,14 +520,14 @@ $border-radius: 8px;
   svg { width: 100%; height: 100%; display: block; }
 
   @media (max-width: 980px) { display: flex; }
-  @media (max-width: 480px) { width: 2rem; height: 2rem; }
+  @media (max-width: 480px) { width: 1.9rem; height: 1.9rem; }
 
   &:hover { color: $primary; }
 
   .navbar.open & {
     @media (max-width: 980px) {
       position: fixed;
-      top: 1.1rem;
+      top: 1rem;
       right: 4vw;
       color: #fff;
       z-index: 35;
@@ -511,13 +549,14 @@ $border-radius: 8px;
 }
 
 // ─── NAV CTA Desktop ──────────────────────────────
+// ✅ Bouton "Confiez-nous votre projet" en bleu
 .nav-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  height: 2.45rem;
-  padding: 0 1.2rem;
+  gap: 0.4rem;
+  height: 2.2rem;
+  padding: 0 1.1rem;
   border-radius: 999px;
   background: $primary;
   color: #fff;
@@ -529,24 +568,25 @@ $border-radius: 8px;
   transition: all $transition-fast;
   white-space: nowrap;
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba($primary, .3);
+  box-shadow: 0 3px 12px rgba($primary, .28);
   letter-spacing: 0.02em;
 
-  @media (max-width: 1300px) { font-size: 0.74rem; padding: 0 1rem; height: 2.3rem; }
-  @media (max-width: 980px) { display: none; }
+  @media (max-width: 1300px) { font-size: 0.74rem; padding: 0 0.95rem; height: 2.1rem; }
+  @media (max-width: 980px)  { display: none; }
 
-  i-lucide { width: 0.85rem; height: 0.85rem; transition: transform $transition-fast; }
+  i-lucide { width: 0.8rem; height: 0.8rem; transition: transform $transition-fast; }
 
   &:hover {
     transform: translateY(-1px);
     background: $primary-dark;
-    box-shadow: 0 8px 20px rgba($primary, .4);
+    box-shadow: 0 6px 18px rgba($primary, .38);
     i-lucide { transform: translateX(3px); }
   }
   &:active { transform: scale(0.97); }
 }
 
 // ─── NAV CTA Mobile ───────────────────────────────
+// ✅ Bouton "Confiez-nous votre projet" mobile en bleu
 .nav-cta-mobile {
   display: none;
 
@@ -555,26 +595,26 @@ $border-radius: 8px;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
-    min-height: 3.2rem;
-    padding: 0.9rem 1rem;
+    min-height: 3rem;
+    padding: 0.85rem 1rem;
     margin-top: 1.5rem;
     border-radius: 999px;
     width: 100%;
     background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
     color: #fff;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     text-decoration: none;
     border: none;
     cursor: pointer;
     transition: all $transition-fast;
-    box-shadow: 0 14px 30px rgba($primary, .28);
+    box-shadow: 0 12px 28px rgba($primary, .28);
 
     i-lucide { width: 1rem; height: 1rem; }
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 36px rgba($primary, .35);
+      box-shadow: 0 16px 34px rgba($primary, .35);
     }
     &:active { transform: scale(0.96); }
   }
@@ -592,11 +632,11 @@ $border-radius: 8px;
     justify-content: center;
 
     span {
-      padding: 0.5rem 1rem;
+      padding: 0.45rem 0.9rem;
       border: 1px solid rgba(255,255,255,.15);
       border-radius: 999px;
       color: rgba(255,255,255,.7);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
     }
   }
@@ -610,6 +650,6 @@ $border-radius: 8px;
 
 @media (max-width: 480px) {
   .hero-shell.scrolled .navbar { border: none; border-bottom: 1px solid $border-light; }
-  .navbar { padding: 0.5rem 3vw; gap: 0.3rem; flex-wrap: nowrap; }
+  .navbar { padding: 0 3vw; gap: 0.3rem; flex-wrap: nowrap; }
   .brand { flex: 1; min-width: 0; }
 }
