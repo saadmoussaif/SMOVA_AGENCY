@@ -16,54 +16,54 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'SMAgency - Accueil'
+    title: 'SMOVAGENCY - Accueil'
   },
   {
     path: 'services',
     component: ServicesComponent,
-    title: 'SMAgency - Expertises'
+    title: 'SMOVAGENCY - Expertises'
   },
   {
     path: 'expertises/applications-mobiles',
     component: MobileAppsComponent,
-    title: 'SMAgency - Applications mobiles'
+    title: 'SMOVAGENCY - Applications mobiles'
   },
   {
     path: 'expertises/applications-web',
     component: WebAppsComponent,
-    title: 'SMAgency - Applications web'
+    title: 'SMOVAGENCY - Applications web'
   },
   {
     path: 'expertises/marketing-digital',
     component: MarketingDigitalComponent,
-    title: 'SMAgency - Marketing digital'
+    title: 'SMOVAGENCY - Marketing digital'
   },
   {
     path: 'expertises/systemes',
     component: SystemsComponent,
-    title: 'SMAgency - Systemes digitaux'
+    title: 'SMOVAGENCY - Systemes digitaux'
   },
   {
     path: 'mot-du-directeur',
     component: DirectorComponent,
-    title: 'SMAgency - Mot du Directeur'
+    title: 'SMOVAGENCY - Mot du Directeur'
   },
   {
     path: 'mentions-legales',
     component: LegalNoticeComponent,
-    title: 'SMAgency - Mentions legales'
+    title: 'SMOVAGENCY - Mentions legales'
   },
   {
     path: 'politique-confidentialite',
     component: StaticInfoComponent,
-    title: 'SMAgency - Politique de confidentialite',
+    title: 'SMOVAGENCY - Politique de confidentialite',
     data: {
       kicker: 'Confidentialite',
       title: 'Politique de confidentialite',
-      description: 'Cette page explique comment SMAgency traite les informations transmises via le site et les formulaires de contact.',
+      description: 'Cette page explique comment SMOVAGENCY traite les informations transmises via le site et les formulaires de contact.',
       items: [
         'Les donnees envoyees via le formulaire sont utilisees uniquement pour repondre a votre demande ou preparer un echange projet.',
-        'SMAgency ne revend pas vos informations personnelles a des tiers.',
+        'SMOVAGENCY ne revend pas vos informations personnelles a des tiers.',
         'Vous pouvez demander la modification ou la suppression de vos donnees en contactant contact@smagency.ma.'
       ]
     }
@@ -71,10 +71,10 @@ export const routes: Routes = [
   {
     path: 'actualites',
     component: StaticInfoComponent,
-    title: 'SMAgency - Actualites',
+    title: 'SMOVAGENCY - Actualites',
     data: {
       kicker: 'Actualites',
-      title: 'Actualites SMAgency',
+      title: 'Actualites SMOVAGENCY',
       description: 'Nos contenus, annonces et retours d experience seront publies ici prochainement.',
       items: [
         'Cette rubrique est en preparation.',
@@ -87,17 +87,17 @@ export const routes: Routes = [
   {
     path: 'carrieres',
     component: CarrieresComponent,
-    title: 'SMAgency - Carrieres'
+    title: 'SMOVAGENCY - Carrieres'
   },
   {
     path: 'carrieres/offres-emploi',
     component: OffresEmploiComponent,
-    title: 'SMAgency - Offres d emploi'
+    title: 'SMOVAGENCY - Offres d emploi'
   },
   {
     path: 'carrieres/stages',
     component: StagesComponent,
-    title: 'SMAgency - Stages'
+    title: 'SMOVAGENCY - Stages'
   },
 
   // ✅ Redirection ancienne route /stages vers /carrieres/stages
