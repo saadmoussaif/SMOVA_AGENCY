@@ -142,7 +142,9 @@ $border-radius: 8px;
   padding: 0 4vw;
   height: 56px;
   gap: 1.2rem;
-  background: transparent;
+  // Le voile sombre conserve un contraste net sur les photos des pages expertise.
+  background: rgba(7, 12, 24, 0.82);
+  backdrop-filter: blur(12px);
   transition: all $transition;
 
   @media (max-width: 1400px) { padding: 0 3vw; gap: 1rem; }
