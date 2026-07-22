@@ -634,7 +634,34 @@ const dictionary: Record<Lang, Record<string, string>> = {
     'stages.form.start': 'تاريخ البدء',
     'stages.form.convention': 'اتفاقية التدريب',
     'stages.form.submit': 'إرسال طلب التدريب',
+
+    // Dans les 3 langues — exemple FR :
+'sector.saas.title': 'SaaS & startups',
+'sector.saas.text': 'MVP, scale-up, onboarding et outils internes pour équipes ambitieuses.',
+'sector.saas.detail': "Nous concevons des produits SaaS avec parcours d'inscription, dashboard, rôles utilisateurs, paiement, analytics et architecture prête à évoluer.",
+'sector.health.title': 'Santé & bien-être',
+'sector.health.text': 'Expériences digitales fiables pour services sensibles, patients et praticiens.',
+'sector.health.detail': 'Nous construisons des interfaces claires pour rendez-vous, dossiers, suivi patient...',
+'sector.immo.title': 'Immobilier & PropTech',
+'sector.immo.text': 'Portails, CRM, parcours de réservation et outils pour agents immobiliers.',
+'sector.immo.detail': 'Nous aidons les agences et promoteurs avec portails annonces, estimation, espace client...',
+'sector.retail.title': 'Retail & e-commerce',
+'sector.retail.text': 'Boutiques, catalogues, paiement, logistique et automatisation commerciale.',
+'sector.retail.detail': "Nous optimisons le tunnel d'achat, les fiches produits, la gestion catalogue...",
+'sector.edu.title': 'Education & EdTech',
+'sector.edu.text': "Plateformes e-learning, espaces étudiants et outils de gestion pédagogique.",
+'sector.edu.detail': "Nous créons des LMS, portails d'inscription, espaces formateurs...",
+'sector.finance.title': 'Finance & FinTech',
+'sector.finance.text': 'Interfaces sécurisées pour services financiers, paiement et reporting.',
+'sector.finance.detail': 'Nous accompagnons les acteurs finance avec dashboards, onboarding client...',
+'sector.tourism.title': 'Tourisme & Hôtellerie',
+'sector.tourism.text': 'Réservation, expérience client, sites multilingues et acquisition directe.',
+'sector.tourism.detail': 'Nous construisons des sites de réservation, moteurs de demande, parcours multilingues...',
+'sector.industry.title': 'Industrie & Services',
+'sector.industry.text': 'Digitalisation des opérations, outils internes et suivi de performance.',
+'sector.industry.detail': 'Nous développons des extranets, outils de suivi, formulaires terrain...',
   }
+  
 };
 
 @Injectable({ providedIn: 'root' })

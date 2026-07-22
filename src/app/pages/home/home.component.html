@@ -1,10 +1,9 @@
 <div class="loading-page" #loader>
   <div class="loader-card">
-    <img class="loader-logo" src="/assets/images/smova.PNG" alt="Logo SMOVAGENCY" onerror="this.src='/assets/images/smagency-ancien-logo.png'">
+    <img class="loader-logo" src="/assets/images/smova.PNG" alt="Logo SMOVAGENCY"
+         onerror="this.src='/assets/images/smagency-ancien-logo.png'">
     <div class="loader-dots" aria-label="Chargement">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
   </div>
 </div>
@@ -15,22 +14,19 @@
   <section class="hero">
     <div class="hero-grid">
       <div class="hero-typing-panel reveal-item">
-        <div class="eyebrow"><span>SMAAgency</span></div>
+        <div class="eyebrow"><span>{{ i18n.t('hero.kicker') }}</span></div>
         <h1 class="hero-title" aria-live="polite">
           <span class="typing-text">{{ displayedHeroText }}</span>
           <span class="typing-cursor" aria-hidden="true"></span>
         </h1>
-        <p class="hero-lead">
-          Agence digitale marocaine pour creer des plateformes web, applications,
-          automatisations IA et campagnes de croissance avec une execution claire et serieuse.
-        </p>
+        <p class="hero-lead">{{ i18n.t('hero.lead') }}</p>
         <div class="hero-actions">
           <a class="btn primary" href="#services">
-            Decouvrir nos expertises
+            {{ i18n.t('hero.cta.primary') }}
             <i-lucide name="arrow-right"></i-lucide>
           </a>
           <a class="btn ghost" href="#contact">
-            Planifier un appel
+            {{ i18n.t('hero.cta.secondary') }}
           </a>
         </div>
       </div>
@@ -40,138 +36,104 @@
       <article>
         <i-lucide name="users"></i-lucide>
         <strong>50+</strong>
-        <span>Clients satisfaits</span>
+        <span>{{ i18n.t('hero.stat.clients') }}</span>
       </article>
       <article>
         <i-lucide name="code-2"></i-lucide>
         <strong>120+</strong>
-        <span>Projets realises</span>
+        <span>{{ i18n.t('hero.stat.projects') }}</span>
       </article>
       <article>
         <i-lucide name="rocket"></i-lucide>
         <strong>5+</strong>
-        <span>Annees d experience</span>
+        <span>{{ i18n.t('hero.stat.experience') }}</span>
       </article>
       <article>
         <i-lucide name="line-chart"></i-lucide>
         <strong>200%</strong>
-        <span>Croissance moyenne</span>
+        <span>{{ i18n.t('hero.stat.growth') }}</span>
       </article>
       <article>
         <i-lucide name="shield-check"></i-lucide>
         <strong>100%</strong>
-        <span>Engagement qualite</span>
+        <span>{{ i18n.t('hero.stat.quality') }}</span>
       </article>
     </div>
   </section>
 
   <!-- ─── TRUST / MARQUEE ───────────────────────── -->
-  <!-- ─── TRUST / MARQUEE ───────────────────────── -->
-<section class="trust section-band">
-  <div class="section-heading compact">
-    <span>Ils nous font confiance</span>
-    <h2>Startups marocaines et européennes qui nous accompagnent</h2>
-    <p>
-      De Casablanca à Paris, nous construisons des solutions digitales
-      pour les équipes les plus ambitieuses.
-    </p>
-  </div>
+  <section class="trust section-band">
+    <div class="section-heading compact">
+      <span>{{ i18n.t('trust.kicker') }}</span>
+      <h2>{{ i18n.t('trust.title') }}</h2>
+      <p>{{ i18n.t('trust.subtitle') }}</p>
+    </div>
 
-  <!-- Ligne 1 → défile vers la gauche -->
-  <div class="marquee-wrapper">
-    <div class="marquee-track">
-      <div class="marquee-content">
-        <div class="logo-pill" *ngFor="let client of clients">
-          <img
-            *ngIf="client.type === 'image'"
-            [src]="client.logoUrl"
-            [alt]="client.name"
-            class="pill-logo"
-            (error)="onLogoError($event, client.name)"
-          >
-          <span *ngIf="client.type === 'text'" class="pill-text">
-            {{ client.name }}
-          </span>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <div class="logo-pill" *ngFor="let client of clients">
+            <img *ngIf="client.type === 'image'"
+              [src]="client.logoUrl" [alt]="client.name"
+              class="pill-logo" (error)="onLogoError($event, client.name)">
+            <span *ngIf="client.type === 'text'" class="pill-text">{{ client.name }}</span>
+          </div>
         </div>
-      </div>
-      <div class="marquee-content" aria-hidden="true">
-        <div class="logo-pill" *ngFor="let client of clients">
-          <img
-            *ngIf="client.type === 'image'"
-            [src]="client.logoUrl"
-            [alt]="client.name"
-            class="pill-logo"
-            (error)="onLogoError($event, client.name)"
-          >
-          <span *ngIf="client.type === 'text'" class="pill-text">
-            {{ client.name }}
-          </span>
+        <div class="marquee-content" aria-hidden="true">
+          <div class="logo-pill" *ngFor="let client of clients">
+            <img *ngIf="client.type === 'image'"
+              [src]="client.logoUrl" [alt]="client.name"
+              class="pill-logo" (error)="onLogoError($event, client.name)">
+            <span *ngIf="client.type === 'text'" class="pill-text">{{ client.name }}</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Ligne 2 → défile vers la droite -->
-  <div class="marquee-wrapper reverse">
-    <div class="marquee-track">
-      <div class="marquee-content">
-        <div class="logo-pill" *ngFor="let partner of partners">
-          <img
-            *ngIf="partner.type === 'image'"
-            [src]="partner.logoUrl"
-            [alt]="partner.name"
-            class="pill-logo"
-            (error)="onLogoError($event, partner.name)"
-          >
-          <span *ngIf="partner.type === 'text'" class="pill-text">
-            {{ partner.name }}
-          </span>
+    <div class="marquee-wrapper reverse">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <div class="logo-pill" *ngFor="let partner of partners">
+            <img *ngIf="partner.type === 'image'"
+              [src]="partner.logoUrl" [alt]="partner.name"
+              class="pill-logo" (error)="onLogoError($event, partner.name)">
+            <span *ngIf="partner.type === 'text'" class="pill-text">{{ partner.name }}</span>
+          </div>
         </div>
-      </div>
-      <div class="marquee-content" aria-hidden="true">
-        <div class="logo-pill" *ngFor="let partner of partners">
-          <img
-            *ngIf="partner.type === 'image'"
-            [src]="partner.logoUrl"
-            [alt]="partner.name"
-            class="pill-logo"
-            (error)="onLogoError($event, partner.name)"
-          >
-          <span *ngIf="partner.type === 'text'" class="pill-text">
-            {{ partner.name }}
-          </span>
+        <div class="marquee-content" aria-hidden="true">
+          <div class="logo-pill" *ngFor="let partner of partners">
+            <img *ngIf="partner.type === 'image'"
+              [src]="partner.logoUrl" [alt]="partner.name"
+              class="pill-logo" (error)="onLogoError($event, partner.name)">
+            <span *ngIf="partner.type === 'text'" class="pill-text">{{ partner.name }}</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-</section>
   <!-- ─── PRÉSENTATION ──────────────────────────── -->
   <section class="presentation">
     <div class="presentation-copy">
-      <span class="section-kicker">Votre partenaire digital d exception</span>
-      <h2>Une agence marocaine agile pour creer, lancer et optimiser vos solutions tech.</h2>
-      <p>
-        Notre force: une equipe technique basee au Maroc, connectee aux standards
-        internationaux, capable de livrer vite sans sacrifier la qualite produit,
-        le design ou la strategie business.
-      </p>
+      <span class="section-kicker">{{ i18n.t('presentation.kicker') }}</span>
+      <h2>{{ i18n.t('presentation.title') }}</h2>
+      <p>{{ i18n.t('presentation.text') }}</p>
     </div>
     <div class="values">
       <article>
         <i-lucide name="shield-check"></i-lucide>
-        <h3>Excellence</h3>
-        <p>Des interfaces propres, du code maintenable et une exigence constante sur les details.</p>
+        <h3>{{ i18n.t('presentation.value1.title') }}</h3>
+        <p>{{ i18n.t('presentation.value1.text') }}</p>
       </article>
       <article>
         <i-lucide name="cpu"></i-lucide>
-        <h3>Innovation</h3>
-        <p>IA, automatisation et analytics integres la ou ils creent une vraie valeur.</p>
+        <h3>{{ i18n.t('presentation.value2.title') }}</h3>
+        <p>{{ i18n.t('presentation.value2.text') }}</p>
       </article>
       <article>
         <i-lucide name="rocket"></i-lucide>
-        <h3>Reactivite</h3>
-        <p>Des cycles courts, une communication claire et un accompagnement apres lancement.</p>
+        <h3>{{ i18n.t('presentation.value3.title') }}</h3>
+        <p>{{ i18n.t('presentation.value3.text') }}</p>
       </article>
     </div>
   </section>
@@ -182,12 +144,9 @@
   <!-- ─── SECTEURS ──────────────────────────────── -->
   <section class="sectors section-band" id="secteurs">
     <div class="section-heading">
-      <span>Secteurs</span>
-      <h2>Une expertise reconnue dans des marches exigeants</h2>
-      <p>
-        Nous adaptons la strategie, l UX et la stack a votre secteur
-        plutot que d appliquer une recette unique.
-      </p>
+      <span>{{ i18n.t('sectors.kicker') }}</span>
+      <h2>{{ i18n.t('sectors.title') }}</h2>
+      <p>{{ i18n.t('sectors.subtitle') }}</p>
     </div>
 
     <div class="sector-carousel-controls" aria-label="Navigation secteurs">
@@ -218,9 +177,9 @@
             <i-lucide [name]="sector.icon"></i-lucide>
           </span>
           <span class="sector-copy">
-            <strong>{{ sector.title }}</strong>
-            <small>{{ sector.text }}</small>
-            <em>{{ sector.detail }}</em>
+            <strong>{{ i18n.t(sector.titleKey) }}</strong>
+            <small>{{ i18n.t(sector.textKey) }}</small>
+            <em>{{ i18n.t(sector.detailKey) }}</em>
           </span>
           <span class="sector-photo">
             <img [src]="sector.image" [alt]="sector.alt" loading="lazy">
@@ -239,10 +198,10 @@
       <div class="process-header">
         <span class="section-kicker">
           <i-lucide name="layers"></i-lucide>
-          Notre Approche
+          {{ i18n.t('process.kicker') }}
         </span>
-        <h2>Un processus éprouvé, des résultats garantis</h2>
-        <p>De la stratégie au lancement, accompagnement transparent à chaque étape de votre projet.</p>
+        <h2>{{ i18n.t('process.title') }}</h2>
+        <p>{{ i18n.t('process.subtitle') }}</p>
       </div>
 
       <div class="process-timeline">
@@ -252,12 +211,12 @@
             <div class="step-icon"><i-lucide name="compass"></i-lucide></div>
           </div>
           <div class="step-card">
-            <h3>Audit & Stratégie</h3>
-            <p>Analyse profonde de vos besoins, marché, concurrence. On crée une roadmap claire et réaliste.</p>
+            <h3>{{ i18n.t('process.step1.title') }}</h3>
+            <p>{{ i18n.t('process.step1.text') }}</p>
             <ul class="step-details">
-              <li>Audit technique & UX/UI</li>
-              <li>Définition des KPIs</li>
-              <li>Roadmap produit</li>
+              <li>{{ i18n.t('process.step1.detail1') }}</li>
+              <li>{{ i18n.t('process.step1.detail2') }}</li>
+              <li>{{ i18n.t('process.step1.detail3') }}</li>
             </ul>
           </div>
         </div>
@@ -268,12 +227,12 @@
             <div class="step-icon"><i-lucide name="palette"></i-lucide></div>
           </div>
           <div class="step-card">
-            <h3>Design & Conception</h3>
-            <p>UX/UI moderne et convertissante. Wireframes, prototypes interactifs, tests utilisateur.</p>
+            <h3>{{ i18n.t('process.step2.title') }}</h3>
+            <p>{{ i18n.t('process.step2.text') }}</p>
             <ul class="step-details">
-              <li>Wireframing & prototypage</li>
-              <li>Design system</li>
-              <li>User testing & feedback</li>
+              <li>{{ i18n.t('process.step2.detail1') }}</li>
+              <li>{{ i18n.t('process.step2.detail2') }}</li>
+              <li>{{ i18n.t('process.step2.detail3') }}</li>
             </ul>
           </div>
         </div>
@@ -284,12 +243,12 @@
             <div class="step-icon"><i-lucide name="code"></i-lucide></div>
           </div>
           <div class="step-card">
-            <h3>Développement Agile</h3>
-            <p>Sprints courts (2-3 semaines). Tech stack moderne. Code clean, testé, documenté.</p>
+            <h3>{{ i18n.t('process.step3.title') }}</h3>
+            <p>{{ i18n.t('process.step3.text') }}</p>
             <ul class="step-details">
-              <li>Development par sprints</li>
-              <li>QA & testing automatisé</li>
-              <li>Déploiement continu</li>
+              <li>{{ i18n.t('process.step3.detail1') }}</li>
+              <li>{{ i18n.t('process.step3.detail2') }}</li>
+              <li>{{ i18n.t('process.step3.detail3') }}</li>
             </ul>
           </div>
         </div>
@@ -300,12 +259,12 @@
             <div class="step-icon"><i-lucide name="trending-up"></i-lucide></div>
           </div>
           <div class="step-card">
-            <h3>Lancement & Scaling</h3>
-            <p>Déploiement en prod, monitoring, optimisations. On reste avec vous pour la croissance.</p>
+            <h3>{{ i18n.t('process.step4.title') }}</h3>
+            <p>{{ i18n.t('process.step4.text') }}</p>
             <ul class="step-details">
-              <li>Go-to-market support</li>
-              <li>Performance monitoring</li>
-              <li>Maintenance & évolutions</li>
+              <li>{{ i18n.t('process.step4.detail1') }}</li>
+              <li>{{ i18n.t('process.step4.detail2') }}</li>
+              <li>{{ i18n.t('process.step4.detail3') }}</li>
             </ul>
           </div>
         </div>
@@ -313,18 +272,18 @@
 
       <div class="process-stats">
         <div class="stat">
-          <strong>2-3 mois</strong>
-          <span>Cycle complet start-to-launch</span>
+          <strong>{{ i18n.t('process.stat1') }}</strong>
+          <span>{{ i18n.t('process.stat1.label') }}</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <strong>Agile Certified</strong>
-          <span>Sprints & methodology éprouvée</span>
+          <strong>{{ i18n.t('process.stat2') }}</strong>
+          <span>{{ i18n.t('process.stat2.label') }}</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <strong>Transparent</strong>
-          <span>Dashboards, reviews, communication claire</span>
+          <strong>{{ i18n.t('process.stat3') }}</strong>
+          <span>{{ i18n.t('process.stat3.label') }}</span>
         </div>
       </div>
     </div>
@@ -333,9 +292,9 @@
   <!-- ─── TECHNOLOGIES ──────────────────────────── -->
   <section class="technologies tech-showcase" id="technologies">
     <div class="section-heading tech-heading">
-      <span>Stack technologique moderne</span>
-      <h2>Les bons outils pour construire des solutions performantes</h2>
-      <p>Technologies de pointe pour des produits fiables, maintenables et prets a grandir.</p>
+      <span>{{ i18n.t('tech.kicker') }}</span>
+      <h2>{{ i18n.t('tech.title') }}</h2>
+      <p>{{ i18n.t('tech.subtitle') }}</p>
     </div>
     <div class="stack-grid">
       <article *ngFor="let item of techStack" class="stack-card">
@@ -352,51 +311,48 @@
   <!-- ─── CONTACT ───────────────────────────────── -->
   <section class="contact" id="contact">
     <div class="contact-copy">
-      <span class="section-kicker">Pret a accelerer ?</span>
-      <h2>Echangeons sur votre projet en&nbsp;15&nbsp;min.</h2>
-      <p>
-        Reponse sous 24 h, devis gratuit et discussion honnete
-        sur ce qui merite vraiment d'etre construit.
-      </p>
+      <span class="section-kicker">{{ i18n.t('contact.kicker') }}</span>
+      <h2>{{ i18n.t('contact.title') }}</h2>
+      <p>{{ i18n.t('contact.subtitle') }}</p>
 
       <ul class="contact-points">
         <li>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-               stroke="#0f6fff" stroke-width="2.5" stroke-linecap="round">
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <polyline points="20 6 9 17 4 12"/>
           </svg>
-          Sans engagement
+          {{ i18n.t('contact.point1') }}
         </li>
         <li>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-               stroke="#0f6fff" stroke-width="2.5" stroke-linecap="round">
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <polyline points="20 6 9 17 4 12"/>
           </svg>
-          Roadmap claire
+          {{ i18n.t('contact.point2') }}
         </li>
         <li>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-               stroke="#0f6fff" stroke-width="2.5" stroke-linecap="round">
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
             <polyline points="20 6 9 17 4 12"/>
           </svg>
-          Budget optimise
+          {{ i18n.t('contact.point3') }}
         </li>
       </ul>
 
       <div class="trust-badges">
         <div class="trust-badge">
-          <strong>200+</strong>
-          <span>Projets livres</span>
+          <strong>{{ i18n.t('contact.badge1.value') }}</strong>
+          <span>{{ i18n.t('contact.badge1.label') }}</span>
         </div>
         <div class="trust-sep"></div>
         <div class="trust-badge">
-          <strong>98%</strong>
-          <span>Satisfaction client</span>
+          <strong>{{ i18n.t('contact.badge2.value') }}</strong>
+          <span>{{ i18n.t('contact.badge2.label') }}</span>
         </div>
         <div class="trust-sep"></div>
         <div class="trust-badge">
-          <strong>24h</strong>
-          <span>Delai de reponse</span>
+          <strong>{{ i18n.t('contact.badge3.value') }}</strong>
+          <span>{{ i18n.t('contact.badge3.label') }}</span>
         </div>
       </div>
     </div>
@@ -404,42 +360,60 @@
     <div class="contact-form-wrapper">
       <div class="form-header">
         <div class="form-header-dot"></div>
-        <span>Formulaire de contact</span>
+        <span>{{ i18n.t('contact.form.title') }}</span>
         <div class="form-header-live">
           <div class="live-dot"></div>
-          Disponible
+          {{ i18n.t('contact.form.available') }}
         </div>
       </div>
 
       <form class="contact-form" (submit)="onSubmit($event)" novalidate>
 
         <div class="form-row">
-          <div class="form-group" [class.focused]="focused['prenom']" [class.filled]="form.prenom">
-            <label for="prenom">Prenom <span class="required">*</span></label>
-            <input id="prenom" type="text" placeholder="Votre prenom"
+          <div class="form-group"
+               [class.focused]="focused['prenom']"
+               [class.filled]="form.prenom">
+            <label for="prenom">
+              {{ i18n.t('contact.form.firstname') }} <span class="required">*</span>
+            </label>
+            <input id="prenom" type="text"
+              [placeholder]="i18n.t('contact.form.firstname.placeholder')"
               [(ngModel)]="form.prenom" name="prenom"
-              (focus)="setFocus('prenom', true)" (blur)="setFocus('prenom', false)"
+              (focus)="setFocus('prenom', true)"
+              (blur)="setFocus('prenom', false)"
               autocomplete="given-name"/>
           </div>
-          <div class="form-group" [class.focused]="focused['email']" [class.filled]="form.email">
-            <label for="email">Email professionnel <span class="required">*</span></label>
-            <input id="email" type="email" placeholder="vous@entreprise.com"
+          <div class="form-group"
+               [class.focused]="focused['email']"
+               [class.filled]="form.email">
+            <label for="email">
+              {{ i18n.t('contact.form.email') }} <span class="required">*</span>
+            </label>
+            <input id="email" type="email"
+              [placeholder]="i18n.t('contact.form.email.placeholder')"
               [(ngModel)]="form.email" name="email"
-              (focus)="setFocus('email', true)" (blur)="setFocus('email', false)"
+              (focus)="setFocus('email', true)"
+              (blur)="setFocus('email', false)"
               autocomplete="email"/>
           </div>
         </div>
 
         <div class="form-row">
-          <div class="form-group" [class.focused]="focused['societe']" [class.filled]="form.societe">
-            <label for="societe">Societe</label>
-            <input id="societe" type="text" placeholder="Nom de votre societe"
+          <div class="form-group"
+               [class.focused]="focused['societe']"
+               [class.filled]="form.societe">
+            <label for="societe">{{ i18n.t('contact.form.company') }}</label>
+            <input id="societe" type="text"
+              [placeholder]="i18n.t('contact.form.company.placeholder')"
               [(ngModel)]="form.societe" name="societe"
-              (focus)="setFocus('societe', true)" (blur)="setFocus('societe', false)"
+              (focus)="setFocus('societe', true)"
+              (blur)="setFocus('societe', false)"
               autocomplete="organization"/>
           </div>
-          <div class="form-group" [class.focused]="focused['tel']" [class.filled]="form.tel">
-            <label for="tel">Telephone</label>
+          <div class="form-group"
+               [class.focused]="focused['tel']"
+               [class.filled]="form.tel">
+            <label for="tel">{{ i18n.t('contact.form.phone') }}</label>
             <div class="tel-input-wrap">
               <div class="country-select-wrap">
                 <img class="country-real-flag"
@@ -449,7 +423,8 @@
                 <select class="country-select"
                   [ngModel]="form.countryIso"
                   (ngModelChange)="selectContactCountry($event)"
-                  name="countryIso" aria-label="Indicatif pays">
+                  name="countryIso"
+                  aria-label="Indicatif pays">
                   <option *ngFor="let c of countries" [value]="c.iso">
                     {{ c.iso }} {{ c.code }}
                   </option>
@@ -459,24 +434,33 @@
                 [(ngModel)]="form.tel" name="tel"
                 class="tel-input" inputmode="numeric" pattern="[0-9]*"
                 (input)="numbersOnly($event)"
-                (focus)="setFocus('tel', true)" (blur)="setFocus('tel', false)"
+                (focus)="setFocus('tel', true)"
+                (blur)="setFocus('tel', false)"
                 autocomplete="tel"/>
             </div>
           </div>
         </div>
 
-        <div class="form-group" [class.focused]="focused['sujet']" [class.filled]="form.sujet">
-          <label for="sujet">Sujet <span class="required">*</span></label>
+        <div class="form-group"
+             [class.focused]="focused['sujet']"
+             [class.filled]="form.sujet">
+          <label for="sujet">
+            {{ i18n.t('contact.form.subject') }} <span class="required">*</span>
+          </label>
           <div class="select-wrap">
-            <select id="sujet" [(ngModel)]="form.sujet" name="sujet"
-              (focus)="setFocus('sujet', true)" (blur)="setFocus('sujet', false)">
-              <option value="" disabled selected>Choisissez un sujet</option>
-              <option value="site">Creation de site web</option>
-              <option value="app">Application web / mobile</option>
-              <option value="ia">Intelligence artificielle & IA</option>
-              <option value="marketing">Marketing digital & SEO</option>
-              <option value="audit">Audit & conseil digital</option>
-              <option value="autre">Autre</option>
+            <select id="sujet"
+              [(ngModel)]="form.sujet" name="sujet"
+              (focus)="setFocus('sujet', true)"
+              (blur)="setFocus('sujet', false)">
+              <option value="" disabled selected>
+                {{ i18n.t('contact.form.subject.placeholder') }}
+              </option>
+              <option value="site">{{ i18n.t('contact.form.subject.website') }}</option>
+              <option value="app">{{ i18n.t('contact.form.subject.app') }}</option>
+              <option value="ia">{{ i18n.t('contact.form.subject.ai') }}</option>
+              <option value="marketing">{{ i18n.t('contact.form.subject.marketing') }}</option>
+              <option value="audit">{{ i18n.t('contact.form.subject.audit') }}</option>
+              <option value="autre">{{ i18n.t('contact.form.subject.other') }}</option>
             </select>
             <svg class="select-chevron" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2">
@@ -486,31 +470,35 @@
         </div>
 
         <div class="form-group textarea-group"
-             [class.focused]="focused['message']" [class.filled]="form.message">
+             [class.focused]="focused['message']"
+             [class.filled]="form.message">
           <label for="message">
-            Votre message <span class="required">*</span>
+            {{ i18n.t('contact.form.message') }} <span class="required">*</span>
             <span class="char-count">{{ form.message.length }}/500</span>
           </label>
           <textarea id="message" rows="5"
-            placeholder="Decrivez votre projet, vos besoins, votre budget estime..."
+            [placeholder]="i18n.t('contact.form.message.placeholder')"
             [(ngModel)]="form.message" name="message" maxlength="500"
-            (focus)="setFocus('message', true)" (blur)="setFocus('message', false)">
+            (focus)="setFocus('message', true)"
+            (blur)="setFocus('message', false)">
           </textarea>
         </div>
 
         <button type="submit" class="btn-submit" [class.loading]="submitting">
           <span *ngIf="!submitting && !submitted">
-            Planifier un appel
+            {{ i18n.t('contact.form.submit') }}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  stroke-width="2" width="16" height="16">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </span>
           <span *ngIf="submitting" class="btn-spinner"></span>
-          <span *ngIf="submitted && !submitting">Message envoye !</span>
+          <span *ngIf="submitted && !submitting">
+            {{ i18n.t('contact.form.submitted') }}
+          </span>
         </button>
 
-        <p class="form-note">Reponse sous 26 h · Devis gratuit · Sans engagement</p>
+        <p class="form-note">{{ i18n.t('contact.form.note') }}</p>
       </form>
     </div>
   </section>
