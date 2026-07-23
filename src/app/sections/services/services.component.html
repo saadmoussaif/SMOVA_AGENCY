@@ -1,29 +1,93 @@
-<section class="services" id="services">
-  <div class="section-heading">
-    <span>{{ i18n.t('services.kicker') }}</span>
-    <h2>{{ i18n.t('services.title') }}</h2>
-    <p>{{ i18n.t('services.subtitle') }}</p>
+<!-- ══ HERO SECTION ══════════════════════════════════ -->
+<section class="svc-hero">
+  <div class="svc-hero-inner">
+    <div class="svc-hero-text">
+      <span class="svc-kicker">
+        <i-lucide name="zap" aria-hidden="true"></i-lucide>
+        {{ i18n.t('services.kicker') }}
+      </span>
+      <h1>{{ i18n.t('services.title') }}</h1>
+      <p>{{ i18n.t('services.subtitle') }}</p>
+    </div>
+    <div class="svc-hero-stats">
+      <div class="svc-stat">
+        <strong>200+</strong>
+        <span>Projets livrés</span>
+      </div>
+      <div class="svc-stat-sep"></div>
+      <div class="svc-stat">
+        <strong>6</strong>
+        <span>Expertises</span>
+      </div>
+      <div class="svc-stat-sep"></div>
+      <div class="svc-stat">
+        <strong>98%</strong>
+        <span>Satisfaction</span>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="service-grid">
-    <article *ngFor="let service of services" class="service-card">
-      <div class="service-photo">
-        <img [src]="service.image" [alt]="service.alt" loading="lazy">
-        <span class="service-icon">
-          <i-lucide [name]="service.icon"></i-lucide>
-        </span>
+<!-- ══ GRILLE SERVICES ═══════════════════════════════ -->
+<section class="svc-grid-section">
+  <div class="svc-grid-inner">
+    <article
+      *ngFor="let service of services; let i = index"
+      class="svc-card"
+      [class.svc-card--featured]="i === 0 || i === 3"
+    >
+      <!-- Image pleine largeur -->
+      <div class="svc-card-image">
+        <img [src]="service.image" [alt]="service.alt" loading="lazy" />
+        <div class="svc-card-overlay"></div>
+        <!-- Numéro -->
+        <span class="svc-card-num">0{{ i + 1 }}</span>
       </div>
-      <h3>{{ i18n.t(service.titleKey) }}</h3>
-      <p>{{ i18n.t(service.textKey) }}</p>
-      <div class="service-tags">
-        <span *ngFor="let tag of service.tags">{{ tag }}</span>
+
+      <!-- Contenu -->
+      <div class="svc-card-body">
+        <div class="svc-card-top">
+          <div class="svc-card-icon">
+            <i-lucide [name]="service.icon" aria-hidden="true"></i-lucide>
+          </div>
+          <div class="svc-card-tags">
+            <span *ngFor="let tag of service.tags" class="svc-tag">{{ tag }}</span>
+          </div>
+        </div>
+
+        <h2 class="svc-card-title">{{ i18n.t(service.titleKey) }}</h2>
+        <p class="svc-card-text">{{ i18n.t(service.textKey) }}</p>
+
+        <a
+          class="svc-card-link"
+          [routerLink]="service.link"
+          [attr.aria-label]="i18n.t('services.see_more_aria') + ' ' + i18n.t(service.titleKey)"
+        >
+          <span>{{ i18n.t('services.see_more') }}</span>
+          <span class="svc-link-arrow">
+            <i-lucide name="arrow-right" aria-hidden="true"></i-lucide>
+          </span>
+        </a>
       </div>
-      <a class="service-link"
-         [routerLink]="service.link"
-         [attr.aria-label]="i18n.t('services.see_more_aria') + ' ' + i18n.t(service.titleKey)">
-        {{ i18n.t('services.see_more') }}
-        <i-lucide name="arrow-right"></i-lucide>
-      </a>
     </article>
+  </div>
+</section>
+
+<!-- ══ CTA BANDE ═════════════════════════════════════ -->
+<section class="svc-cta-band">
+  <div class="svc-cta-inner">
+    <div class="svc-cta-left">
+      <h2>Votre projet mérite les meilleures mains.</h2>
+      <p>Discutons de vos besoins en 30 minutes — sans engagement, sans jargon.</p>
+    </div>
+    <div class="svc-cta-right">
+      <a routerLink="/" fragment="contact" class="btn-cta-primary">
+        Démarrer un projet
+        <i-lucide name="arrow-right" aria-hidden="true"></i-lucide>
+      </a>
+      <a href="mailto:contact@smagency.ma" class="btn-cta-ghost">
+        Nous écrire
+      </a>
+    </div>
   </div>
 </section>

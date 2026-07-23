@@ -1,36 +1,198 @@
+<!-- ══ HERO ══════════════════════════════════════════ -->
 <main class="expertise-page">
-  <section class="expertise-hero">
-    <div class="hero-copy">
-      <span class="eyebrow">Expertise marketing</span>
-      <h1>Marketing digital oriente resultats, pas seulement visibilite.</h1>
-      <p>Nous construisons des campagnes mesurables pour attirer, convertir et retenir les bons clients avec une lecture claire des chiffres.</p>
-      <div class="hero-actions">
-        <a class="btn primary" routerLink="/" fragment="contact">Demarrer un projet <i-lucide name="arrow-right"></i-lucide></a>
-        <a class="btn secondary" routerLink="/services">Voir toutes les expertises</a>
+<section class="mkt-hero">
+  <div class="mkt-hero-inner">
+
+    <!-- LEFT -->
+    <div class="mkt-hero-copy">
+      <span class="mkt-kicker">
+        <i-lucide name="megaphone" aria-hidden="true"></i-lucide>
+        Marketing digital
+      </span>
+      <h1>
+        Pas de visibilité sans <span class="mkt-hl">résultats mesurables.</span>
+      </h1>
+      <p>
+        Nous construisons des stratégies d'acquisition data-driven pour attirer
+        les bons clients, convertir plus et fidéliser durablement — avec des
+        chiffres clairs à chaque étape.
+      </p>
+
+      <!-- Métriques live -->
+      <div class="mkt-live-metrics">
+        <div class="mlm-item">
+          <div class="mlm-dot green"></div>
+          <div>
+            <strong>+127%</strong>
+            <span>Trafic organique moyen</span>
+          </div>
+        </div>
+        <div class="mlm-sep"></div>
+        <div class="mlm-item">
+          <div class="mlm-dot blue"></div>
+          <div>
+            <strong>3.8×</strong>
+            <span>ROAS campagnes paid</span>
+          </div>
+        </div>
+        <div class="mlm-sep"></div>
+        <div class="mlm-item">
+          <div class="mlm-dot orange"></div>
+          <div>
+            <strong>-42%</strong>
+            <span>Coût par acquisition</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mkt-hero-actions">
+        <a class="btn-primary" routerLink="/" fragment="contact">
+          Démarrer un projet
+          <i-lucide name="arrow-right" aria-hidden="true"></i-lucide>
+        </a>
+        <a class="btn-ghost" routerLink="/services">
+          Toutes les expertises
+        </a>
       </div>
     </div>
-    <div class="hero-panel">
-      <img class="hero-image" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Tableau de bord d'analyse marketing">
-      <i-lucide name="megaphone"></i-lucide>
-      <strong>Growth engine</strong>
-      <span *ngFor="let item of highlights">{{ item }}</span>
-    </div>
-  </section>
 
-  <section class="expertise-content">
-    <div class="section-heading">
-      <span>Ce que nous livrons</span>
-      <h2>Une croissance pilotee par les donnees.</h2>
-    </div>
-    <div class="content-grid">
-      <article *ngFor="let item of deliverables">
-        <i-lucide name="check-circle-2"></i-lucide>
-        <span>{{ item }}</span>
-      </article>
-    </div>
-  </section>
+    <!-- RIGHT — Dashboard visuel -->
+    <div class="mkt-hero-dashboard">
 
-  <section class="stack-strip">
-    <span *ngFor="let item of stack">{{ item }}</span>
-  </section>
+      <!-- Card principale -->
+      <div class="dash-card dash-main">
+        <div class="dash-card-header">
+          <span class="dash-label">Performance campagnes</span>
+          <span class="dash-live"><span class="live-dot"></span>Live</span>
+        </div>
+        <div class="dash-chart">
+          <div class="dash-bar-group" *ngFor="let b of chartBars">
+            <div class="dash-bar" [style.height.%]="b.h" [class]="b.cls"></div>
+            <span class="dash-bar-label">{{ b.label }}</span>
+          </div>
+        </div>
+        <div class="dash-legend">
+          <span><em class="leg-dot blue"></em>Trafic</span>
+          <span><em class="leg-dot green"></em>Conversions</span>
+        </div>
+      </div>
+
+      <!-- Cards secondaires -->
+      <div class="dash-row">
+        <div class="dash-card dash-small">
+          <i-lucide name="trending-up" aria-hidden="true"></i-lucide>
+          <div>
+            <strong>+87%</strong>
+            <span>Clics organiques</span>
+          </div>
+        </div>
+        <div class="dash-card dash-small">
+          <i-lucide name="target" aria-hidden="true"></i-lucide>
+          <div>
+            <strong>4.2%</strong>
+            <span>Taux de conversion</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge flottant -->
+      <div class="dash-float-badge">
+        <i-lucide name="zap" aria-hidden="true"></i-lucide>
+        <span>ROI moyen <strong>×3.8</strong></span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CE QUE NOUS LIVRONS ═══════════════════════════ -->
+<section class="mkt-deliverables">
+  <div class="mkt-del-inner">
+    <div class="mkt-del-header">
+      <span class="mkt-kicker">
+        <i-lucide name="package" aria-hidden="true"></i-lucide>
+        Ce que nous livrons
+      </span>
+      <h2>Une croissance pilotée par les données.</h2>
+      <p>
+        Chaque levier activé est mesuré, optimisé et reporté — vous savez
+        exactement ce qui génère du résultat.
+      </p>
+    </div>
+
+    <div class="mkt-del-grid">
+      <div class="mkt-del-card" *ngFor="let d of deliverables">
+        <div class="mkt-del-icon">
+          <i-lucide [name]="d.icon" aria-hidden="true"></i-lucide>
+        </div>
+        <div class="mkt-del-content">
+          <h3>{{ d.title }}</h3>
+          <p>{{ d.text }}</p>
+          <ul class="mkt-del-list">
+            <li *ngFor="let item of d.items">
+              <i-lucide name="check" aria-hidden="true"></i-lucide>
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESS ═══════════════════════════════════════ -->
+<section class="mkt-process">
+  <div class="mkt-process-inner">
+    <div class="mkt-process-header">
+      <span class="mkt-kicker light">
+        <i-lucide name="git-branch" aria-hidden="true"></i-lucide>
+        Notre méthode
+      </span>
+      <h2>Comment on travaille</h2>
+    </div>
+
+    <div class="mkt-steps">
+      <div class="mkt-step" *ngFor="let step of steps; let i = index">
+        <div class="mkt-step-num">0{{ i + 1 }}</div>
+        <div class="mkt-step-body">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STACK ══════════════════════════════════════════ -->
+<section class="mkt-stack">
+  <div class="mkt-stack-inner">
+    <p class="mkt-stack-label">Outils & plateformes</p>
+    <div class="mkt-stack-grid">
+      <div class="mkt-tool" *ngFor="let tool of stack">
+        <i-lucide [name]="tool.icon" aria-hidden="true"></i-lucide>
+        <span>{{ tool.name }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ═══════════════════════════════════════════ -->
+<section class="mkt-cta">
+  <div class="mkt-cta-inner">
+    <div class="mkt-cta-left">
+      <h2>Prêt à scaler votre acquisition ?</h2>
+      <p>Audit gratuit de votre présence digitale — réponse sous 24h.</p>
+    </div>
+    <div class="mkt-cta-right">
+      <a class="btn-primary" routerLink="/" fragment="contact">
+        Obtenir un audit gratuit
+        <i-lucide name="arrow-right" aria-hidden="true"></i-lucide>
+      </a>
+      <a class="btn-ghost-dark" href="tel:+212607275093">
+        <i-lucide name="phone" aria-hidden="true"></i-lucide>
+        Appeler directement
+      </a>
+    </div>
+  </div>
+</section>
 </main>
