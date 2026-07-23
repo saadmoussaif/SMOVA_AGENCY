@@ -1,43 +1,46 @@
 <main class="legal-page">
+
   <section class="legal-hero">
-    <span>Informations legales</span>
-    <h1>Mentions legales</h1>
-    <p>Retrouvez les informations relatives a l editeur du site SMOVAGENCY, son hebergement et les conditions generales d utilisation.</p>
+    <span>{{ i18n.t('legal.kicker') }}</span>
+    <h1>{{ i18n.t('legal.title') }}</h1>
+    <p>{{ i18n.t('legal.subtitle') }}</p>
   </section>
 
   <section class="legal-content">
+
     <article>
-      <h2>Editeur du site</h2>
+      <h2>{{ i18n.t('legal.editor.title') }}</h2>
       <p><strong>SMOVAGENCY</strong></p>
-      <p>Agence digitale startup au Maroc specialisee dans les produits web, mobiles, IA et croissance digitale.</p>
-      <p>Rabat - Maroc</p>
-      <p>Email : contact&#64;smagency.ma</p>
-      <p>Telephone : +212 6 07 27 50 93</p>
+      <p>{{ i18n.t('legal.editor.desc') }}</p>
+      <p>{{ i18n.t('legal.editor.address') }}</p>
+      <p>{{ i18n.t('legal.editor.email') }} : <a href="mailto:contact@smagency.ma">contact&#64;smagency.ma</a></p>
+      <p>{{ i18n.t('legal.editor.phone') }} : <a href="tel:+212607275093">+212 6 07 27 50 93</a></p>
     </article>
 
     <article>
-      <h2>Responsable de publication</h2>
-      <p>Le responsable de publication du site est SMOVAGENCY.</p>
+      <h2>{{ i18n.t('legal.publisher.title') }}</h2>
+      <p>{{ i18n.t('legal.publisher.text') }}</p>
     </article>
 
     <article>
-      <h2>Hebergement</h2>
-      <p>Le site est heberge par le prestataire technique choisi par SMOVAGENCY. Les informations detaillees peuvent etre communiquees sur demande.</p>
+      <h2>{{ i18n.t('legal.hosting.title') }}</h2>
+      <p>{{ i18n.t('legal.hosting.text') }}</p>
     </article>
 
     <article>
-      <h2>Propriete intellectuelle</h2>
-      <p>Les textes, visuels, logos, interfaces et elements graphiques presents sur ce site sont la propriete de SMOVAGENCY ou de leurs auteurs respectifs. Toute reproduction non autorisee est interdite.</p>
+      <h2>{{ i18n.t('legal.ip.title') }}</h2>
+      <p>{{ i18n.t('legal.ip.text') }}</p>
     </article>
 
     <article>
-      <h2>Donnees personnelles</h2>
-      <p>Les informations transmises via les formulaires sont utilisees uniquement pour traiter les demandes de contact et de projet. Vous pouvez demander la modification ou la suppression de vos donnees en contactant SMOVAGENCY.</p>
+      <h2>{{ i18n.t('legal.data.title') }}</h2>
+      <p>{{ i18n.t('legal.data.text') }}</p>
     </article>
 
     <article>
-      <h2>Cookies</h2>
-      <p>Le site peut utiliser des cookies necessaires au fonctionnement, a l analyse de performance et a l amelioration de l experience utilisateur.</p>
+      <h2>{{ i18n.t('legal.cookies.title') }}</h2>
+      <p>{{ i18n.t('legal.cookies.text') }}</p>
     </article>
+
   </section>
 </main>

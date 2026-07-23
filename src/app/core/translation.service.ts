@@ -304,6 +304,33 @@ const dictionary: Record<Lang, Record<string, string>> = {
  
 'services.growth.title': 'Growth & optimisation',
 'services.growth.text':  'Expérimentation, tracking et amélioration continue pour scaler avec méthode.',
+
+
+
+'legal.kicker':  'Informations légales',
+'legal.title':   'Mentions légales',
+'legal.subtitle': "Retrouvez les informations relatives à l'éditeur du site SMOVAGENCY, son hébergement et les conditions générales d'utilisation.",
+ 
+'legal.editor.title':   'Éditeur du site',
+'legal.editor.desc':    'Agence digitale startup au Maroc spécialisée dans les produits web, mobiles, IA et croissance digitale.',
+'legal.editor.address': 'Rabat - Maroc',
+'legal.editor.email':   'Email',
+'legal.editor.phone':   'Téléphone',
+ 
+'legal.publisher.title': 'Responsable de publication',
+'legal.publisher.text':  'Le responsable de publication du site est SMOVAGENCY.',
+ 
+'legal.hosting.title': 'Hébergement',
+'legal.hosting.text':  'Le site est hébergé par le prestataire technique choisi par SMOVAGENCY. Les informations détaillées peuvent être communiquées sur demande.',
+ 
+'legal.ip.title': 'Propriété intellectuelle',
+'legal.ip.text':  "Les textes, visuels, logos, interfaces et éléments graphiques présents sur ce site sont la propriété de SMOVAGENCY ou de leurs auteurs respectifs. Toute reproduction non autorisée est interdite.",
+ 
+'legal.data.title': 'Données personnelles',
+'legal.data.text':  'Les informations transmises via les formulaires sont utilisées uniquement pour traiter les demandes de contact et de projet. Vous pouvez demander la modification ou la suppression de vos données en contactant SMOVAGENCY.',
+ 
+'legal.cookies.title': 'Cookies',
+'legal.cookies.text':  "Le site peut utiliser des cookies nécessaires au fonctionnement, à l'analyse de performance et à l'amélioration de l'expérience utilisateur.",
   },
 
   en: {
@@ -602,6 +629,31 @@ const dictionary: Record<Lang, Record<string, string>> = {
  
 'services.growth.title': 'Growth & optimization',
 'services.growth.text':  'Experimentation, tracking and continuous improvement to scale with method.',
+
+'legal.kicker':  'Legal information',
+'legal.title':   'Legal notice',
+'legal.subtitle': 'Find information about the publisher of the SMOVAGENCY website, its hosting and general terms of use.',
+ 
+'legal.editor.title':   'Website publisher',
+'legal.editor.desc':    'A startup digital agency in Morocco specializing in web, mobile, AI and digital growth products.',
+'legal.editor.address': 'Rabat - Morocco',
+'legal.editor.email':   'Email',
+'legal.editor.phone':   'Phone',
+ 
+'legal.publisher.title': 'Publication manager',
+'legal.publisher.text':  'The publication manager of this website is SMOVAGENCY.',
+ 
+'legal.hosting.title': 'Hosting',
+'legal.hosting.text':  'The website is hosted by the technical provider chosen by SMOVAGENCY. Detailed information can be provided upon request.',
+ 
+'legal.ip.title': 'Intellectual property',
+'legal.ip.text':  'Texts, visuals, logos, interfaces and graphic elements on this site are the property of SMOVAGENCY or their respective authors. Any unauthorized reproduction is prohibited.',
+ 
+'legal.data.title': 'Personal data',
+'legal.data.text':  'Information submitted via forms is used solely to process contact and project requests. You may request modification or deletion of your data by contacting SMOVAGENCY.',
+ 
+'legal.cookies.title': 'Cookies',
+'legal.cookies.text':  'The site may use cookies necessary for operation, performance analysis and improving user experience.',
  
   },
 
@@ -896,6 +948,32 @@ const dictionary: Record<Lang, Record<string, string>> = {
  
 'services.growth.title': 'النمو والتحسين',
 'services.growth.text':  'تجريب، تتبع وتحسين مستمر لتوسيع نطاق عملك بمنهجية.',
+
+
+'legal.kicker':  'معلومات قانونية',
+'legal.title':   'الشروط القانونية',
+'legal.subtitle': 'اطلع على المعلومات المتعلقة بناشر موقع SMOVAGENCY واستضافته والشروط العامة للاستخدام.',
+ 
+'legal.editor.title':   'ناشر الموقع',
+'legal.editor.desc':    'وكالة رقمية ناشئة في المغرب متخصصة في منتجات الويب والهاتف والذكاء الاصطناعي والنمو الرقمي.',
+'legal.editor.address': 'الرباط - المغرب',
+'legal.editor.email':   'البريد الإلكتروني',
+'legal.editor.phone':   'الهاتف',
+ 
+'legal.publisher.title': 'المسؤول عن النشر',
+'legal.publisher.text':  'المسؤول عن نشر هذا الموقع هو SMOVAGENCY.',
+ 
+'legal.hosting.title': 'الاستضافة',
+'legal.hosting.text':  'يُستضاف الموقع لدى المزود التقني الذي اختارته SMOVAGENCY. يمكن تقديم المعلومات التفصيلية عند الطلب.',
+ 
+'legal.ip.title': 'الملكية الفكرية',
+'legal.ip.text':  'النصوص والمرئيات والشعارات والواجهات والعناصر الجرافيكية الموجودة في هذا الموقع هي ملك لـ SMOVAGENCY أو لأصحابها المعنيين. يُحظر أي نسخ غير مرخّص.',
+ 
+'legal.data.title': 'البيانات الشخصية',
+'legal.data.text':  'تُستخدم المعلومات المرسلة عبر النماذج فقط لمعالجة طلبات التواصل والمشاريع. يمكنك طلب تعديل أو حذف بياناتك بالتواصل مع SMOVAGENCY.',
+ 
+'legal.cookies.title': 'ملفات تعريف الارتباط',
+'legal.cookies.text':  'قد يستخدم الموقع ملفات تعريف الارتباط الضرورية للتشغيل وتحليل الأداء وتحسين تجربة المستخدم.',
   }
 
 };
