@@ -1,1 +1,221 @@
-<p>offres-emploi works!</p>
+<!-- ══ HERO ══════════════════════════════════════════ -->
+<section class="jobs-hero">
+  <div class="jobs-hero-inner">
+    <div class="jobs-hero-left">
+      <span class="jobs-kicker">
+        <i-lucide name="briefcase" aria-hidden="true"></i-lucide>
+        Carrières
+      </span>
+      <h1>
+        Rejoignez une équipe qui<br>
+        <span class="jobs-hero-hl">construit l'avenir digital</span>
+      </h1>
+      <p>
+        Chez SMAgency, on ne cherche pas juste des profils — on cherche des personnes
+        qui veulent avoir un impact réel sur des produits ambitieux.
+      </p>
+      <div class="jobs-hero-stats">
+        <div class="hs">
+          <strong>{{ allJobs.length }}</strong>
+          <span>Postes ouverts</span>
+        </div>
+        <div class="hs-sep"></div>
+        <div class="hs">
+          <strong>3</strong>
+          <span>Villes</span>
+        </div>
+        <div class="hs-sep"></div>
+        <div class="hs">
+          <strong>100%</strong>
+          <span>Remote possible</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="jobs-hero-right">
+      <div class="culture-card">
+        <div class="cc-header">
+          <i-lucide name="sparkles" aria-hidden="true"></i-lucide>
+          <span>Pourquoi SMAgency ?</span>
+        </div>
+        <ul class="cc-list">
+          <li>
+            <i-lucide name="check-circle-2" aria-hidden="true"></i-lucide>
+            Projets variés — startups, scale-ups, grands comptes
+          </li>
+          <li>
+            <i-lucide name="check-circle-2" aria-hidden="true"></i-lucide>
+            Stack moderne — Angular, React Native, IA, Cloud
+          </li>
+          <li>
+            <i-lucide name="check-circle-2" aria-hidden="true"></i-lucide>
+            Télétravail flexible et horaires adaptés
+          </li>
+          <li>
+            <i-lucide name="check-circle-2" aria-hidden="true"></i-lucide>
+            Formation continue & budget learning
+          </li>
+          <li>
+            <i-lucide name="check-circle-2" aria-hidden="true"></i-lucide>
+            Équipe bienveillante et culture du feedback
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SEARCH + FILTERS ══════════════════════════════ -->
+<div class="jobs-filters-bar">
+  <div class="jobs-filters-inner">
+
+    <!-- Recherche -->
+    <div class="search-wrap">
+      <i-lucide name="search" class="search-icon" aria-hidden="true"></i-lucide>
+      <input
+        type="search"
+        class="search-input"
+        placeholder="Rechercher un poste, une compétence…"
+        (input)="onSearch($event)"
+        aria-label="Rechercher une offre"
+      />
+    </div>
+
+    <!-- Filtre contrat -->
+    <div class="filter-group">
+      <button
+        *ngFor="let c of contracts"
+        class="filter-pill"
+        [class.active]="activeContract() === c.key"
+        (click)="setContract(c.key)"
+        [attr.aria-pressed]="activeContract() === c.key"
+      >
+        {{ c.label }}
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ CONTENU PRINCIPAL ═════════════════════════════ -->
+<div class="jobs-main">
+  <div class="jobs-main-inner">
+
+    <!-- Sidebar départements -->
+    <aside class="jobs-sidebar">
+      <p class="sidebar-label">Département</p>
+      <ul class="dept-list">
+        <li *ngFor="let d of departments">
+          <button
+            class="dept-btn"
+            [class.active]="activeDept() === d.key"
+            (click)="setDept(d.key)"
+            [attr.aria-pressed]="activeDept() === d.key"
+          >
+            <i-lucide [name]="d.icon" aria-hidden="true"></i-lucide>
+            <span>{{ d.label }}</span>
+            <span class="dept-count" *ngIf="d.key !== 'all'">
+              {{ getJobCountByDepartment(d.key) }}
+            </span>
+          </button>
+        </li>
+      </ul>
+
+      <!-- CTA candidature spontanée -->
+      <div class="spontaneous-card">
+        <i-lucide name="mail" aria-hidden="true"></i-lucide>
+        <h4>Pas votre poste ?</h4>
+        <p>Envoyez une candidature spontanée — on adore les profils atypiques.</p>
+        <a href="mailto:jobs@smagency.ma" class="btn-spontaneous">
+          Candidature spontanée
+          <i-lucide name="arrow-right" aria-hidden="true"></i-lucide>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Liste offres -->
+    <div class="jobs-list-wrap">
+
+      <!-- Résultat compteur -->
+      <div class="jobs-list-header">
+        <p class="jobs-count">
+          <strong>{{ filteredJobs().length }}</strong>
+          offre{{ filteredJobs().length > 1 ? 's' : '' }} trouvée{{ filteredJobs().length > 1 ? 's' : '' }}
+        </p>
+      </div>
+
+      <!-- Liste -->
+      <ul class="jobs-list" *ngIf="filteredJobs().length > 0; else noResults">
+        <li
+          *ngFor="let job of filteredJobs(); trackBy: trackById"
+          class="job-card"
+          [class.job-featured]="job.featured"
+        >
+          <!-- Badge featured -->
+          <span class="featured-badge" *ngIf="job.featured">
+            <i-lucide name="star" aria-hidden="true"></i-lucide>
+            En vedette
+          </span>
+
+          <div class="job-card-inner">
+
+            <!-- Infos principales -->
+            <div class="job-main">
+              <div class="job-meta-top">
+                <span class="job-dept-badge dept-{{ job.department }}">
+                  {{ getDepartmentLabel(job.department) }}
+                </span>
+                <span class="job-posted">{{ daysAgo(job.posted) }}</span>
+              </div>
+
+              <h2 class="job-title">{{ job.title }}</h2>
+              <p class="job-desc">{{ job.description }}</p>
+
+              <div class="job-tags">
+                <span *ngFor="let tag of job.tags" class="job-tag">{{ tag }}</span>
+              </div>
+            </div>
+
+            <!-- Infos droite -->
+            <div class="job-side">
+              <div class="job-badges">
+                <span class="badge-contract">{{ contractLabel(job.contract) }}</span>
+                <span class="badge-remote" [class]="remoteClass(job.remote)">
+                  {{ remoteLabel(job.remote) }}
+                </span>
+              </div>
+
+              <div class="job-location">
+                <i-lucide name="map-pin" aria-hidden="true"></i-lucide>
+                {{ job.location }}
+              </div>
+
+              <a
+                [routerLink]="['/carrieres/offres', job.id]"
+                class="btn-apply"
+                [attr.aria-label]="'Postuler pour ' + job.title"
+              >
+                Postuler
+                <i-lucide name="arrow-right" aria-hidden="true"></i-lucide>
+              </a>
+            </div>
+
+          </div>
+        </li>
+      </ul>
+
+      <!-- Aucun résultat -->
+      <ng-template #noResults>
+        <div class="no-results">
+          <i-lucide name="search-x" aria-hidden="true"></i-lucide>
+          <h3>Aucune offre trouvée</h3>
+          <p>Essayez d'autres filtres ou envoyez une candidature spontanée.</p>
+          <button class="btn-reset" (click)="resetFilters()">
+            Réinitialiser les filtres
+          </button>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</div>
