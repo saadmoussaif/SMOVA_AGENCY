@@ -1,8 +1,8 @@
 :host { display: block; }
 
-$primary: #2563eb;        // ✅ Changé en bleu
-$primary-dark: #1d4ed8;   // ✅ Bleu foncé
-$primary-light: #3b82f6;  // ✅ Bleu clair
+$primary: #2563eb;
+$primary-dark: #1d4ed8;
+$primary-light: #3b82f6;
 $text-dark: #1f2937;
 $text-light: #6b7280;
 $bg-white: #ffffff;
@@ -12,7 +12,6 @@ $transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 $transition-fast: 0.15s ease;
 $border-radius: 8px;
 
-// ─── HERO SHELL ───────────────────────────────────
 .hero-shell {
   position: fixed;
   inset: 0 0 auto;
@@ -22,7 +21,6 @@ $border-radius: 8px;
   display: flex;
   flex-direction: column;
 
-  // ✅ AU SCROLL : fond blanc professionnel
   &.scrolled {
     background: $bg-white;
     box-shadow: 0 1px 0 $border-light, 0 4px 16px rgba(0,0,0,.06);
@@ -32,11 +30,7 @@ $border-radius: 8px;
 
       .nav-link {
         color: $text-dark;
-
-        &:hover { 
-          color: $primary; 
-          background: rgba($primary, 0.06);
-        }
+        &:hover { color: $primary; background: rgba($primary, 0.06); }
         &.active { color: $primary; }
       }
 
@@ -59,7 +53,6 @@ $border-radius: 8px;
   }
 }
 
-// ─── TOP STRIP ────────────────────────────────────
 .top-strip {
   display: flex;
   flex-direction: row;
@@ -130,7 +123,6 @@ $border-radius: 8px;
   &::after { display: none; }
 }
 
-// ─── NAVBAR ───────────────────────────────────────
 .navbar {
   position: relative;
   z-index: 20;
@@ -142,7 +134,6 @@ $border-radius: 8px;
   padding: 0 4vw;
   height: 56px;
   gap: 1.2rem;
-  // Le voile sombre conserve un contraste net sur les photos des pages expertise.
   background: rgba(7, 12, 24, 0.82);
   backdrop-filter: blur(12px);
   transition: all $transition;
@@ -157,7 +148,6 @@ $border-radius: 8px;
   }
 }
 
-// ─── BRAND ────────────────────────────────────────
 .brand {
   display: inline-flex;
   align-items: center;
@@ -187,7 +177,6 @@ $border-radius: 8px;
   }
 }
 
-// ─── NAV LINKS ────────────────────────────────────
 .nav-links {
   display: flex;
   align-items: center;
@@ -239,7 +228,6 @@ $border-radius: 8px;
   }
 }
 
-// ─── NAV LINK ─────────────────────────────────────
 .nav-link {
   display: inline-flex;
   align-items: center;
@@ -260,7 +248,6 @@ $border-radius: 8px;
 
   @media (max-width: 1400px) { font-size: 0.82rem; padding: 0.4rem 0.6rem; }
 
-  // ✅ Soulignement bleu au hover
   &::after {
     content: '';
     position: absolute;
@@ -275,20 +262,15 @@ $border-radius: 8px;
     transition: transform $transition-fast;
   }
 
-  // ✅ HOVER : texte bleu, soulignement bleu apparaît
   &:hover {
     color: $primary;
     background: rgba($primary, 0.06);
     &::after { transform: scaleX(1); }
   }
 
-  // Scrolled : hover sur fond blanc
   .hero-shell.scrolled & {
     color: $text-dark;
-    &:hover { 
-      color: $primary; 
-      background: rgba($primary, 0.06);
-    }
+    &:hover { color: $primary; background: rgba($primary, 0.06); }
   }
 
   &.active {
@@ -297,7 +279,6 @@ $border-radius: 8px;
   }
 }
 
-// ─── DROPDOWN ─────────────────────────────────────
 .nav-dropdown {
   position: relative;
   display: flex;
@@ -306,10 +287,14 @@ $border-radius: 8px;
   @media (max-width: 980px) { flex-direction: column; align-items: stretch; }
 }
 
+// ✅ CORRECTION PRINCIPALE — margin-left pour espacer du CTA
 .nav-language {
   position: relative;
   flex: 0 0 auto;
-  margin-left: 0.35rem;
+  margin-left: 1rem;        // ← espace à gauche (séparation du reste)
+  margin-right: 0.5rem;     // ← espace à droite (avant le bouton CTA)
+
+  @media (max-width: 1300px) { margin-left: 0.75rem; margin-right: 0.35rem; }
 }
 
 .language-trigger {
@@ -317,8 +302,8 @@ $border-radius: 8px;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  min-height: 2.35rem;
-  padding: 0 0.62rem;
+  min-height: 2.2rem;
+  padding: 0 0.75rem;
   border: 1px solid rgba(148, 163, 184, 0.25);
   border-radius: 999px;
   color: #ffffff;
@@ -398,8 +383,7 @@ $border-radius: 8px;
 
   i-lucide { width: 1rem; height: 1rem; margin-left: auto; color: $primary; }
 
-  &:hover,
-  &.active { color: $primary; background: rgba($primary, 0.08); }
+  &:hover, &.active { color: $primary; background: rgba($primary, 0.08); }
 }
 
 .dropdown-trigger {
@@ -476,7 +460,6 @@ $border-radius: 8px;
   }
 }
 
-// ─── DROPDOWN ITEM ────────────────────────────────
 .dropdown-item {
   display: flex;
   align-items: center;
@@ -598,7 +581,6 @@ $border-radius: 8px;
   }
 }
 
-// ─── NAV TOGGLE ───────────────────────────────────
 .nav-toggle {
   display: none;
   align-items: center;
@@ -646,8 +628,6 @@ $border-radius: 8px;
   .ham-bot { transform: rotate(-45deg) translateY(-10px); stroke-dasharray: 20 100; stroke-dashoffset: -8; }
 }
 
-// ─── NAV CTA Desktop ──────────────────────────────
-// ✅ Bouton "Confiez-nous votre projet" en bleu
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -683,8 +663,6 @@ $border-radius: 8px;
   &:active { transform: scale(0.97); }
 }
 
-// ─── NAV CTA Mobile ───────────────────────────────
-// ✅ Bouton "Confiez-nous votre projet" mobile en bleu
 .nav-cta-mobile {
   display: none;
 
@@ -718,7 +696,6 @@ $border-radius: 8px;
   }
 }
 
-// ─── NAV MOBILE TAGS ──────────────────────────────
 .nav-mobile-tags {
   display: none;
 
@@ -740,12 +717,14 @@ $border-radius: 8px;
   }
 }
 
-// ─── RESPONSIVE GLOBAL ────────────────────────────
 @media (max-width: 980px) {
   .hero-shell { padding: 0; }
   .navbar { flex-direction: row; justify-content: space-between; }
 
-  .nav-language { width: 100%; margin: 1rem 0 0; }
+  .nav-language {
+    width: 100%;
+    margin: 1rem 0 0;  // ← reset les marges sur mobile
+  }
   .language-trigger { width: 100%; justify-content: flex-start; padding: 0 0.8rem; }
   .language-menu { position: static; width: 100%; margin-top: 0.45rem; transform: none; }
   .language-menu.open { transform: none; }

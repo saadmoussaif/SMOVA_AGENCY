@@ -1,8 +1,8 @@
 <section class="services" id="services">
   <div class="section-heading">
-    <span>Nos expertises</span>
-    <h2>Des solutions digitales au service de votre croissance</h2>
-    <p>Du conseil IA au developpement complet, chaque service est pense pour produire un impact mesurable.</p>
+    <span>{{ i18n.t('services.kicker') }}</span>
+    <h2>{{ i18n.t('services.title') }}</h2>
+    <p>{{ i18n.t('services.subtitle') }}</p>
   </div>
 
   <div class="service-grid">
@@ -13,13 +13,15 @@
           <i-lucide [name]="service.icon"></i-lucide>
         </span>
       </div>
-      <h3>{{ service.title }}</h3>
-      <p>{{ service.text }}</p>
+      <h3>{{ i18n.t(service.titleKey) }}</h3>
+      <p>{{ i18n.t(service.textKey) }}</p>
       <div class="service-tags">
         <span *ngFor="let tag of service.tags">{{ tag }}</span>
       </div>
-      <a class="service-link" [routerLink]="service.link" [attr.aria-label]="'Voir plus sur ' + service.title">
-        Voir plus
+      <a class="service-link"
+         [routerLink]="service.link"
+         [attr.aria-label]="i18n.t('services.see_more_aria') + ' ' + i18n.t(service.titleKey)">
+        {{ i18n.t('services.see_more') }}
         <i-lucide name="arrow-right"></i-lucide>
       </a>
     </article>

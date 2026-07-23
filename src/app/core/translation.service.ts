@@ -278,6 +278,32 @@ const dictionary: Record<Lang, Record<string, string>> = {
     'cta.subtitle': "Échangeons sur vos besoins et construisons ensemble votre solution digitale.",
     'cta.button': 'Démarrer maintenant',
     'cta.call': 'Ou planifier un appel',
+
+
+
+    'services.kicker':   'Nos expertises',
+'services.title':    'Des solutions digitales au service de votre croissance',
+'services.subtitle': 'Du conseil IA au développement complet, chaque service est pensé pour produire un impact mesurable.',
+'services.see_more':      'Voir plus',
+'services.see_more_aria': 'Voir plus sur',
+ 
+'services.ia.title':       'Consulting digital & IA',
+'services.ia.text':        'Stratégies data-driven, agents IA et automatisations pour accélérer les opérations.',
+ 
+'services.marketing.title': 'Marketing digital',
+'services.marketing.text':  'Acquisition, SEO, campagnes payantes et tableaux de bord orientés performance.',
+ 
+'services.web.title': 'Sites web premium',
+'services.web.text':  'Sites vitrines et e-commerce rapides, élégants et pensés pour convertir.',
+ 
+'services.apps.title': 'Applications web',
+'services.apps.text':  'Plateformes sur mesure pour digitaliser vos ventes, équipes et processus métier.',
+ 
+'services.mobile.title': 'Applications mobiles',
+'services.mobile.text':  'Apps iOS et Android modernes, de l\'UX au déploiement stores.',
+ 
+'services.growth.title': 'Growth & optimisation',
+'services.growth.text':  'Expérimentation, tracking et amélioration continue pour scaler avec méthode.',
   },
 
   en: {
@@ -549,6 +575,34 @@ const dictionary: Record<Lang, Record<string, string>> = {
     'cta.subtitle': "Let's discuss your needs and build your digital solution together.",
     'cta.button': 'Get started now',
     'cta.call': 'Or schedule a call',
+
+
+
+    
+'services.kicker':   'Our expertises',
+'services.title':    'Digital solutions for your growth',
+'services.subtitle': 'From AI consulting to full-stack development, every service is built to deliver measurable impact.',
+'services.see_more':      'Learn more',
+'services.see_more_aria': 'Learn more about',
+ 
+'services.ia.title':       'Digital & AI consulting',
+'services.ia.text':        'Data-driven strategies, AI agents and automation to accelerate your operations.',
+ 
+'services.marketing.title': 'Digital marketing',
+'services.marketing.text':  'Acquisition, SEO, paid campaigns and performance-driven dashboards.',
+ 
+'services.web.title': 'Premium websites',
+'services.web.text':  'Fast, elegant showcase and e-commerce sites designed to convert.',
+ 
+'services.apps.title': 'Web applications',
+'services.apps.text':  'Custom platforms to digitalize your sales, teams and business processes.',
+ 
+'services.mobile.title': 'Mobile applications',
+'services.mobile.text':  'Modern iOS and Android apps, from UX to store deployment.',
+ 
+'services.growth.title': 'Growth & optimization',
+'services.growth.text':  'Experimentation, tracking and continuous improvement to scale with method.',
+ 
   },
 
   ar: {
@@ -815,6 +869,33 @@ const dictionary: Record<Lang, Record<string, string>> = {
     'stages.form.start': 'تاريخ البدء',
     'stages.form.convention': 'اتفاقية التدريب',
     'stages.form.submit': 'إرسال طلب التدريب',
+
+
+
+    
+'services.kicker':   'خبراتنا',
+'services.title':    'حلول رقمية في خدمة نموّك',
+'services.subtitle': 'من الاستشارة في الذكاء الاصطناعي إلى التطوير الكامل، كل خدمة مصممة لتحقيق أثر قابل للقياس.',
+'services.see_more':      'اكتشف المزيد',
+'services.see_more_aria': 'اكتشف المزيد حول',
+ 
+'services.ia.title':       'استشارة رقمية والذكاء الاصطناعي',
+'services.ia.text':        'استراتيجيات مبنية على البيانات، وكلاء ذكاء اصطناعي وأتمتة لتسريع العمليات.',
+ 
+'services.marketing.title': 'التسويق الرقمي',
+'services.marketing.text':  'اكتساب العملاء، SEO، حملات مدفوعة ولوحات أداء موجّهة نحو النتائج.',
+ 
+'services.web.title': 'مواقع ويب متميزة',
+'services.web.text':  'مواقع عرض وتجارة إلكترونية سريعة وأنيقة مصممة للتحويل.',
+ 
+'services.apps.title': 'تطبيقات ويب',
+'services.apps.text':  'منصات مخصصة لرقمنة مبيعاتك وفرقك وعملياتك التجارية.',
+ 
+'services.mobile.title': 'تطبيقات الهاتف',
+'services.mobile.text':  'تطبيقات iOS وAndroid حديثة، من تجربة المستخدم إلى نشرها في المتاجر.',
+ 
+'services.growth.title': 'النمو والتحسين',
+'services.growth.text':  'تجريب، تتبع وتحسين مستمر لتوسيع نطاق عملك بمنهجية.',
   }
 
 };
