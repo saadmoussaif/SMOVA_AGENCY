@@ -1,10 +1,17 @@
-$red: #0f6fff;
-$red-dark: #0c53b6;
-$dark: #0a0a0f;
-$dark-2: #111118;
-$border: rgba(255, 255, 255, 0.08);
-$muted: rgba(255, 255, 255, 0.45);
+// ==========================================================================
+// contact.scss — indépendant, à importer séparément de home.scss
+// ==========================================================================
+
+$sky: #38bdf8;
+$cyan: #93e2ff;
+$blue-accent: #0ea5e9;
+$blue-accent-dark: #0a6fb0;
+$blue-deep: #061a30;
+$blue-mid: #0c3a66;
+$border: rgba(255, 255, 255, 0.09);
+$muted: rgba(255, 255, 255, 0.5);
 $white: #ffffff;
+$success: #22c55e;
 
 @mixin tr($duration: 0.22s) {
   transition: all $duration ease;
@@ -26,9 +33,9 @@ $white: #ffffff;
   padding: clamp(4rem, 8vw, 7rem) max(5vw, calc((100vw - 1300px) / 2));
   color: $white;
   background:
-    radial-gradient(ellipse 60% 50% at 90% 20%, rgba(15, 111, 255, 0.07), transparent),
-    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(139, 0, 0, 0.06), transparent),
-    $dark;
+    radial-gradient(ellipse 65% 55% at 88% 8%, rgba($sky, 0.22), transparent),
+    radial-gradient(ellipse 50% 45% at 6% 90%, rgba($blue-accent, 0.18), transparent),
+    linear-gradient(160deg, $blue-deep 0%, $blue-mid 52%, #124a82 78%, #1a6db8 100%);
 
   &::before {
     content: '';
@@ -37,9 +44,10 @@ $white: #ffffff;
     z-index: 0;
     pointer-events: none;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      linear-gradient(rgba($white, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($white, 0.035) 1px, transparent 1px);
     background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 30%, black 40%, transparent 100%);
   }
 
   > * {
@@ -58,7 +66,7 @@ $white: #ffffff;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: $red;
+    color: $cyan;
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.1em;
@@ -69,27 +77,48 @@ $white: #ffffff;
       flex-shrink: 0;
       width: 28px;
       height: 2px;
-      background: $red;
+      background: linear-gradient(90deg, $sky, transparent);
     }
   }
 
   h2 {
     margin: 0;
-    color: $white;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-size: clamp(2.3rem, 4vw, 3.9rem);
     font-weight: 900;
-    line-height: 0.97;
-    letter-spacing: 0;
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+
+    // signature : texte en dégradé fluide, animé en continu
+    background: linear-gradient(
+      100deg,
+      $white 0%,
+      $sky 22%,
+      $cyan 45%,
+      $white 65%,
+      $blue-accent 85%,
+      $white 100%
+    );
+    background-size: 280% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: fluidGradient 7s ease-in-out infinite;
   }
 
   > p {
-    max-width: 360px;
+    max-width: 380px;
     margin: 0;
     color: $muted;
     font-size: 0.98rem;
     line-height: 1.75;
   }
+}
+
+@keyframes fluidGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .contact-points {
@@ -103,9 +132,14 @@ $white: #ffffff;
   li {
     @include flex;
     gap: 8px;
-    color: rgba($white, 0.75);
+    color: rgba($white, 0.8);
     font-size: 0.9rem;
     font-weight: 600;
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: $sky;
   }
 }
 
@@ -115,8 +149,9 @@ $white: #ffffff;
   margin-top: 1rem;
   overflow: hidden;
   border: 1px solid $border;
-  border-radius: 8px;
-  background: rgba($white, 0.04);
+  border-radius: 10px;
+  background: rgba($white, 0.045);
+  backdrop-filter: blur(6px);
 }
 
 .trust-badge {
@@ -126,7 +161,7 @@ $white: #ffffff;
 
   strong {
     display: block;
-    color: $red;
+    color: $sky;
     font-size: 1.5rem;
     font-weight: 900;
     line-height: 1;
@@ -151,9 +186,9 @@ $white: #ffffff;
 .contact-form-wrapper {
   overflow: hidden;
   border: 1px solid $border;
-  border-radius: 8px;
-  background: rgba($white, 0.04);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  background: rgba($white, 0.045);
+  box-shadow: 0 32px 80px rgba(2, 10, 25, 0.45);
   backdrop-filter: blur(20px);
 }
 
@@ -175,36 +210,28 @@ $white: #ffffff;
   .form-header-dot {
     width: 8px;
     height: 8px;
-    background: $red;
-    box-shadow: 0 0 10px rgba($red, 0.5);
+    background: $sky;
+    box-shadow: 0 0 10px rgba($sky, 0.6);
   }
 
   .form-header-live {
     @include flex;
     gap: 5px;
-    color: #22c55e;
+    color: $success;
     font-size: 0.75rem;
   }
 
   .live-dot {
     width: 6px;
     height: 6px;
-    background: #22c55e;
+    background: $success;
     animation: livePulse 2s ease infinite;
   }
 }
 
 @keyframes livePulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.5;
-    transform: scale(0.75);
-  }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.75); }
 }
 
 .contact-form {
@@ -242,12 +269,12 @@ $white: #ffffff;
 
   .required {
     margin-left: 2px;
-    color: $red;
+    color: $sky;
     font-size: 0.85em;
   }
 
   .char-count {
-    color: rgba($white, 0.25);
+    color: rgba($white, 0.3);
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0;
@@ -257,7 +284,7 @@ $white: #ffffff;
   input,
   textarea {
     width: 100%;
-    border: 1px solid rgba($white, 0.1);
+    border: 1px solid rgba($white, 0.12);
     border-radius: 8px;
     padding: 0.85rem 1rem;
     color: $white;
@@ -269,33 +296,37 @@ $white: #ffffff;
     @include tr;
 
     &::placeholder {
-      color: rgba($white, 0.22);
+      color: rgba($white, 0.28);
     }
 
     &:hover {
-      border-color: rgba($white, 0.18);
+      border-color: rgba($white, 0.2);
       background: rgba($white, 0.08);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $sky;
+      outline-offset: 2px;
     }
   }
 
   &.focused {
     label {
-      color: $red;
+      color: $sky;
     }
 
     input,
     textarea,
-    .tel-input {
-      border-color: rgba($red, 0.5);
-      background: rgba($red, 0.04);
-      box-shadow: 0 0 0 3px rgba($red, 0.1);
+    .tel-input-wrap {
+      border-color: rgba($sky, 0.55);
+      background: rgba($sky, 0.07);
+      box-shadow: 0 0 0 3px rgba($sky, 0.14);
     }
 
-    .tel-input-wrap,
     .select-wrap select {
-      border-color: rgba($red, 0.5);
-      background: rgba($red, 0.04);
-      box-shadow: 0 0 0 3px rgba($red, 0.1);
+      border-color: rgba($sky, 0.55);
+      background: rgba($sky, 0.07);
+      box-shadow: 0 0 0 3px rgba($sky, 0.14);
     }
   }
 
@@ -306,7 +337,7 @@ $white: #ffffff;
 
     input,
     textarea {
-      border-color: rgba($white, 0.15);
+      border-color: rgba($white, 0.18);
     }
   }
 }
@@ -314,13 +345,13 @@ $white: #ffffff;
 .tel-input-wrap {
   @include flex;
   overflow: hidden;
-  border: 1px solid rgba($white, 0.1);
+  border: 1px solid rgba($white, 0.12);
   border-radius: 8px;
   background: rgba($white, 0.06);
   @include tr;
 
   &:hover {
-    border-color: rgba($white, 0.18);
+    border-color: rgba($white, 0.2);
     background: rgba($white, 0.08);
   }
 }
@@ -329,20 +360,14 @@ $white: #ffffff;
   @include flex;
   flex: 0 0 8.2rem;
   min-width: 8.2rem;
-  border-right: 1px solid rgba($white, 0.1);
-  background: rgba($white, 0.025);
+  border-right: 1px solid rgba($white, 0.12);
+  background: rgba($white, 0.03);
 }
 
-.country-real-flag {
+.country-flag-emoji {
   flex: 0 0 auto;
-  width: 1.35rem;
-  height: 0.95rem;
   margin-left: 0.75rem;
-  border-radius: 2px;
-  object-fit: cover;
-  box-shadow:
-    0 0 0 1px rgba($white, 0.38),
-    0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 1.1rem;
 }
 
 .country-select {
@@ -359,7 +384,12 @@ $white: #ffffff;
 
   option {
     color: $white;
-    background: $dark-2;
+    background: #0a2036;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $sky;
+    outline-offset: 2px;
   }
 }
 
@@ -378,7 +408,7 @@ $white: #ffffff;
 
   select {
     width: 100%;
-    border: 1px solid rgba($white, 0.1);
+    border: 1px solid rgba($white, 0.12);
     border-radius: 8px;
     padding: 0.85rem 2.5rem 0.85rem 1rem;
     color: $white;
@@ -391,13 +421,18 @@ $white: #ffffff;
     @include tr;
 
     &:hover {
-      border-color: rgba($white, 0.18);
+      border-color: rgba($white, 0.2);
       background: rgba($white, 0.08);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $sky;
+      outline-offset: 2px;
     }
 
     option {
       color: $white;
-      background: $dark-2;
+      background: #0a2036;
     }
   }
 }
@@ -408,7 +443,7 @@ $white: #ffffff;
   right: 1rem;
   width: 16px;
   height: 16px;
-  color: rgba($white, 0.35);
+  color: rgba($white, 0.4);
   pointer-events: none;
   transform: translateY(-50%);
 }
@@ -429,7 +464,7 @@ $white: #ffffff;
   border: 0;
   border-radius: 8px;
   color: $white;
-  background: linear-gradient(135deg, $red, $red-dark);
+  background: linear-gradient(135deg, $sky, $blue-accent-dark);
   cursor: pointer;
   font-size: 1rem;
   font-weight: 800;
@@ -441,7 +476,7 @@ $white: #ffffff;
     position: absolute;
     inset: 0;
     opacity: 0;
-    background: linear-gradient(135deg, rgba($white, 0.1), transparent);
+    background: linear-gradient(135deg, rgba($white, 0.14), transparent);
     @include tr;
   }
 
@@ -454,7 +489,7 @@ $white: #ffffff;
 
   &:hover:not(.loading) {
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba($red, 0.35);
+    box-shadow: 0 12px 32px rgba($sky, 0.4);
 
     &::after {
       opacity: 1;
@@ -469,6 +504,11 @@ $white: #ffffff;
     opacity: 0.75;
     cursor: not-allowed;
     pointer-events: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $white;
+    outline-offset: 2px;
   }
 
   svg {
@@ -499,12 +539,26 @@ $white: #ffffff;
 
 .form-note {
   margin: -0.2rem 0 0;
-  color: rgba($white, 0.25);
+  color: rgba($white, 0.3);
   font-size: 0.75rem;
   letter-spacing: 0.04em;
   text-align: center;
 }
 
+// ---------- accessibilité : respect de "réduire les animations" ----------
+@media (prefers-reduced-motion: reduce) {
+  .contact-copy h2 {
+    animation: none;
+    background-position: 0% 50%;
+  }
+
+  .live-dot,
+  .btn-spinner {
+    animation: none;
+  }
+}
+
+// ---------- responsive ----------
 @media (max-width: 1024px) {
   .contact {
     grid-template-columns: 1fr;
@@ -540,7 +594,6 @@ $white: #ffffff;
     flex-basis: auto;
     min-width: 100%;
     border-right: 0;
-    border-bottom: 1px solid rgba($white, 0.1);
+    border-bottom: 1px solid rgba($white, 0.12);
   }
 }
-
