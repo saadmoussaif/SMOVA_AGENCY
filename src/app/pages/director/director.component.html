@@ -1,59 +1,72 @@
 <main class="director-page">
+
   <section class="director-hero">
-    <div class="director-copy">
-      <span class="director-kicker">Mot du Directeur</span>
-      <h1>Le mot du <span>directeur</span></h1>
-      <h2>Donner du sens a la transformation digitale</h2>
+    <div class="director-hero-inner">
+      <div class="director-copy">
+        <span class="director-kicker">Mot du Directeur</span>
+        <h1>Le mot du <span>directeur</span></h1>
+        <h2>Donner du sens a la transformation digitale</h2>
 
-      <p class="director-greeting">Chers partenaires, chers clients,</p>
-      <p>
-        Ingenieur d'Etat en genie logiciel, je concois et developpe des applications web robustes et scalables, du back-end jusqu'a l'interface utilisateur. Mon approche combine rigueur technique, comprehension business et attention forte a l'experience utilisateur.
-      </p>
-      <p>
-        Avec SMOVAGENCY, mon objectif est simple: aider les startups, PME et marques ambitieuses a transformer leurs idees en produits digitaux fiables, performants et prets a grandir.
-      </p>
-      <p>
-        La technologie n'a de valeur que lorsqu'elle sert une strategie claire, une execution serieuse et une croissance mesurable.
-      </p>
+        <p class="director-greeting">Chers partenaires, chers clients,</p>
+        <p>
+          Ingenieur d'Etat en genie logiciel, je concois et developpe des applications web robustes et scalables, du back-end jusqu'a l'interface utilisateur. Mon approche combine rigueur technique, comprehension business et attention forte a l'experience utilisateur.
+        </p>
+        <p>
+          Avec SMOVAGENCY, mon objectif est simple: aider les startups, PME et marques ambitieuses a transformer leurs idees en produits digitaux fiables, performants et prets a grandir.
+        </p>
 
-      <div class="director-signature">
-        <small>Bonjour, je suis</small>
-        <strong>Saad Moussaif</strong>
-        <span>Ingenieur informatique specialise en genie logiciel</span>
+        <div class="director-actions">
+          <a class="btn primary" href="/#contact">Echanger sur un projet <i-lucide name="arrow-right"></i-lucide></a>
+          <a class="btn secondary" href="/services">Voir nos expertises</a>
+        </div>
       </div>
 
-      <div class="director-actions">
-        <a class="btn primary" href="/#contact">Echanger sur un projet <i-lucide name="arrow-right"></i-lucide></a>
-        <a class="btn secondary" href="/services">Voir nos expertises</a>
-      </div>
+      <figure class="director-portrait-frame">
+        <img src="/saad-moussaif.png" alt="Portrait de Saad Moussaif">
+        <figcaption>
+          <strong>Saad Moussaif</strong>
+          <span>Fondateur &amp; Directeur</span>
+          <a class="director-linkedin" href="https://www.linkedin.com/in/saad-moussaif-369182226/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Saad Moussaif">
+            <i-lucide name="linkedin"></i-lucide>
+          </a>
+        </figcaption>
+      </figure>
     </div>
 
-    <aside class="director-card" aria-label="Profil de Saad Moussaif">
-      <div class="director-portrait">
-        <img src="/saad-moussaif.png" alt="Portrait de Saad Moussaif">
-      </div>
-      <div class="director-card-body">
-        <span class="profile-label">Direction · SMOVAGENCY</span>
-        <h2>Saad Moussaif</h2>
-        <p>Fondateur & Directeur</p>
-        <div class="director-badges" aria-label="Expertises de Saad Moussaif">
-          <span>Ingenieur logiciel</span>
-          <span>Architecture web</span>
-          <span>IA & automatisation</span>
-        </div>
-        <a class="director-linkedin" href="https://www.linkedin.com/in/saad-moussaif-369182226/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Saad Moussaif">
-          <i-lucide name="linkedin"></i-lucide>
-          <span>LinkedIn</span>
-        </a>
-      </div>
-    </aside>
+    <div class="director-badges" aria-label="Expertises de Saad Moussaif">
+      <span>Ingenieur logiciel</span>
+      <span>Architecture web</span>
+      <span>IA & automatisation</span>
+    </div>
   </section>
 
-  <section class="director-values">
-    <article *ngFor="let item of highlights">
-      <i-lucide name="check-circle-2"></i-lucide>
-      <span>{{ item }}</span>
-    </article>
+  <section class="director-proof" aria-label="Chiffres clés et citation">
+    <div class="proof-stats">
+      <article>
+        <strong>5+</strong>
+        <span>Années d'expérience</span>
+      </article>
+      <article>
+        <strong>20+</strong>
+        <span>Projets livrés</span>
+      </article>
+      <article>
+        <strong>État</strong>
+        <span>Ingénieur diplômé</span>
+      </article>
+      <article>
+        <strong>3</strong>
+        <span>Pôles : Web, Architecture, IA</span>
+      </article>
+    </div>
+
+    <blockquote class="proof-quote">
+      <p>La technologie n'a de valeur que lorsqu'elle sert une stratégie claire, une exécution sérieuse et une croissance mesurable.</p>
+      <footer>
+        <span class="signature-mark">Saad Moussaif</span>
+        <small class="signature-title">Fondateur &amp; Directeur — SMOVAGENCY</small>
+      </footer>
+    </blockquote>
   </section>
 
   <section class="director-principles" aria-labelledby="director-principles-title">
@@ -62,32 +75,41 @@
       <h2 id="director-principles-title">Une direction tournée vers l’impact.</h2>
     </div>
 
-    <div class="principles-grid">
-      <article class="principle-card principle-card-featured">
-        <span class="principle-number">01</span>
-        <h3>Une stratégie avant la technologie</h3>
-        <p>Chaque solution commence par l’écoute de vos objectifs. Nous choisissons les outils qui servent réellement votre activité, votre équipe et votre croissance.</p>
-      </article>
-      <article class="principle-card">
-        <span class="principle-number">02</span>
-        <h3>Des résultats mesurables</h3>
-        <p>Un projet digital doit produire une valeur concrète : plus de fluidité, plus de visibilité ou une expérience client plus efficace.</p>
-      </article>
-      <article class="principle-card">
-        <span class="principle-number">03</span>
-        <h3>Une relation durable</h3>
-        <p>Nous restons proches de nos clients à chaque étape, de l’idée initiale jusqu’à l’évolution de leur produit.</p>
-      </article>
-    </div>
+    <ol class="principles-steps">
+      <li>
+        <span class="step-index">01</span>
+        <div class="step-body">
+          <h3>Une stratégie avant la technologie</h3>
+          <p>Chaque solution commence par l’écoute de vos objectifs. Nous choisissons les outils qui servent réellement votre activité, votre équipe et votre croissance.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-index">02</span>
+        <div class="step-body">
+          <h3>Des résultats mesurables</h3>
+          <p>Un projet digital doit produire une valeur concrète : plus de fluidité, plus de visibilité ou une expérience client plus efficace.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-index">03</span>
+        <div class="step-body">
+          <h3>Une relation durable</h3>
+          <p>Nous restons proches de nos clients à chaque étape, de l’idée initiale jusqu’à l’évolution de leur produit.</p>
+        </div>
+      </li>
+    </ol>
 
     <div class="director-closing">
+      <span>Prêts à démarrer</span>
       <h2>Ensemble, allons plus loin.</h2>
       <p>Si vous cherchez une équipe sérieuse, passionnée et engagée à vos côtés pour construire votre croissance digitale, nous sommes faits pour travailler ensemble.</p>
+      <a class="btn primary" href="/#contact">Echanger sur un projet <i-lucide name="arrow-right"></i-lucide></a>
+
       <div class="closing-signature">
-        <span class="signature-name">Saad Moussaif</span>
-        <strong>Fondateur &amp; Directeur</strong>
-        <small>SMOVAGENCY</small>
+        <span class="signature-mark">Saad Moussaif</span>
+        <small class="signature-title">Fondateur &amp; Directeur — SMOVAGENCY</small>
       </div>
     </div>
   </section>
+
 </main>
