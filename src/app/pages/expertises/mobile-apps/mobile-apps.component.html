@@ -1,36 +1,199 @@
 <main class="expertise-page">
-  <section class="expertise-hero">
-    <div class="hero-copy">
-      <span class="eyebrow">Expertise mobile</span>
-      <h1>Applications mobiles modernes pour lancer vite et grandir proprement.</h1>
-      <p>Nous creons des apps iOS et Android fluides, connectees a vos APIs, pensees pour l usage reel et le deploiement store.</p>
-      <div class="hero-actions">
-        <a class="btn primary" routerLink="/" fragment="contact">Demarrer un projet <i-lucide name="arrow-right"></i-lucide></a>
-        <a class="btn secondary" routerLink="/services">Voir toutes les expertises</a>
+
+<!-- ══ HERO ══════════════════════════════════════════ -->
+<section class="mkt-hero">
+  <div class="mkt-hero-inner">
+
+    <!-- LEFT -->
+    <div class="mkt-hero-copy">
+      <span class="mkt-kicker">
+        <i-lucide name="smartphone" aria-hidden="true"></i-lucide>
+        Applications mobiles
+      </span>
+      <h1>
+        Des apps mobiles qui
+        <span class="mkt-hl">lancent vite et grandissent proprement.</span>
+      </h1>
+      <p>
+        Nous créons des applications iOS et Android fluides, connectées à vos APIs,
+        pensées pour l'usage réel et le déploiement store — avec une architecture
+        qui tient sur la durée.
+      </p>
+
+      <div class="mkt-live-metrics">
+        <div class="mlm-item">
+          <div class="mlm-dot green"></div>
+          <div>
+            <strong>iOS & Android</strong>
+            <span>Un seul codebase</span>
+          </div>
+        </div>
+        <div class="mlm-sep"></div>
+        <div class="mlm-item">
+          <div class="mlm-dot blue"></div>
+          <div>
+            <strong>4.8★</strong>
+            <span>Note store moyenne</span>
+          </div>
+        </div>
+        <div class="mlm-sep"></div>
+        <div class="mlm-item">
+          <div class="mlm-dot orange"></div>
+          <div>
+            <strong>8 sem.</strong>
+            <span>MVP livrable</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mkt-hero-actions">
+        <a class="btn-primary" routerLink="/" fragment="contact">
+          Démarrer un projet
+          <i-lucide name="arrow-right" aria-hidden="true"></i-lucide>
+        </a>
+        <a class="btn-ghost" routerLink="/services">
+          Toutes les expertises
+        </a>
       </div>
     </div>
-    <div class="hero-panel">
-      <img class="hero-image" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Smartphone présentant une application mobile">
-      <i-lucide name="smartphone"></i-lucide>
-      <strong>Mobile product</strong>
-      <span *ngFor="let item of highlights">{{ item }}</span>
-    </div>
-  </section>
 
-  <section class="expertise-content">
-    <div class="section-heading">
-      <span>Ce que nous livrons</span>
+    <!-- RIGHT — Photo avec badges -->
+    <div class="mkt-hero-photo-wrap">
+      <div class="mkt-hero-photo">
+        <img
+          src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85"
+          alt="Développement d'application mobile moderne"
+          loading="eager"
+        />
+        <div class="mkt-photo-overlay"></div>
+
+        <div class="mkt-float-badge badge-tl">
+          <div class="mfb-icon green">
+            <i-lucide name="check-circle-2" aria-hidden="true"></i-lucide>
+          </div>
+          <div>
+            <strong>App Store Ready</strong>
+            <span>iOS & Android</span>
+          </div>
+        </div>
+
+        <div class="mkt-float-badge badge-br">
+          <div class="mfb-icon blue">
+            <i-lucide name="zap" aria-hidden="true"></i-lucide>
+          </div>
+          <div>
+            <strong>MVP en 8 sem.</strong>
+            <span>Livraison rapide</span>
+          </div>
+        </div>
+
+        <div class="mkt-photo-tag">
+          <i-lucide name="shield-check" aria-hidden="true"></i-lucide>
+          Certifiés React Native & Flutter
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ LIVRABLES ═════════════════════════════════════ -->
+<section class="mkt-deliverables">
+  <div class="mkt-del-inner">
+    <div class="mkt-del-header">
+      <span class="mkt-kicker">
+        <i-lucide name="package" aria-hidden="true"></i-lucide>
+        Ce que nous livrons
+      </span>
       <h2>Une app stable, belle et exploitable.</h2>
+      <p>Du design à la publication store — chaque étape maîtrisée pour un produit mobile qui dure.</p>
     </div>
-    <div class="content-grid">
-      <article *ngFor="let item of deliverables">
-        <i-lucide name="check-circle-2"></i-lucide>
-        <span>{{ item }}</span>
-      </article>
-    </div>
-  </section>
 
-  <section class="stack-strip">
-    <span *ngFor="let item of stack">{{ item }}</span>
-  </section>
+    <div class="mkt-del-grid">
+      <div class="mkt-del-card" *ngFor="let d of deliverables">
+        <div class="mkt-del-photo">
+          <img [src]="d.image" [alt]="d.title" loading="lazy" />
+          <div class="mkt-del-photo-overlay"></div>
+          <div class="mkt-del-icon-wrap">
+            <i-lucide [name]="d.icon" aria-hidden="true"></i-lucide>
+          </div>
+        </div>
+        <div class="mkt-del-body">
+          <h3>{{ d.title }}</h3>
+          <p>{{ d.text }}</p>
+          <ul class="mkt-del-list">
+            <li *ngFor="let item of d.items">
+              <i-lucide name="check" aria-hidden="true"></i-lucide>
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESS ═══════════════════════════════════════ -->
+<section class="mkt-process">
+  <div class="mkt-process-inner">
+    <div class="mkt-process-header">
+      <span class="mkt-kicker">
+        <i-lucide name="git-branch" aria-hidden="true"></i-lucide>
+        Notre méthode
+      </span>
+      <h2>De l'idée aux stores en 4 étapes</h2>
+    </div>
+    <div class="mkt-steps">
+      <div class="mkt-step" *ngFor="let step of steps; let i = index">
+        <div class="mkt-step-num">0{{ i + 1 }}</div>
+        <div class="mkt-step-body">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STACK ══════════════════════════════════════════ -->
+<section class="mkt-stack">
+  <div class="mkt-stack-inner">
+    <p class="mkt-stack-label">Technologies & outils</p>
+    <div class="mkt-stack-grid">
+      <div class="mkt-tool" *ngFor="let tool of stack">
+        <img [src]="tool.logo" [alt]="tool.name" class="tool-logo"
+             loading="lazy" (error)="onLogoError($event)" />
+        <span>{{ tool.name }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ═══════════════════════════════════════════ -->
+<section class="mkt-cta">
+  <div class="mkt-cta-bg">
+    <img
+      src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=1600&q=80"
+      alt="Application mobile"
+    />
+    <div class="mkt-cta-bg-overlay"></div>
+  </div>
+  <div class="mkt-cta-inner">
+    <div class="mkt-cta-left">
+      <h2>Prêt à lancer votre application ?</h2>
+      <p>Discutons de votre projet mobile — estimation gratuite sous 48h.</p>
+    </div>
+    <div class="mkt-cta-right">
+      <a class="btn-primary-white" routerLink="/" fragment="contact">
+        Démarrer le projet
+        <i-lucide name="arrow-right" aria-hidden="true"></i-lucide>
+      </a>
+      <a class="btn-ghost-white" href="tel:+212607275093">
+        <i-lucide name="phone" aria-hidden="true"></i-lucide>
+        Appeler directement
+      </a>
+    </div>
+  </div>
+</section>
+
 </main>
