@@ -2,13 +2,26 @@
   display: block;
 }
 
+// ── Palette bleu partagée avec home.scss / contact.scss ──
+$ink-900: #050f1f;
+$ink-800: #0a2036;
+$ink-700: #123354;
+$sky: #38bdf8;
+$cyan: #93e2ff;
+
+@keyframes fluidGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .director-page {
   min-height: 100svh;
   color: #ffffff;
   background:
     radial-gradient(circle at 88% 25%, rgba(15, 111, 255, 0.22), transparent 27rem),
     radial-gradient(circle at 19% 72%, rgba(56, 189, 248, 0.09), transparent 28rem),
-    linear-gradient(135deg, #08111f 0%, #101d31 58%, #0b1423 100%);
+    linear-gradient(135deg, $ink-900 0%, $ink-800 58%, $ink-900 100%);
 }
 
 .director-hero {
@@ -47,13 +60,25 @@
 .director-copy h1 {
   max-width: 46rem;
   margin: 1.15rem 0 1.35rem;
+  background: linear-gradient(100deg, #ffffff 0%, $sky 25%, $cyan 50%, #ffffff 75%, #0c53b6 100%);
+  background-size: 250% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fluidGradient 7s ease-in-out infinite;
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(3.2rem, 5.25vw, 5.8rem);
   line-height: 1;
   letter-spacing: 0;
 }
 
-.director-copy h1 span,
+.director-copy h1 span {
+  background: linear-gradient(100deg, $sky 0%, $cyan 50%, $sky 100%);
+  background-size: 250% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fluidGradient 7s ease-in-out infinite;
+}
+
 .director-copy h2 {
   color: #0f6fff;
 }
@@ -107,7 +132,7 @@
   width: fit-content;
   margin-top: 0.45rem;
   padding: 0.62rem 0.9rem;
-  border: 1px solid rgba(254, 202, 202, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 999px;
   color: #bae6fd;
   background: rgba(15, 111, 255, 0.28);
@@ -258,7 +283,7 @@
   padding: clamp(2.4rem, 5vw, 4.4rem) 5vw;
   background:
     radial-gradient(circle at 75% 35%, rgba(15, 111, 255, 0.18), transparent 26rem),
-    #091525;
+    $ink-900;
 }
 
 .director-values article {
@@ -270,7 +295,7 @@
   border: 1px solid rgba(125, 211, 252, 0.25);
   border-radius: 14px;
   color: #f8fafc;
-  background: rgba(15, 31, 52, 0.82);
+  background: rgba(18, 51, 84, 0.55);
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.16);
   font-weight: 850;
 }
@@ -284,7 +309,7 @@
 .director-principles {
   padding: clamp(5rem, 10vw, 9rem) max(5vw, calc((100vw - 1120px) / 2));
   color: #e2e8f0;
-  background: #07101d;
+  background: $ink-900;
 }
 
 .principles-heading {
@@ -304,7 +329,11 @@
 .principles-heading h2,
 .director-closing h2 {
   margin: 0.75rem 0 0;
-  color: #ffffff;
+  background: linear-gradient(100deg, #ffffff 0%, $sky 25%, $cyan 50%, #ffffff 75%, $sky 100%);
+  background-size: 250% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fluidGradient 7s ease-in-out infinite;
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2.2rem, 4vw, 4rem);
   line-height: 1.05;
@@ -322,12 +351,12 @@
   padding: 1.7rem;
   border: 1px solid rgba(56, 189, 248, 0.22);
   border-radius: 16px;
-  background: linear-gradient(145deg, rgba(15, 31, 52, 0.9), rgba(8, 17, 31, 0.96));
+  background: linear-gradient(145deg, rgba(18, 51, 84, 0.55), $ink-900);
 }
 
 .principle-card-featured {
-  border-color: rgba(34, 211, 238, 0.56);
-  background: linear-gradient(145deg, rgba(8, 65, 100, 0.78), rgba(10, 29, 51, 0.98));
+  border-color: rgba(56, 189, 248, 0.56);
+  background: linear-gradient(145deg, rgba(15, 111, 255, 0.32), $ink-800);
 }
 
 .principle-number {
@@ -358,7 +387,7 @@
   border: 1px solid rgba(34, 211, 238, 0.42);
   border-radius: 20px;
   text-align: center;
-  background: radial-gradient(circle at 50% 0%, rgba(15, 111, 255, 0.28), transparent 16rem), #0b1d33;
+  background: radial-gradient(circle at 50% 0%, rgba(15, 111, 255, 0.28), transparent 16rem), $ink-800;
 }
 
 .director-closing h2 {
@@ -386,7 +415,11 @@
 }
 
 .signature-name {
-  color: #f8fafc;
+  background: linear-gradient(100deg, #ffffff 0%, $sky 40%, #ffffff 80%);
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fluidGradient 8s ease-in-out infinite;
   font-family: 'Brush Script MT', 'Segoe Script', cursive;
   font-size: clamp(2.6rem, 5vw, 4.2rem);
   font-style: italic;
@@ -405,6 +438,17 @@
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.08em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .director-copy h1,
+  .director-copy h1 span,
+  .principles-heading h2,
+  .director-closing h2,
+  .signature-name {
+    animation: none;
+    background-position: 0% 50%;
+  }
 }
 
 @media (max-width: 980px) {
@@ -474,4 +518,3 @@
     object-fit: contain;
   }
 }
-
