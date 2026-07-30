@@ -1,4 +1,4 @@
-<!-- ══ HERO SECTION ══════════════════════════════════ -->
+<!-- ══ HERO ══════════════════════════════════════════ -->
 <section class="svc-hero">
   <div class="svc-hero-inner">
     <div class="svc-hero-text">
@@ -12,39 +12,36 @@
     <div class="svc-hero-stats">
       <div class="svc-stat">
         <strong>200+</strong>
-        <span>Projets livrés</span>
+        <span>{{ i18n.t('hero.stat.projects') }}</span>
       </div>
       <div class="svc-stat-sep"></div>
       <div class="svc-stat">
         <strong>6</strong>
-        <span>Expertises</span>
+        <span>{{ i18n.t('services.kicker') }}</span>
       </div>
       <div class="svc-stat-sep"></div>
       <div class="svc-stat">
         <strong>98%</strong>
-        <span>Satisfaction</span>
+        <span>{{ i18n.t('contact.badge2.label') }}</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ GRILLE SERVICES ═══════════════════════════════ -->
+<!-- ══ GRILLE SERVICES — 2 par ligne ═════════════════ -->
 <section class="svc-grid-section">
   <div class="svc-grid-inner">
     <article
       *ngFor="let service of services; let i = index"
       class="svc-card"
-      [class.svc-card--featured]="i === 0 || i === 3"
+      [attr.data-index]="i"
     >
-      <!-- Image pleine largeur -->
       <div class="svc-card-image">
-        <img [src]="service.image" [alt]="service.alt" loading="lazy" />
+        <img [src]="service.image" [alt]="service.alt" loading="lazy"/>
         <div class="svc-card-overlay"></div>
-        <!-- Numéro -->
         <span class="svc-card-num">0{{ i + 1 }}</span>
       </div>
 
-      <!-- Contenu -->
       <div class="svc-card-body">
         <div class="svc-card-top">
           <div class="svc-card-icon">
@@ -58,11 +55,7 @@
         <h2 class="svc-card-title">{{ i18n.t(service.titleKey) }}</h2>
         <p class="svc-card-text">{{ i18n.t(service.textKey) }}</p>
 
-        <a
-          class="svc-card-link"
-          [routerLink]="service.link"
-          [attr.aria-label]="i18n.t('services.see_more_aria') + ' ' + i18n.t(service.titleKey)"
-        >
+        <a class="svc-card-link" [routerLink]="service.link">
           <span>{{ i18n.t('services.see_more') }}</span>
           <span class="svc-link-arrow">
             <i-lucide name="arrow-right" aria-hidden="true"></i-lucide>
@@ -73,20 +66,20 @@
   </div>
 </section>
 
-<!-- ══ CTA BANDE ═════════════════════════════════════ -->
+<!-- ══ CTA ═══════════════════════════════════════════ -->
 <section class="svc-cta-band">
   <div class="svc-cta-inner">
     <div class="svc-cta-left">
-      <h2>Votre projet mérite les meilleures mains.</h2>
-      <p>Discutons de vos besoins en 30 minutes — sans engagement, sans jargon.</p>
+      <h2>{{ i18n.t('cta.title') }}</h2>
+      <p>{{ i18n.t('cta.subtitle') }}</p>
     </div>
     <div class="svc-cta-right">
       <a routerLink="/" fragment="contact" class="btn-cta-primary">
-        Démarrer un projet
+        {{ i18n.t('cta.button') }}
         <i-lucide name="arrow-right" aria-hidden="true"></i-lucide>
       </a>
       <a href="mailto:contact@smagency.ma" class="btn-cta-ghost">
-        Nous écrire
+        {{ i18n.t('footer.contact') }}
       </a>
     </div>
   </div>
