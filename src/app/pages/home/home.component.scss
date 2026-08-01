@@ -492,7 +492,9 @@ section, footer { padding-inline: 5vw; }
 
 .values p { margin: 0; color: #737373; line-height: 1.65; }
 
-.sectors.section-band { background: #ffffff; }
+.sectors.section-band {
+   background: #ffffff;
+   }
 
 .sector-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
