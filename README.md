@@ -51,26 +51,3 @@
 | **IA** | OpenAI, Spring AI, RAG |
 | **DevOps** | Docker, GitHub CI/CD |
 
----
-
-## 🚀 Installation
-
-```bash
-# Cloner le repo
-git clone https://github.com/saadmoussaif/SMOVA_AGENCY.git
-
-# Aller dans le dossier
-cd SMOVA_AGENCY
-
-# Installer les dépendances
-npm install
-
-# Lancer en développement
-ng serve
-```
-
-Ouvre **http://localhost:4200** dans ton navigateur.
-
----
-
-## 📁 Structure du projet
