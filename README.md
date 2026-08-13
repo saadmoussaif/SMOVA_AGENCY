@@ -51,3 +51,9 @@
 | **IA** | OpenAI, Spring AI, RAG |
 | **DevOps** | Docker, GitHub CI/CD |
 
+
+## VOICI UNE DEMO 
+
+
+<img width="1901" height="948" alt="image" src="https://github.com/user-attachments/assets/45a7f58d-5219-431b-bb16-0a7706c54e50" />
+
