@@ -56,7 +56,8 @@
 
 
 ## Page accueil
-<img width="1901" height="948" alt="image" src="https://github.com/user-attachments/assets/45a7f58d-5219-431b-bb16-0a7706c54e50" />
+<img width="1890" height="888" alt="image" src="https://github.com/user-attachments/assets/cfc87712-a490-4d52-b7e0-10dc70b6c6a1" />
+
 ## Section contact
 <img width="1838" height="780" alt="image" src="https://github.com/user-attachments/assets/72feb3b7-0c32-463b-b4f4-a89c9960ac05" />
 
