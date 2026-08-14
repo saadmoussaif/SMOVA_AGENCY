@@ -47,8 +47,8 @@
 | **Frontend** | Angular 20, TypeScript, SCSS |
 | **Animations** | GSAP, CSS transitions |
 | **UI** | Lucide Angular, Tailwind CSS |
-| **Backend** | Spring Boot, Next.js |
-| **IA** | OpenAI, Spring AI, RAG |
+| **Backend** |  Next.js |
+| **IA** | OpenAI, , RAG |
 | **DevOps** | Docker, GitHub CI/CD |
 
 
